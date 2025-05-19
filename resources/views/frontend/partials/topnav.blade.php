@@ -12,15 +12,10 @@
 
                     <li>
                         <i class="flaticon-telephone"></i>
-                        <a href="tel:+8801732-691745">+8801732-691745</a>
-                    </li>
-                    <li>
-                        <i class="flaticon-trust"></i>
-                        <a href="#">House: 1259, Road: 10, Avenue-2, Mirpur DOHS, Dhaka, Bangladesh</a>
+                        <a href="javascript:void(0)">+8801732-691745, +8801738-275126</a>
                     </li>
                     <li>
                     </li>
-
                 </ul>
             </div>
             <div class="col-lg-4 col-md-4">

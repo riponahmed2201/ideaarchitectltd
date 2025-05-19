@@ -3,7 +3,7 @@
     <div class="container">
         <div class="mobile-nav">
             <div class="logo">
-                <a href="index.html">
+                <a href="/">
                     <img src="assets/frontend/images/idea_architects_logo.png" class="black-logo" alt="Images" />
                     <img src="assets/frontend/images/idea_architects_logo.png" class="white-logo" alt="images" />
                 </a>
@@ -15,7 +15,7 @@
     <div class="main-nav">
         <div class="container-fluid">
             <nav class="navbar navbar-expand-md navbar-light">
-                <a href="index.html">
+                <a href="/">
                     <img src="assets/frontend/images/idea_architects_logo.png" class="black-logo" alt="Logo" />
                     <img src="assets/frontend/images/idea_architects_logo.png" class="white-logo" alt="images" />
                 </a>
@@ -39,17 +39,22 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="#" class="nav-link dropdown-toggle">Services</a>
-
+                            <a href="javascript:void(0)" class="nav-link dropdown-toggle">Services</a>
                             <ul class="dropdown-menu">
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">Residential Interior</a>
+                                    <a href="/services" class="nav-link">Architectural (4)</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">Commercial Interior</a>
+                                    <a href="/services" class="nav-link">Interior (5)</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">Architectural Consultancy</a>
+                                    <a href="/services" class="nav-link">Construction (1)</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/services" class="nav-link">Rajuk Support</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/services" class="nav-link">Door & furniture (2)</a>
                                 </li>
                             </ul>
                         </li>
