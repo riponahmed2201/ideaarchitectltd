@@ -12,7 +12,6 @@
                                  ut labore et dolore magna aliqua.</p>
                              <div class="banner-two-btn">
                                  <a href="/about-us" class="default-btn">Learn More <i class="flaticon-next"></i></a>
-                                 <a href="/services" class="default-btn">Our Services <i class="flaticon-next"></i></a>
                              </div>
                          </div>
                      </div>
@@ -38,7 +37,6 @@
                                  ut labore et dolore magna aliqua.</p>
                              <div class="banner-two-btn">
                                  <a href="/about-us" class="default-btn">Learn More <i class="flaticon-next"></i></a>
-                                 <a href="/services" class="default-btn">Our Services <i class="flaticon-next"></i></a>
                              </div>
                          </div>
                      </div>
@@ -64,7 +62,6 @@
                                  ut labore et dolore magna aliqua.</p>
                              <div class="banner-two-btn">
                                  <a href="/about-us" class="default-btn">Learn More <i class="flaticon-next"></i></a>
-                                 <a href="/services" class="default-btn">Our Services <i class="flaticon-next"></i></a>
                              </div>
                          </div>
                      </div>

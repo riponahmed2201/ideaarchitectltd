@@ -3,8 +3,8 @@
         <div class="row">
             <div class="col-lg-3 col-sm-6 col-md-6">
                 <div class="footer-widget">
-                    <a href="index.html">
-                        <img src="assets/frontend/images/idea_architects_logo.png" alt="Images">
+                    <a href="/">
+                        <img src="{{ asset('assets/frontend/images/idea_architects_logo.png') }}" alt="Images">
                     </a>
                     <p>
                         At Idea Architects, we are dedicated to transforming spaces with innovative design and
@@ -44,7 +44,7 @@
                     <h2>Quick Links</h2>
                     <ul class="footer-list">
                         <li>
-                            <a href="#">About Us</a>
+                            <a href="/about-us">About Us</a>
                         </li>
                         <li>
                             <a href="#">Portfolio</a>
@@ -53,13 +53,13 @@
                             <a href="#">Services</a>
                         </li>
                         <li>
-                            <a href="#">Blog</a>
+                            <a href="/blog">Blog</a>
                         </li>
                         <li>
-                            <a href="#">Contact</a>
+                            <a href="/contact-us">Contact</a>
                         </li>
                         <li>
-                            <a href="#">Privacy Policy</a>
+                            <a href="/privacy-policy">Privacy Policy</a>
                         </li>
                     </ul>
                 </div>

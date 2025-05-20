@@ -4,8 +4,10 @@
         <div class="mobile-nav">
             <div class="logo">
                 <a href="/">
-                    <img src="assets/frontend/images/idea_architects_logo.png" class="black-logo" alt="Images" />
-                    <img src="assets/frontend/images/idea_architects_logo.png" class="white-logo" alt="images" />
+                    <img src="{{ asset('assets/frontend/images/idea_architects_logo.png') }}" class="black-logo"
+                        alt="Images" />
+                    <img src="{{ asset('assets/frontend/images/idea_architects_logo.png') }}" class="white-logo"
+                        alt="images" />
                 </a>
             </div>
         </div>
@@ -16,14 +18,16 @@
         <div class="container-fluid">
             <nav class="navbar navbar-expand-md navbar-light">
                 <a href="/">
-                    <img src="assets/frontend/images/idea_architects_logo.png" class="black-logo" alt="Logo" />
-                    <img src="assets/frontend/images/idea_architects_logo.png" class="white-logo" alt="images" />
+                    <img src="{{ asset('assets/frontend/images/idea_architects_logo.png') }}" class="black-logo"
+                        alt="Logo" />
+                    <img src="{{ asset('assets/frontend/images/idea_architects_logo.png') }}" class="white-logo"
+                        alt="images" />
                 </a>
 
                 <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a href="/" class="nav-link active">Home</a>
+                            <a href="/" class="nav-link {{ Request::is('/') ? 'active' : '' }}">Home</a>
                         </li>
 
                         <li class="nav-item">
@@ -31,11 +35,12 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="#" class="nav-link">About</a>
+                            <a href="/about-us" class="nav-link {{ Request::is('about-us') ? 'active' : '' }}">About</a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="#" class="nav-link">Portfolio</a>
+                            <a href="/portfolio"
+                                class="nav-link {{ Request::is('portfolio') ? 'active' : '' }}">Portfolio</a>
                         </li>
 
                         <li class="nav-item">
@@ -60,10 +65,12 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="#" class="nav-link">Blog</a>
+                            <a href="/blog" class="nav-link {{ Request::is('blog*') ? 'active' : '' }}">Blog</a>
                         </li>
+
                         <li class="nav-item">
-                            <a href="#" class="nav-link">Contact</a>
+                            <a href="/contact-us"
+                                class="nav-link {{ Request::is('contact-us') ? 'active' : '' }}">Contact</a>
                         </li>
                     </ul>
 

@@ -1,7 +1,7 @@
 @import url("../../../../css2-2");
 :root {
   --fontFamily: "Poppins", sans-serif;
-  --primaryColor: #d83030;
+  --primaryColor: #ec7d2b;
   --secondaryColor: #182333;
   --bodyColor: #555555;
   --headingColor: #010101;
@@ -65,7 +65,7 @@ p:last-child {
   margin-bottom: 0;
 }
 
-/* default-btn 
+/* default-btn
 ==========================*/
 .default-btn {
   background-color: var(--primaryColor);
@@ -107,7 +107,7 @@ p:last-child {
   top: 0;
 }
 
-/* section-title 
+/* section-title
 ==========================*/
 .section-title {
   text-align: center;
@@ -132,7 +132,7 @@ p:last-child {
   font-size: 44px;
 }
 
-/* topnav Area 
+/* topnav Area
 ==========================*/
 .header-area {
   padding-top: 15px;
@@ -456,7 +456,7 @@ p:last-child {
   margin-left: 20px;
 }
 
-/* Start banner Area  
+/* Start banner Area
 ===============================*/
 .banner-area {
   padding-top: 100px;
@@ -561,7 +561,7 @@ p:last-child {
   margin-bottom: 25px;
 }
 
-/* banner-three-area 
+/* banner-three-area
 ================================*/
 .banner-three-area {
   padding-top: 50px;
@@ -695,7 +695,7 @@ p:last-child {
   color: var(--whiteColor);
 }
 
-/* Start Company Feature Area 
+/* Start Company Feature Area
 =======================*/
 .single-feature-card {
   background-color: #f5f5f5;
@@ -777,7 +777,7 @@ p:last-child {
   background-color: var(--primaryColor);
 }
 
-/* Start About area 
+/* Start About area
 ===============================*/
 .single-about-img {
   padding-right: 20px;
@@ -833,7 +833,7 @@ p:last-child {
   margin-top: 10px;
 }
 
-/*  Start Partners area 
+/*  Start Partners area
 ===============================*/
 .partners-are-two.bg-color-6 {
   position: relative;
@@ -931,7 +931,7 @@ p:last-child {
   color: var(--whiteColor);
 }
 
-/* Start services slider area 
+/* Start services slider area
 ===================================*/
 .company-feature-area.bg-color-7 {
   background-color: #f5f5f5;
@@ -1022,7 +1022,7 @@ p:last-child {
   right: 100px;
 }
 
-/* portfolios-area-two 
+/* portfolios-area-two
 ===========================*/
 .portfolios-area-two {
   background-color: #f5f5f5;
@@ -1217,7 +1217,7 @@ p:last-child {
   color: var(--whiteColor);
 }
 
-/* choose-area 
+/* choose-area
 ============================*/
 .choose-area {
   position: relative;
@@ -1304,7 +1304,7 @@ p:last-child {
   top: 0;
 }
 
-/* team area 
+/* team area
 ==================*/
 .single-team-member-content {
   position: relative;
@@ -1491,7 +1491,7 @@ p:last-child {
   margin-bottom: 0;
 }
 
-/* Start Error area  
+/* Start Error area
 ====================**/
 .error-content {
   text-align: center;
@@ -1518,7 +1518,7 @@ p:last-child {
   margin-top: 25px;
 }
 
-/* Start My Account area  
+/* Start My Account area
 ================================*/
 .login-account-content {
   background-color: #F7F7F7;
@@ -1810,7 +1810,7 @@ p:last-child {
   margin-top: 15px;
 }
 
-/* Testimonials Area 
+/* Testimonials Area
 ==============================*/
 .testimonials-area {
   background-color: #f5f5f5;
@@ -1909,7 +1909,7 @@ p:last-child {
   right: -30px;
 }
 
-/* Counter - Area 
+/* Counter - Area
 ==============================*/
 .counter-area {
   position: relative;
@@ -2165,7 +2165,7 @@ p:last-child {
   opacity: 0.4;
 }
 
-/* make an appointment 
+/* make an appointment
 ======================================*/
 .appointment-item {
   background-color: var(--whiteColor);
@@ -2250,7 +2250,7 @@ p:last-child {
   border: none;
 }
 
-/* services three 
+/* services three
 ======================*/
 .our-services-area {
   background-color: #f5f5f5;
@@ -2362,7 +2362,7 @@ p:last-child {
   text-align: center;
 }
 
-/* Start Choose-three 
+/* Start Choose-three
 =========================*/
 .choose-three {
   background-color: #f5f5f5;
@@ -2753,7 +2753,7 @@ p:last-child {
   opacity: 1;
 }
 
-/* Start Our Blog Area 
+/* Start Our Blog Area
 ======================================*/
 .our-blog-content {
   background-color: #f5f5f5;
@@ -2938,7 +2938,7 @@ p:last-child {
   bottom: 0;
 }
 
-/* Start Contact Area 
+/* Start Contact Area
 ======================================*/
 .contact-card {
   background-color: #f5f5f5;
@@ -3273,7 +3273,7 @@ Widget Sidebar CSS
   color: var(--whiteColor);
 }
 
-/* Start Our Blog Details Area 
+/* Start Our Blog Details Area
 =======================================*/
 .our-blog-area {
   position: relative;
@@ -3574,7 +3574,7 @@ Widget Sidebar CSS
   border: none;
 }
 
-/* Start Corporate Website Area 
+/* Start Corporate Website Area
 ======================================*/
 .corporate-website-area {
   position: relative;
@@ -3666,7 +3666,7 @@ Widget Sidebar CSS
   right: -60px;
 }
 
-/** Explore recent portfolios  
+/** Explore recent portfolios
 ======================================**/
 .portfolios-slider.owl-theme .owl-nav .owl-prev, .portfolios-slider.owl-theme .owl-nav .owl-next {
   width: 35px;
@@ -3817,7 +3817,7 @@ Widget Sidebar CSS
   color: var(--whiteColor);
 }
 
-/* banner-two-area 
+/* banner-two-area
 =======================================*/
 .banner-two-area {
   background-image: url(../images/banner/banner-two-bg.jpg);
@@ -4028,7 +4028,7 @@ Widget Sidebar CSS
   background-color: var(--whiteColor);
 }
 
-/** working process 
+/** working process
 ======================**/
 .working-process {
   text-align: center;
@@ -4185,7 +4185,7 @@ Widget Sidebar CSS
   transform: rotate(15deg);
 }
 
-/* Start Our Plan 
+/* Start Our Plan
 =========================*/
 .pricing-plan-area {
   position: relative;
@@ -4290,7 +4290,7 @@ Widget Sidebar CSS
   background-color: #f7d6d6;
 }
 
-/* why choose us two 
+/* why choose us two
 ================================*/
 .choose-area.about-choose-area {
   padding-top: 200px;
@@ -4352,7 +4352,7 @@ Widget Sidebar CSS
   color: var(--whiteColor);
 }
 
-/** about area 
+/** about area
 ===================**/
 .about-area {
   overflow: hidden;
@@ -4638,7 +4638,7 @@ Widget Sidebar CSS
   transition: var(--transition);
 }
 
-/** team two 
+/** team two
 =================**/
 .team-two-card {
   background-color: var(--whiteColor);
@@ -4700,7 +4700,7 @@ Widget Sidebar CSS
   transform: translateY(-10px);
 }
 
-/* testimonials-area-two 
+/* testimonials-area-two
 ==============================*/
 .testimonials-area-two {
   background-color: #f5f5f5;
@@ -4800,7 +4800,7 @@ Widget Sidebar CSS
   left: 2px;
 }
 
-/*  Start footer area 
+/*  Start footer area
 ====================================*/
 .footer-area {
   background-color: var(--secondaryColor);
@@ -4914,7 +4914,7 @@ Widget Sidebar CSS
   margin-bottom: 0;
 }
 
-/* Start Copyright Area 
+/* Start Copyright Area
 ================================*/
 .copyright-area {
   background-color: var(--secondaryColor);
@@ -5165,7 +5165,7 @@ Widget Sidebar CSS
   background-color: #182333;
 }
 .others-option-for-responsive .dot-menu:hover .inner .circle {
-  background-color: #d83030;
+  background-color: #ec7d2b;
 }
 .others-option-for-responsive .container {
   position: relative;
