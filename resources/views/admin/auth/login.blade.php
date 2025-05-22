@@ -62,7 +62,7 @@
                         <!--begin::Heading-->
 
                         <!--begin::Input group-->
-                        <div class="fv-row mb-10">
+                        <div class="fv-row mb-5">
                             <label class="required form-label fs-6 fw-bolder text-dark">Email</label>
                             <input
                                 class="form-control form-control-lg form-control-solid @error('email') is-invalid @enderror"
@@ -76,13 +76,11 @@
 
                         <!--begin::Input group-->
                         <div class="fv-row mb-10">
-                            <div class="d-flex flex-stack mb-2">
-                                <label class="required form-label fw-bolder text-dark fs-6 mb-0">Password</label>
-                                <a href="javascript:void(0)" class="link-primary fs-6 fw-bolder">Forgot Password ?</a>
-                            </div>
+                            <label class="required form-label fs-6 fw-bolder text-dark">Password</label>
                             <input
                                 class="form-control form-control-lg form-control-solid @error('password') is-invalid @enderror"
-                                type="password" name="password" autocomplete="off" placeholder="Enter your password" />
+                                type="password" placeholder="Enter your password" name="password" autocomplete="off"
+                                value="{{ old('password') }}" />
                             @error('password')
                                 <span class="text-danger mt-2">{{ $message }}</span>
                             @enderror

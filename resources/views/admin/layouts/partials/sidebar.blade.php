@@ -5,8 +5,8 @@
     <!--begin::Brand-->
     <div class="aside-logo flex-column-auto" id="kt_aside_logo">
         <!--begin::Logo-->
-        <a href="/dashboard">
-            <img alt="Logo" src="{{ asset('assets/backend/media/logos/logo-1-dark.svg') }}" class="h-25px logo" />
+        <a href="/admin/dashboard">
+            <img alt="Logo" src="{{ asset('assets/admin/media/logos/logo-1-dark.svg') }}" class="h-25px logo" />
         </a>
         <!--end::Logo-->
         <!--begin::Aside toggler-->
@@ -41,7 +41,7 @@
             <div class="menu menu-column menu-title-gray-800 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500"
                 id="#kt_aside_menu" data-kt-menu="true">
                 <div class="menu-item">
-                    <a class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}" href="/dashboard">
+                    <a class="menu-link {{ Request::is('admin/dashboard') ? 'active' : '' }}" href="/admin/dashboard">
                         <span class="menu-icon">
                             <i class="bi bi-grid fs-3"></i>
                         </span>
@@ -50,7 +50,8 @@
                 </div>
 
                 <div class="menu-item">
-                    <a class="menu-link {{ Request::is('profile/overview') ? 'active' : '' }}" href="/profile/overview">
+                    <a class="menu-link {{ Request::is('admin/profile/overview') ? 'active' : '' }}"
+                        href="/admin/profile/overview">
                         <span class="menu-icon">
                             <i class="bi bi-person fs-3"></i>
                         </span>
@@ -60,32 +61,24 @@
 
                 <div class="menu-item">
                     <div class="menu-content pt-8 pb-2">
-                        <span class="menu-section text-muted text-uppercase fs-8 ls-1">News Management</span>
+                        <span class="menu-section text-muted text-uppercase fs-8 ls-1">Service Management</span>
                     </div>
                 </div>
                 <div class="menu-item">
-                    <a class="menu-link {{ Request::is('admin/news-tags') ? 'active' : '' }}" href="/admin/news-tags">
+                    <a class="menu-link {{ Request::is('admin/service-categories') ? 'active' : '' }}"
+                        href="/admin/service-categories">
                         <span class="menu-icon">
                             <i class="bi bi-person fs-3"></i>
                         </span>
-                        <span class="menu-title">News Tags</span>
+                        <span class="menu-title">Service Categories</span>
                     </a>
                 </div>
                 <div class="menu-item">
-                    <a class="menu-link {{ Request::is('admin/news-categoris') ? 'active' : '' }}"
-                        href="/admin/news-categoris">
+                    <a class="menu-link {{ Request::is('admin/services') ? 'active' : '' }}" href="/admin/services">
                         <span class="menu-icon">
                             <i class="bi bi-person fs-3"></i>
                         </span>
-                        <span class="menu-title">News Categories</span>
-                    </a>
-                </div>
-                <div class="menu-item">
-                    <a class="menu-link {{ Request::is('admin/news') ? 'active' : '' }}" href="admin/news">
-                        <span class="menu-icon">
-                            <i class="bi bi-person fs-3"></i>
-                        </span>
-                        <span class="menu-title">News</span>
+                        <span class="menu-title">Services</span>
                     </a>
                 </div>
 

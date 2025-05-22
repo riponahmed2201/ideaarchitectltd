@@ -3,14 +3,15 @@
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\ServiceCategoryController;
 use Illuminate\Support\Facades\Route;
 
 
 //Login
-Route::get('login', [LoginController::class, 'showLoginForm']);
-Route::post('login', [LoginController::class, 'login'])->name('login');
+Route::get('/login', [LoginController::class, 'showLoginForm']);
+Route::post('/login', [LoginController::class, 'login'])->name('login');
 
-Route::middleware(['auth', 'admin'])->group(function () {
+Route::middleware('admin')->group(function () {
 
     Route::post('logout', [LoginController::class, 'logout'])->name('admin.logout');
     Route::put('change-password', [LoginController::class, 'changePassword'])->name('changePassword');
@@ -20,4 +21,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
     //Dashboard
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    //Other Route Here
+    Route::resource('service-categories', ServiceCategoryController::class);
 });

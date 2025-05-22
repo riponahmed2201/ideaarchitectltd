@@ -19,7 +19,7 @@ class LoginController extends Controller
         return view('admin.auth.login');
     }
 
-        public function login(LoginRequest $request): RedirectResponse
+    public function login(LoginRequest $request): RedirectResponse
     {
         try {
             // Attempt login using Laravel's built-in authentication
