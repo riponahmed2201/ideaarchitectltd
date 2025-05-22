@@ -44,25 +44,20 @@
             <!--begin::Content-->
             <div class="d-flex flex-center flex-column flex-column-fluid p-10 pb-lg-20">
                 <!--begin::Logo-->
-                <a href="../../demo1/dist/index.html" class="mb-12">
+                <a href="/login" class="mb-12">
                     <img alt="Logo" src="{{ asset('assets/admin/media/logos/logo-1.svg') }}" class="h-40px" />
                 </a>
                 <!--end::Logo-->
                 <!--begin::Wrapper-->
                 <div class="w-lg-500px bg-body rounded shadow-sm p-10 p-lg-15 mx-auto">
                     <!--begin::Form-->
-                    <form class="form w-100" novalidate="novalidate" action="{{ route('login') }}" method="POST">
+                    <form class="form w-100" action="{{ route('admin.login') }}" method="POST">
                         @csrf
                         <!--begin::Heading-->
                         <div class="text-center mb-10">
                             <!--begin::Title-->
                             <h1 class="text-dark mb-3">Sign In to Idea Architects Limited</h1>
                             <!--end::Title-->
-                            <!--begin::Link-->
-                            <div class="text-gray-400 fw-bold fs-4">New Here?
-                                <a href="javascript:void(0)" class="link-primary fw-bolder">Create an Account</a>
-                            </div>
-                            <!--end::Link-->
                         </div>
                         <!--begin::Heading-->
 

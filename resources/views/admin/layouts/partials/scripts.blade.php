@@ -7,5 +7,8 @@
 <script src="{{ asset('assets/admin/js/scripts.bundle.js') }}"></script>
 <!--end::Global Javascript Bundle-->
 
+<!-- izitoast JS -->
+<script src="{{ asset('js/iziToast.js') }}"></script>
+
 <!-- Page Specific JavaScript -->
 @stack('scripts')

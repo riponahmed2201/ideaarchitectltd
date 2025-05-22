@@ -69,6 +69,9 @@
     <!-- Global JavaScript -->
     @include('admin.layouts.partials.scripts')
 
+    <!-- include izitoast vendor -->
+    @include('vendor.lara-izitoast.toast')
+
 </body>
 <!--end::Body-->
 

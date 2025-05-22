@@ -1,4 +1,3 @@
-
 <!-- Canonical URL -->
 <link rel="canonical" href="https://ideaarchitectsltd.com" />
 
@@ -13,6 +12,9 @@
 <link href="{{ asset('assets/admin/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
 <link href="{{ asset('assets/admin/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
 <!--end::Global Stylesheets Bundle-->
+
+<!-- izitoast CSS -->
+<link href="{{ asset('css/iziToast.css') }}" rel="stylesheet">
 
 <!-- Page Specific CSS -->
 @stack('styles')

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
@@ -27,7 +28,7 @@ class LoginController extends Controller
                 $request->session()->regenerate();
 
                 // Redirect to the dashboard
-                return redirect()->intended(route('dashboard'))->with('success', 'Login successful');
+                return redirect()->intended(route('admin.dashboard'))->with('success', 'Login successful');
             }
 
             return back()->withErrors(['email' => 'The provided credentials do not match our records.']);
