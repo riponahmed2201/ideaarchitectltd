@@ -1,11 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
+use App\Http\Requests\ServiceCategoryRequest;
 use App\Models\ServiceCategory;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use Carbon\Carbon;
+use Exception;
 
 class ServiceCategoryController extends Controller
 {
@@ -28,12 +31,16 @@ class ServiceCategoryController extends Controller
 
             return DataTables::of($query)
                 ->addIndexColumn()
-                ->addColumn('status', fn($row) => $row->status ? 'Active' : 'Inactive')
+                ->addColumn('status', function ($row) {
+                    return $row->status
+                        ? '<div class="badge badge-light-success fw-bolder">Active</div>'
+                        : '<div class="badge badge-light-danger fw-bolder">Inactive</div>';
+                })
                 ->addColumn('created_at', fn($row) => Carbon::parse($row->created_at)->diffForHumans())
                 ->addColumn('action', function ($row) {
                     return '<a href="' . route('admin.service-categories.edit', $row->id) . '" class="btn btn-sm btn-primary">Edit</a>';
                 })
-                ->rawColumns(['action'])
+                ->rawColumns(['action', 'status'])
                 ->make(true);
         }
 
@@ -45,23 +52,23 @@ class ServiceCategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.service_categories.form');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ServiceCategoryRequest $request)
     {
-        //
-    }
+        try {
+            ServiceCategory::create($request->validated());
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(ServiceCategory $serviceCategory)
-    {
-        //
+            notify()->success("Service created successfully.", "Success");
+            return redirect()->route('admin.service-categories.index');
+        } catch (Exception $e) {
+            notify()->error("Something went wrong. Please try again.", "Error");
+            return back();
+        }
     }
 
     /**
@@ -69,22 +76,22 @@ class ServiceCategoryController extends Controller
      */
     public function edit(ServiceCategory $serviceCategory)
     {
-        //
+        return view('admin.service_categories.form', ['editModeData' => $serviceCategory]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, ServiceCategory $serviceCategory)
+    public function update(ServiceCategoryRequest $request, ServiceCategory $serviceCategory)
     {
-        //
-    }
+        try {
+            $serviceCategory->update($request->validated());
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(ServiceCategory $serviceCategory)
-    {
-        //
+            notify()->success("Service updated successfully.", "Success");
+            return redirect()->route('admin.service-categories.index');
+        } catch (Exception $e) {
+            notify()->error("Something went wrong. Please try again.", "Error");
+            return back()->withInput();
+        }
     }
 }

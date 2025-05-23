@@ -65,18 +65,18 @@
                     </div>
                 </div>
                 <div class="menu-item">
-                    <a class="menu-link {{ Request::is('admin/service-categories') ? 'active' : '' }}"
+                    <a class="menu-link {{ Request::is('admin/service-categories*') ? 'active' : '' }}"
                         href="/admin/service-categories">
                         <span class="menu-icon">
-                            <i class="bi bi-person fs-3"></i>
+                            <i class="bi bi-list-check fs-3"></i>
                         </span>
                         <span class="menu-title">Service Categories</span>
                     </a>
                 </div>
                 <div class="menu-item">
-                    <a class="menu-link {{ Request::is('admin/services') ? 'active' : '' }}" href="/admin/services">
+                    <a class="menu-link {{ Request::is('admin/services*') ? 'active' : '' }}" href="/admin/services">
                         <span class="menu-icon">
-                            <i class="bi bi-person fs-3"></i>
+                            <i class="bi bi-list-check fs-3"></i>
                         </span>
                         <span class="menu-title">Services</span>
                     </a>

@@ -1,6 +1,10 @@
 @extends('admin.layouts.app')
 
 @section('content')
+    <!--begin::Toolbar -->
+    <x-toolbar :title="'Dashbaord'" :breadcrumbs="[['label' => 'Home', 'url' => route('admin.dashboard')], ['label' => 'Dashbaord', 'active' => true]]" />
+    <!--end::Toolbar -->
+
     <div class="post d-flex flex-column-fluid" id="kt_post">
         <div id="kt_content_container" class="container-fluid">
             <div class="card">

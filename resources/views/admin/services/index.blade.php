@@ -6,10 +6,7 @@
 
 @section('content')
     <!--begin::Toolbar -->
-    <x-toolbar :title="'Service Categories'" :breadcrumbs="[
-        ['label' => 'Home', 'url' => route('admin.dashboard')],
-        ['label' => 'Service Categories', 'active' => true],
-    ]" />
+    <x-toolbar :title="'Services'" :breadcrumbs="[['label' => 'Home', 'url' => route('admin.dashboard')], ['label' => 'Services', 'active' => true]]" />
     <!--end::Toolbar -->
 
     <div class="post d-flex flex-column-fluid" id="kt_post">
@@ -44,7 +41,7 @@
                         <!--begin::Toolbar-->
                         <div class="d-flex justify-content-end">
                             <!--begin::Add service category-->
-                            <a href="/admin/service-categories/create" class="btn btn-primary">
+                            <a href="/admin/services/create" class="btn btn-primary">
                                 <i class="bi bi-plus-circle-dotted"></i>
                                 Add New
                             </a>
@@ -64,7 +61,9 @@
                             <!--begin::Table row-->
                             <tr class="text-start text-muted fw-bolder fs-7 text-uppercase gs-0">
                                 <th>#</th>
+                                <th>Image</th>
                                 <th>Name</th>
+                                <th>Category</th>
                                 <th>Description</th>
                                 <th>Status</th>
                                 <th>Create At</th>
@@ -107,8 +106,16 @@
                         searchable: false,
                     },
                     {
+                        data: 'image',
+                        name: 'image'
+                    },
+                    {
                         data: 'name',
                         name: 'name'
+                    },
+                    {
+                        data: 'category.name',
+                        name: 'category.name'
                     },
                     {
                         data: 'description',
