@@ -8,19 +8,22 @@ use App\Models\Blog;
 use App\Models\Tag;
 use Carbon\Carbon;
 use Exception;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
-use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Illuminate\View\View;
+use Yajra\DataTables\Facades\DataTables;
 
 class BlogController extends Controller
 {
     /**
      * Display a listing of the resource.
+     * @throws Exception
      */
-    public function index(Request $request)
+    public function index(Request $request): JsonResponse|View
     {
         if ($request->ajax()) {
             $searchKeyword = $request->input('search');
@@ -38,7 +41,7 @@ class BlogController extends Controller
                 ->addIndexColumn()
                 ->addColumn('featured_image', function ($row) {
                     if ($row->featured_image) {
-                        $url =  Storage::url($row->featured_image);
+                        $url = Storage::url($row->featured_image);
                         return '<img src="' . $url . '" alt="Blog Image" width="60" height="60">';
                     }
                     return '<span class="badge badge-light">No Image</span>';
@@ -71,7 +74,7 @@ class BlogController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(BlogRequest $request)
+    public function store(BlogRequest $request): RedirectResponse
     {
         $input = $request->validated();
         $input['slug'] = Str::slug($input['title']);
@@ -87,7 +90,7 @@ class BlogController extends Controller
         DB::beginTransaction();
         try {
 
-            $blog = Blog::create($input);
+            $blog = Blog::query()->create($input);
 
             // Attach tags (many-to-many)
             if (!empty($validated['tags'])) {
@@ -101,7 +104,7 @@ class BlogController extends Controller
         } catch (Exception $exception) {
             DB::rollBack();
 
-            // If an featured_image was uploaded, delete the file to prevent orphaned files
+            // If a featured_image was uploaded, delete the file to prevent orphaned files
             if (isset($input['featured_image']) && Storage::disk('public')->exists($input['featured_image'])) {
                 Storage::disk('public')->delete($input['featured_image']);
             }
@@ -114,7 +117,7 @@ class BlogController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Blog $blog)
+    public function edit(Blog $blog): View
     {
         $tags = Tag::query()->latest()->get(['id', 'name']);
         return view('admin.blogs.form', ['editModeData' => $blog, 'tags' => $tags]);
@@ -123,7 +126,7 @@ class BlogController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(BlogRequest $request, Blog $blog)
+    public function update(BlogRequest $request, Blog $blog): RedirectResponse
     {
         $input = $request->validated();
 

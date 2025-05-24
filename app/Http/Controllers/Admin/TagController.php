@@ -7,16 +7,20 @@ use App\Http\Requests\TagRequest;
 use App\Models\Tag;
 use Carbon\Carbon;
 use Exception;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Str;
+use Illuminate\View\View;
+use Yajra\DataTables\Facades\DataTables;
 
 class TagController extends Controller
 {
     /**
      * Display a listing of the resource.
+     * @throws Exception
      */
-    public function index(Request $request)
+    public function index(Request $request): JsonResponse|View
     {
         if ($request->ajax()) {
             $searchKeyword = $request->input('search');
@@ -50,7 +54,7 @@ class TagController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(): View
     {
         return view('admin.tags.form');
     }
@@ -58,7 +62,7 @@ class TagController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(TagRequest $request)
+    public function store(TagRequest $request): RedirectResponse
     {
         $input = $request->validated();
         $input['slug'] = Str::slug($input['name']);
@@ -76,7 +80,7 @@ class TagController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Tag $tag)
+    public function edit(Tag $tag): View
     {
         return view('admin.tags.form', ['editModeData' => $tag]);
     }
@@ -84,7 +88,7 @@ class TagController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(TagRequest $request, Tag $tag)
+    public function update(TagRequest $request, Tag $tag): RedirectResponse
     {
         $input = $request->validated();
         $input['slug'] = Str::slug($input['name']);
