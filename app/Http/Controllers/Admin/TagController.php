@@ -3,31 +3,27 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\ServiceCategoryRequest;
-use App\Models\ServiceCategory;
+use App\Http\Requests\TagRequest;
+use App\Models\Tag;
 use Carbon\Carbon;
 use Exception;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\View\View;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Str;
 
-class ServiceCategoryController extends Controller
+class TagController extends Controller
 {
     /**
      * Display a listing of the resource.
-     * @throws Exception
      */
-    public function index(Request $request): JsonResponse|View
+    public function index(Request $request)
     {
         if ($request->ajax()) {
             $searchKeyword = $request->input('search');
-            $query = ServiceCategory::select(['id', 'name', 'description', 'status', 'created_at'])
+            $query = Tag::select(['id', 'name', 'status', 'created_at'])
                 ->when($searchKeyword, function ($q) use ($searchKeyword) {
                     $q->where(function ($q) use ($searchKeyword) {
                         $q->where('name', 'LIKE', "%$searchKeyword%")
-                            ->orWhere('description', 'LIKE', "%$searchKeyword%")
                             ->orWhere('status', 'LIKE', "%$searchKeyword%");
                     });
                 })
@@ -42,32 +38,35 @@ class ServiceCategoryController extends Controller
                 })
                 ->addColumn('created_at', fn($row) => Carbon::parse($row->created_at)->diffForHumans())
                 ->addColumn('action', function ($row) {
-                    return '<a href="' . route('admin.service-categories.edit', $row->id) . '" class="btn btn-sm btn-primary">Edit</a>';
+                    return '<a href="' . route('admin.tags.edit', $row->id) . '" class="btn btn-sm btn-primary">Edit</a>';
                 })
                 ->rawColumns(['action', 'status'])
                 ->make(true);
         }
 
-        return view('admin.service_categories.index');
+        return view('admin.tags.index');
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create(): View
+    public function create()
     {
-        return view('admin.service_categories.form');
+        return view('admin.tags.form');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(ServiceCategoryRequest $request): RedirectResponse
+    public function store(TagRequest $request)
     {
+        $input = $request->validated();
+        $input['slug'] = Str::slug($input['name']);
+
         try {
-            ServiceCategory::query()->create($request->validated());
-            notify()->success("Service created successfully.", "Success");
-            return to_route('admin.service-categories.index');
+            Tag::query()->create($input);
+            notify()->success("Tag created successfully.", "Success");
+            return to_route('admin.tags.index');
         } catch (Exception $exception) {
             notify()->error("Something went wrong. Please try again.", "Error");
             return back();
@@ -77,20 +76,23 @@ class ServiceCategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(ServiceCategory $serviceCategory): View
+    public function edit(Tag $tag)
     {
-        return view('admin.service_categories.form', ['editModeData' => $serviceCategory]);
+        return view('admin.tags.form', ['editModeData' => $tag]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(ServiceCategoryRequest $request, ServiceCategory $serviceCategory): RedirectResponse
+    public function update(TagRequest $request, Tag $tag)
     {
+        $input = $request->validated();
+        $input['slug'] = Str::slug($input['name']);
+
         try {
-            $serviceCategory->update($request->validated());
-            notify()->success("Service updated successfully.", "Success");
-            return to_route('admin.service-categories.index');
+            $tag->update($input);
+            notify()->success("Tag updated successfully.", "Success");
+            return to_route('admin.tags.index');
         } catch (Exception $exception) {
             notify()->error("Something went wrong. Please try again.", "Error");
             return back();

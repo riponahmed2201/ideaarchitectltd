@@ -8,15 +8,19 @@ use App\Models\Service;
 use App\Models\ServiceCategory;
 use Carbon\Carbon;
 use Exception;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 use Yajra\DataTables\Facades\DataTables;
 
 class ServiceController extends Controller
 {
     /**
      * Display a listing of the resource.
+     * @throws Exception
      */
-    public function index(Request $request)
+    public function index(Request $request): JsonResponse|View
     {
         if ($request->ajax()) {
             $searchKeyword = $request->input('search');
@@ -32,7 +36,6 @@ class ServiceController extends Controller
 
             return DataTables::of($query)
                 ->addIndexColumn()
-
                 ->addColumn('image', function ($row) {
                     if ($row->image) {
                         $url = asset('uploads/services/' . $row->image);
@@ -40,19 +43,15 @@ class ServiceController extends Controller
                     }
                     return '<span class="badge badge-light">No Image</span>';
                 })
-
                 ->addColumn('status', function ($row) {
                     return $row->status
                         ? '<div class="badge badge-light-success fw-bolder">Active</div>'
                         : '<div class="badge badge-light-danger fw-bolder">Inactive</div>';
                 })
-
                 ->addColumn('created_at', fn($row) => Carbon::parse($row->created_at)->diffForHumans())
-
                 ->addColumn('action', function ($row) {
                     return '<a href="' . route('admin.services.edit', $row->id) . '" class="btn btn-sm btn-primary">Edit</a>';
                 })
-
                 ->rawColumns(['action', 'status', 'image']) // Make sure image is marked raw
                 ->make(true);
         }
@@ -63,17 +62,16 @@ class ServiceController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(): View
     {
-        $serviceCategories = ServiceCategory::latest()->get(['id', 'name']);
-
+        $serviceCategories = ServiceCategory::query()->latest()->get(['id', 'name']);
         return view('admin.services.form', compact('serviceCategories'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(ServiceRequest $request)
+    public function store(ServiceRequest $request): RedirectResponse
     {
         $input = $request->validated();
 
@@ -85,7 +83,7 @@ class ServiceController extends Controller
         }
 
         try {
-            Service::create([
+            Service::query()->create([
                 'name' => $input['name'],
                 'status' => $input['status'],
                 'description' => $input['description'],
@@ -105,17 +103,16 @@ class ServiceController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Service $service)
+    public function edit(Service $service): View
     {
-        $serviceCategories = ServiceCategory::latest()->get(['id', 'name']);
-
+        $serviceCategories = ServiceCategory::query()->latest()->get(['id', 'name']);
         return view('admin.services.form', ['editModeData' => $service, 'serviceCategories' => $serviceCategories]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(ServiceRequest $request, Service $service)
+    public function update(ServiceRequest $request, Service $service): RedirectResponse
     {
         $input = $request->validated();
 

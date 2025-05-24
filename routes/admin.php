@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\ServiceCategoryController;
 use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\TagController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -26,4 +27,5 @@ Route::middleware('admin')->group(function () {
     //Other Route Here
     Route::resource('service-categories', ServiceCategoryController::class);
     Route::resource('services', ServiceController::class);
+    Route::resource('tags', TagController::class);
 });
