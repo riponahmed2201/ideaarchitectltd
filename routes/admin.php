@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\ProfileController;
@@ -28,4 +29,5 @@ Route::middleware('admin')->group(function () {
     Route::resource('service-categories', ServiceCategoryController::class);
     Route::resource('services', ServiceController::class);
     Route::resource('tags', TagController::class);
+    Route::resource('blogs', BlogController::class);
 });

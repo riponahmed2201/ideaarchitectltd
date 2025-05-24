@@ -90,7 +90,7 @@
                                     class="form-control form-control-solid @error('image') is-invalid @enderror" />
                                 <div class="mt-2">
                                     <img id="imagePreview"
-                                        src="{{ isset($editModeData) && $editModeData->image ? asset('uploads/services/' . $editModeData->image) : '#' }}"
+                                        src="{{ isset($editModeData) && $editModeData->image ? Storage::url($editModeData->image) : '#' }}"
                                         alt="Preview"
                                         style="max-height: 100px; {{ isset($editModeData->image) ? '' : 'display:none;' }}">
                                 </div>

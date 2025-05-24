@@ -11,8 +11,11 @@ use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class ServiceController extends Controller
 {
@@ -38,7 +41,7 @@ class ServiceController extends Controller
                 ->addIndexColumn()
                 ->addColumn('image', function ($row) {
                     if ($row->image) {
-                        $url = asset('uploads/services/' . $row->image);
+                        $url = Storage::url($row->image);;
                         return '<img src="' . $url . '" alt="Service Image" width="60" height="60">';
                     }
                     return '<span class="badge badge-light">No Image</span>';
@@ -75,25 +78,26 @@ class ServiceController extends Controller
     {
         $input = $request->validated();
 
-        $imageName = null;
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('uploads/services'), $imageName);
+        $image = $request->file('image');
+
+        if ($image) {
+            $imageName = md5(Str::random(10) . time()) . '.' . $image->getClientOriginalExtension();
+            $imagePath = $image->storeAs('services', $imageName, 'public');
+            $input['image'] = $imagePath;
         }
 
+        DB::beginTransaction();
         try {
-            Service::query()->create([
-                'name' => $input['name'],
-                'status' => $input['status'],
-                'description' => $input['description'],
-                'service_category_id' => $input['service_category_id'],
-                'image' => $imageName,
-            ]);
-
+            Service::query()->create($input);
+            DB::commit();
             notify()->success("Service created successfully.", "Success");
             return to_route('admin.services.index');
         } catch (Exception $exception) {
+            DB::rollBack();
+            // If an image was uploaded, delete the newly uploaded file to prevent orphaned files
+            if (isset($input['image']) && Storage::disk('public')->exists($input['image'])) {
+                Storage::disk('public')->delete($input['image']);
+            }
             notify()->error("Something went wrong! Please try again.", "Error");
             return back();
         }
@@ -116,28 +120,34 @@ class ServiceController extends Controller
     {
         $input = $request->validated();
 
-        $imageName = $service->image;
-        if ($request->hasFile('image')) {
-            if ($service->image && file_exists(public_path('uploads/services/' . $service->image))) {
-                unlink(public_path('uploads/services/' . $service->image));
+        // Check if a new logo is being uploaded
+        $image = $request->file('image');
+
+        if ($image) {
+            $imageName = md5(Str::random(10) . time()) . '.' . $image->getClientOriginalExtension();
+            $imagePath = $image->storeAs('services', $imageName, 'public');
+            $input['image'] = $imagePath;
+
+            // Delete the old image if it exists
+            if ($service->image && Storage::disk('public')->exists($service->image)) {
+                Storage::disk('public')->delete($service->image);
             }
-
-            $image = $request->file('image');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('uploads/services'), $imageName);
         }
-
+        
+        DB::beginTransaction();
         try {
-            $service->update([
-                'name' => $input['name'],
-                'status' => $input['status'],
-                'description' => $input['description'],
-                'service_category_id' => $input['service_category_id'],
-                'image' => $imageName,
-            ]);
+            $service->update($input);
             notify()->success("Service updated successfully.", "Success");
+            DB::commit();
             return to_route('admin.services.index');
         } catch (Exception $exception) {
+            DB::rollBack();
+
+            // If an image was uploaded, delete the newly uploaded file to prevent orphaned files
+            if (isset($input['image']) && Storage::disk('public')->exists($input['image'])) {
+                Storage::disk('public')->delete($input['image']);
+            }
+
             notify()->error("Something went wrong! Please try again.", "Error");
             return back();
         }
