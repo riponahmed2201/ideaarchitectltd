@@ -17,7 +17,7 @@ Route::get('/privacy-policy', [HomeController::class, 'privacyPolicy']);
 
 //Blog
 Route::get('/blog', [BlogController::class, 'index']);
-Route::get('/blog/details/{id}', [BlogController::class, 'show']);
+Route::get('/blog/details/{id}', [BlogController::class, 'show'])->name('blog.show');
 
 //Services
 Route::get('/services', [ServiceController::class, 'index']);
@@ -31,4 +31,3 @@ Route::get('/contact-us', [ContactUsController::class, 'index']);
 
 //Portfolio
 Route::get('/portfolio', [PortfolioController::class, 'index']);
-

@@ -23,6 +23,10 @@ class BlogController extends Controller
      */
     public function show(int $id)
     {
-        return view('frontend.pages.blog.show', ['id' => $id]);
+        $recentBlogs = Blog::query()->where('status', 1)->latest()->take(5)->get(['id', 'title', 'created_at']);
+
+        $blog = Blog::with('tags')->where('id', $id)->latest()->first(['id', 'title', 'slug', 'short_description', 'content', 'featured_image', 'created_at']);
+
+        return view('frontend.pages.blog.show', compact('blog', 'recentBlogs'));
     }
 }
