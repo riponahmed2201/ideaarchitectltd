@@ -10,7 +10,7 @@ class Blog extends Model
 
     protected $primaryKey = 'id';
 
-    protected $fillable = ['title', 'slug', 'content', 'featured_image', 'status'];
+    protected $fillable = ['title', 'slug', 'short_description', 'content', 'featured_image', 'status'];
 
     public function tags()
     {

@@ -23,6 +23,7 @@ class BlogRequest extends FormRequest
     {
         return [
             'title' => 'required|string|max:255',
+            'short_description' => 'required|string',
             'content' => 'required|string',
             'featured_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
             'status' => 'required|in:1,0',

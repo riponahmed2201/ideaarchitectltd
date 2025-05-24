@@ -95,6 +95,17 @@
                                 @enderror
                             </div>
 
+                            <!-- Short Description -->
+                            <div class="col-md-12 fv-row mb-5">
+                                <label class="required fs-5 fw-bold mb-2">Short Description</label>
+                                <textarea name="short_description" required
+                                    class="form-control form-control-solid @error('short_description') is-invalid @enderror"
+                                    placeholder="Enter short description" data-kt-autosize="true">{{ old('short_description', $editModeData->short_description ?? '') }}</textarea>
+                                @error('short_description')
+                                    <div class="text-danger mt-2">{{ $message }}</div>
+                                @enderror
+                            </div>
+
                             <!-- Content -->
                             <div class="col-md-12 fv-row mb-5">
                                 <label class="required fs-5 fw-bold mb-2">Content</label>

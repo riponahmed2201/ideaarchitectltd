@@ -63,7 +63,7 @@
                                 <th>#</th>
                                 <th>Featured Image</th>
                                 <th>Title</th>
-                                <th>Content</th>
+                                <th>Short Description</th>
                                 <th>Status</th>
                                 <th>Create At</th>
                                 <th>Action</th>
@@ -113,8 +113,8 @@
                         name: 'title'
                     },
                     {
-                        data: 'content',
-                        name: 'content'
+                        data: 'short_description',
+                        name: 'short_description'
                     },
                     {
                         data: 'status',
