@@ -15,10 +15,6 @@
     <!-- our news articles -->
     <div class="articles-area pt-100 pb-70">
         <div class="container">
-            {{-- <div class="section-title center-title">
-                <span class="top-title">OUR NEWS & ARTICLES</span>
-                <h2>Latest News From Blog</h2>
-            </div> --}}
             <div class="row">
                 @forelse ($blogs as $blog)
                     <div class="col-lg-4 col-md-6">
