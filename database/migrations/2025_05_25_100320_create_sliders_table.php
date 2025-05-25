@@ -11,12 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('service_categories', function (Blueprint $table) {
+        Schema::create('sliders', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique(); // Ensure no duplicate category names
-            $table->string('slug')->unique();
-            $table->text('description')->nullable();
-            $table->boolean('status')->default(1); // 1 = active, 0 = inactive
             $table->timestamps();
         });
     }
@@ -26,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('service_categories');
+        Schema::dropIfExists('sliders');
     }
 };

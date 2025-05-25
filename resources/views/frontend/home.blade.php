@@ -5,14 +5,6 @@
     @include('frontend.pages.home.banner')
     <!-- End Banner Three Area -->
 
-    <!-- Start working process -->
-    @include('frontend.pages.home.working_process')
-    <!-- End working process -->
-
-    <!-- Start About Three Area -->
-    @include('frontend.pages.home.about')
-    <!-- End About Three Area -->
-
     <!-- our best services -->
     @include('frontend.pages.home.services')
     <!-- End our best services -->
@@ -21,9 +13,13 @@
     @include('frontend.pages.home.choose')
     <!-- End why choose us three -->
 
-    <!-- Start Client Success Stories -->
-    @include('frontend.pages.home.client_success_stories')
-    <!-- End Client Success Stories -->
+    <!-- Start working process -->
+    @include('frontend.pages.home.working_process')
+    <!-- End working process -->
+
+    <!-- Start About Three Area -->
+    @include('frontend.pages.home.about')
+    <!-- End About Three Area -->
 
     <!-- Start counter area -->
     @include('frontend.pages.home.counter')
@@ -32,4 +28,8 @@
     <!-- partners area -->
     @include('frontend.pages.home.partner')
     <!-- End partners area -->
+
+    <!-- Start Client Success Stories -->
+    @include('frontend.pages.home.client_success_stories')
+    <!-- End Client Success Stories -->
 @endsection

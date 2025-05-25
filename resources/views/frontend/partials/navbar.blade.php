@@ -31,7 +31,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="#" class="nav-link">How we work</a>
+                            <a href="#" class="nav-link">Work Process</a>
                         </li>
 
                         <li class="nav-item">
@@ -46,21 +46,14 @@
                         <li class="nav-item">
                             <a href="javascript:void(0)" class="nav-link dropdown-toggle">Services</a>
                             <ul class="dropdown-menu">
-                                <li class="nav-item">
-                                    <a href="/services" class="nav-link">Architectural (4)</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="/services" class="nav-link">Interior (5)</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="/services" class="nav-link">Construction (1)</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="/services" class="nav-link">Rajuk Support</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="/services" class="nav-link">Door & furniture (2)</a>
-                                </li>
+                                @foreach (getServiceCategories() as $serviceCategory)
+                                    <li class="nav-item">
+                                        <a href="{{ route('services.index', $serviceCategory->slug) }}"
+                                            class="nav-link">{{ $serviceCategory->name }}
+                                            ({{ $serviceCategory->services_count }})
+                                        </a>
+                                    </li>
+                                @endforeach
                             </ul>
                         </li>
 

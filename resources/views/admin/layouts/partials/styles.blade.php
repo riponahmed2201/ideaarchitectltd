@@ -16,5 +16,11 @@
 <!-- izitoast CSS -->
 <link href="{{ asset('css/iziToast.css') }}" rel="stylesheet">
 
+<style>
+    .ready-only-input-color {
+        background-color: #d2d2d2 !important;
+    }
+</style>
+
 <!-- Page Specific CSS -->
 @stack('styles')

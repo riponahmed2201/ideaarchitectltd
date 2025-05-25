@@ -10,7 +10,7 @@ class ServiceCategory extends Model
 
     protected $primaryKey = 'id';
 
-    protected $fillable = ['name', 'description', 'status'];
+    protected $fillable = ['name', 'slug', 'description', 'status'];
 
     public function services()
     {

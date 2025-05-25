@@ -15,4 +15,7 @@
 <script src="{{ asset('assets/frontend/js/contact-form-script.js') }}"></script>
 <script src="{{ asset('assets/frontend/js/custom.js') }}"></script>
 
+<!-- izitoast JS -->
+<script src="{{ asset('js/iziToast.js') }}"></script>
+
 @stack('scripts')

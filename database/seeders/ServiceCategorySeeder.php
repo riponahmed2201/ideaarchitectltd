@@ -18,6 +18,7 @@ class ServiceCategorySeeder extends Seeder
         $categories = [
             [
                 'name' => 'Architectural',
+                'slug' => 'architectural',
                 'description' => 'Exterior design, Animation, Urban Planning, Landscape Design',
                 'status' => 1,
                 'created_at' => $now,
@@ -25,6 +26,7 @@ class ServiceCategorySeeder extends Seeder
             ],
             [
                 'name' => 'Interior',
+                'slug' => 'interior',
                 'description' => 'Residential interior, Office interior, Hotel & Restaurant Interior, Hospital interior, Showroom interior',
                 'status' => 1,
                 'created_at' => $now,
@@ -32,6 +34,7 @@ class ServiceCategorySeeder extends Seeder
             ],
             [
                 'name' => 'Construction',
+                'slug' => 'construction',
                 'description' => 'Building construction',
                 'status' => 1,
                 'created_at' => $now,
@@ -39,6 +42,7 @@ class ServiceCategorySeeder extends Seeder
             ],
             [
                 'name' => 'Rajuk support',
+                'slug' => 'rajuk-support',
                 'description' => 'Support for Rajuk approval process',
                 'status' => 1,
                 'created_at' => $now,
@@ -46,6 +50,7 @@ class ServiceCategorySeeder extends Seeder
             ],
             [
                 'name' => 'Door & furniture',
+                'slug' => 'door-furniture',
                 'description' => 'Door and Furniture related services',
                 'status' => 1,
                 'created_at' => $now,

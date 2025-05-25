@@ -10,7 +10,7 @@ class Service extends Model
 
     protected $primaryKey = 'id';
 
-    protected $fillable = ['service_category_id', 'name', 'description', 'image', 'status'];
+    protected $fillable = ['service_category_id', 'name', 'slug', 'short_description', 'description', 'image', 'status'];
 
     public function category()
     {

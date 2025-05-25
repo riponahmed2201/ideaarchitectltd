@@ -65,6 +65,7 @@
                             <tr class="text-start text-muted fw-bolder fs-7 text-uppercase gs-0">
                                 <th>#</th>
                                 <th>Name</th>
+                                <th>Slug</th>
                                 <th>Description</th>
                                 <th>Status</th>
                                 <th>Create At</th>
@@ -109,6 +110,10 @@
                     {
                         data: 'name',
                         name: 'name'
+                    },
+                    {
+                        data: 'slug',
+                        name: 'slug'
                     },
                     {
                         data: 'description',

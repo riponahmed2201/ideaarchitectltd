@@ -63,8 +63,8 @@
                                 <th>#</th>
                                 <th>Image</th>
                                 <th>Name</th>
+                                <th>Slug</th>
                                 <th>Category</th>
-                                <th>Description</th>
                                 <th>Status</th>
                                 <th>Create At</th>
                                 <th>Action</th>
@@ -114,12 +114,12 @@
                         name: 'name'
                     },
                     {
-                        data: 'category.name',
-                        name: 'category.name'
+                        data: 'slug',
+                        name: 'slug'
                     },
                     {
-                        data: 'description',
-                        name: 'description'
+                        data: 'category.name',
+                        name: 'category.name'
                     },
                     {
                         data: 'status',

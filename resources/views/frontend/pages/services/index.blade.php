@@ -20,138 +20,37 @@
                 <h2>Our Best Services</h2>
             </div> --}}
             <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="services-slider-content services-pages-content">
-                        <div class="services-slider-img">
-                            <a href="/services/details/12">
-                                <img src="assets/frontend/images/services/services-slider-1.png" alt="Images">
-                            </a>
-                        </div>
-                        <div class="single-feature-card">
-                            <i class="flaticon-analysis analysis-icon"></i>
-                            <h3><a href="/services/details/12">Business Technology</a></h3>
-                            <p>Lorem ipsum dolor sit amesttur adipiscing elit sed do eiusmo tempor incididunt.</p>
-                            <div class="feature-btn">
-                                <a href="/services/details/12">
-                                    <i class="flaticon-next"></i>
+                @forelse ($services as $service)
+                    @php
+                        $serviceDetailsRoute = route('services.show', [
+                            'category_slug' => $service->category->slug,
+                            'service_slug' => $service->slug,
+                        ]);
+                    @endphp
+                    <div class="col-lg-4 col-md-6">
+                        <div class="services-slider-content services-pages-content">
+                            <div class="services-slider-img">
+                                <a href="{{ $serviceDetailsRoute }}">
+                                    <img style="width:416px; height:276px" src="{{ Storage::url($service->image) }}">
                                 </a>
                             </div>
-                            <div class="feature-shape-1">
-                                <img src="assets/frontend/images/feature-shape-1.png" alt="images">
+                            <div class="single-feature-card">
+                                <h3><a href="{{ $serviceDetailsRoute }}">{{ $service->name }}</a>
+                                </h3>
+                                <p>{{ $service->short_description }}</p>
+                                <div class="feature-btn">
+                                    <a href="{{ $serviceDetailsRoute }}">
+                                        <i class="flaticon-next"></i>
+                                    </a>
+                                </div>
+                                <div class="feature-shape-1">
+                                    <img src="{{ asset('assets/frontend/images/feature-shape-1.png') }}" alt="images">
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="services-slider-content services-pages-content">
-                        <div class="services-slider-img">
-                            <a href="/services/details/12">
-                                <img src="assets/frontend/images/services/services-slider-2.png" alt="Images">
-                            </a>
-                        </div>
-                        <div class="single-feature-card">
-                            <i class="flaticon-investment analysis-icon"></i>
-                            <h3><a href="/services/details/12">Website Technology</a></h3>
-                            <p>Lorem ipsum dolor sit amesttur adipiscing elit sed do eiusmo tempor incididunt.</p>
-                            <div class="feature-btn">
-                                <a href="/services/details/12">
-                                    <i class="flaticon-next"></i>
-                                </a>
-                            </div>
-                            <div class="feature-shape-1">
-                                <img src="assets/frontend/images/feature-shape-1.png" alt="images">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="services-slider-content services-pages-content">
-                        <div class="services-slider-img">
-                            <a href="/services/details/12">
-                                <img src="assets/frontend/images/services/services-slider-3.png" alt="Images">
-                            </a>
-                        </div>
-                        <div class="single-feature-card">
-                            <i class="flaticon-life-insurance analysis-icon"></i>
-                            <h3><a href="/services/details/12">Investment Technology</a></h3>
-                            <p>Lorem ipsum dolor sit amesttur adipiscing elit sed do eiusmo tempor incididunt.</p>
-                            <div class="feature-btn">
-                                <a href="/services/details/12">
-                                    <i class="flaticon-next"></i>
-                                </a>
-                            </div>
-                            <div class="feature-shape-1">
-                                <img src="assets/frontend/images/feature-shape-1.png" alt="images">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="services-slider-content services-pages-content">
-                        <div class="services-slider-img">
-                            <a href="/services/details/12">
-                                <img src="assets/frontend/images/services/services-slider-6.png" alt="Images">
-                            </a>
-                        </div>
-                        <div class="single-feature-card">
-                            <i class="flaticon-fluctuation analysis-icon"></i>
-                            <h3><a href="/services/details/12">Investment strategy</a></h3>
-                            <p>Lorem ipsum dolor sit amesttur adipiscing elit sed do eiusmo tempor incididunt.</p>
-                            <div class="feature-btn">
-                                <a href="/services/details/12">
-                                    <i class="flaticon-next"></i>
-                                </a>
-                            </div>
-                            <div class="feature-shape-1">
-                                <img src="assets/frontend/images/feature-shape-1.png" alt="images">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="services-slider-content services-pages-content">
-                        <div class="services-slider-img">
-                            <a href="/services/details/12">
-                                <img src="assets/frontend/images/services/services-slider-7.png" alt="Images">
-                            </a>
-                        </div>
-                        <div class="single-feature-card">
-                            <i class="flaticon-cloud analysis-icon"></i>
-                            <h3><a href="/services/details/12">Business solutions</a></h3>
-                            <p>Lorem ipsum dolor sit amesttur adipiscing elit sed do eiusmo tempor incididunt.</p>
-                            <div class="feature-btn">
-                                <a href="/services/details/12">
-                                    <i class="flaticon-next"></i>
-                                </a>
-                            </div>
-                            <div class="feature-shape-1">
-                                <img src="assets/frontend/images/feature-shape-1.png" alt="images">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="services-slider-content services-pages-content">
-                        <div class="services-slider-img">
-                            <a href="/services/details/12">
-                                <img src="assets/frontend/images/services/services-slider-8.jpg" alt="Images">
-                            </a>
-                        </div>
-                        <div class="single-feature-card">
-                            <i class="flaticon-analytics analysis-icon"></i>
-                            <h3><a href="/services/details/12">Market research</a></h3>
-                            <p>Lorem ipsum dolor sit amesttur adipiscing elit sed do eiusmo tempor incididunt.</p>
-                            <div class="feature-btn">
-                                <a href="/services/details/12">
-                                    <i class="flaticon-next"></i>
-                                </a>
-                            </div>
-                            <div class="feature-shape-1">
-                                <img src="assets/frontend/images/feature-shape-1.png" alt="images">
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @empty
+                @endforelse
             </div>
         </div>
     </div>

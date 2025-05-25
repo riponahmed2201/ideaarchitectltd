@@ -53,7 +53,10 @@ class ServiceController extends Controller
                 })
                 ->addColumn('created_at', fn($row) => Carbon::parse($row->created_at)->diffForHumans())
                 ->addColumn('action', function ($row) {
-                    return '<a href="' . route('admin.services.edit', $row->id) . '" class="btn btn-sm btn-primary">Edit</a>';
+                    $editUrl = route('admin.services.edit', $row->id);
+                    $viewUrl = route('admin.services.show', $row->id);
+
+                    return view('admin.services.partials.actions', compact('editUrl', 'viewUrl'))->render();
                 })
                 ->rawColumns(['action', 'status', 'image']) // Make sure image is marked raw
                 ->make(true);
@@ -77,6 +80,7 @@ class ServiceController extends Controller
     public function store(ServiceRequest $request): RedirectResponse
     {
         $input = $request->validated();
+        $input['slug'] = Str::slug($input['name']);
 
         $image = $request->file('image');
 
@@ -102,7 +106,14 @@ class ServiceController extends Controller
             return back();
         }
     }
-
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function show(Service $service): View
+    {
+        $service = $service->with('category')->first();
+        return view('admin.services.show', compact('service'));
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -119,6 +130,7 @@ class ServiceController extends Controller
     public function update(ServiceRequest $request, Service $service): RedirectResponse
     {
         $input = $request->validated();
+        $input['slug'] = Str::slug($input['name']);
 
         // Check if a new logo is being uploaded
         $image = $request->file('image');

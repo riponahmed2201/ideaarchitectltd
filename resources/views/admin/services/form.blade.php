@@ -1,9 +1,5 @@
 @extends('admin.layouts.app')
 
-@push('styles')
-    @include('admin.layouts.partials.datatable-styles')
-@endpush
-
 @section('content')
     <x-toolbar :title="isset($editModeData) ? 'Edit Service' : 'Add Service'" :breadcrumbs="[
         ['label' => 'Home', 'url' => route('admin.dashboard')],

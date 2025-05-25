@@ -12,6 +12,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Str;
 
 class ServiceCategoryController extends Controller
 {
@@ -23,7 +24,7 @@ class ServiceCategoryController extends Controller
     {
         if ($request->ajax()) {
             $searchKeyword = $request->input('search');
-            $query = ServiceCategory::select(['id', 'name', 'description', 'status', 'created_at'])
+            $query = ServiceCategory::select(['id', 'name', 'slug', 'description', 'status', 'created_at'])
                 ->when($searchKeyword, function ($q) use ($searchKeyword) {
                     $q->where(function ($q) use ($searchKeyword) {
                         $q->where('name', 'LIKE', "%$searchKeyword%")
@@ -64,8 +65,11 @@ class ServiceCategoryController extends Controller
      */
     public function store(ServiceCategoryRequest $request): RedirectResponse
     {
+        $input = $request->validated();
+        $input['slug'] = Str::slug($input['name']);
+
         try {
-            ServiceCategory::query()->create($request->validated());
+            ServiceCategory::query()->create($input);
             notify()->success("Service created successfully.", "Success");
             return to_route('admin.service-categories.index');
         } catch (Exception $exception) {
@@ -87,8 +91,11 @@ class ServiceCategoryController extends Controller
      */
     public function update(ServiceCategoryRequest $request, ServiceCategory $serviceCategory): RedirectResponse
     {
+        $input = $request->validated();
+        $input['slug'] = Str::slug($input['name']);
+
         try {
-            $serviceCategory->update($request->validated());
+            $serviceCategory->update($input);
             notify()->success("Service updated successfully.", "Success");
             return to_route('admin.service-categories.index');
         } catch (Exception $exception) {

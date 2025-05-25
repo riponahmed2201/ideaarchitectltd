@@ -16,4 +16,7 @@
 <link rel="stylesheet" href="{{ asset('assets/frontend/css/style.css') }}" />
 <link rel="stylesheet" href="{{ asset('assets/frontend/css/responsive.css') }}" />
 
+<!-- izitoast CSS -->
+<link href="{{ asset('css/iziToast.css') }}" rel="stylesheet">
+
 @stack('style')

@@ -20,8 +20,8 @@ Route::get('/blog', [BlogController::class, 'index']);
 Route::get('/blog/details/{id}', [BlogController::class, 'show'])->name('blog.show');
 
 //Services
-Route::get('/services', [ServiceController::class, 'index']);
-Route::get('/services/details/{id}', [ServiceController::class, 'show']);
+Route::get('/services/{slug?}', [ServiceController::class, 'index'])->name('services.index');
+Route::get('/services/details/{category_slug}/{service_slug}', [ServiceController::class, 'show'])->name('services.show');
 
 //About Us
 Route::get('/about-us', [AboutUsController::class, 'index']);

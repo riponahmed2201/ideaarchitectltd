@@ -46,6 +46,10 @@
     <!-- Start Scripts -->
     @include('frontend.partials.scripts')
     <!-- End Scripts -->
+
+    <!-- include izitoast vendor -->
+    @include('vendor.lara-izitoast.toast')
+
 </body>
 
 </html>

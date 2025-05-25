@@ -15,7 +15,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('service_category_id')->constrained('service_categories')->onDelete('cascade');
             $table->string('name');
-            $table->text('description')->nullable();
+            $table->string('slug')->unique();
+            $table->text('short_description');
+            $table->longText('description')->nullable();
             $table->string('image')->nullable();         // Optional: for service image URL/path
             $table->boolean('status')->default(1);       // 1 = active, 0 = inactive
             $table->timestamps();

@@ -1,90 +1,64 @@
-<div class="choose-three pt-100 pb-70">
+<div class="choose-area pt-100 pb-100">
     <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6">
-                <div class="choose-three-img" data-aos="fade-right" data-aos-duration="1500" data-aos-once="true">
-                    <img src="assets/frontend/images/choose-three-image.png" alt="Images" />
+        <div class="section-title">
+            <span class="top-title">WHY CHOOSE US</span>
+            <h2>Trusted Solutions Designed to Fit Your Unique Needs</h2>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-sm-6 col-md-6">
+                <div class="single-choose-card">
+                    <div class="choose-icon">
+                        <i class="flaticon-creativity"></i>
+                    </div>
+                    <h3>Creative Excellence</h3>
+                    <p>
+                        We craft visually stunning and functional designs that reflect your unique vision with
+                        exceptional creativity.
+                    </p>
                 </div>
             </div>
-            <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1500" data-aos-once="true">
-                <div class="choose-three-content">
-                    <div class="section-title left-title">
-                        <span class="top-title">WHY CHOOSE US</span>
-                        <h2>Trusted Solutions Designed to Fit Your Unique Needs</h2>
+            <div class="col-lg-3 col-sm-6 col-md-6">
+                <div class="single-choose-card">
+                    <div class="choose-icon">
+                        <i class="flaticon-success"></i>
                     </div>
-                    <div class="faq-content">
-                        <div class="faq-accordion">
-                            <ul class="accordion">
-                                <li class="accordion-item">
-                                    <a class="accordion-title active" href="javascript:void(0)">
-                                        <i class="flaticon-play add"></i>
-                                        <i class="flaticon-play subtract"></i>
-                                        Creative Excellence
-                                    </a>
-
-                                    <div class="accordion-content show">
-                                        <p>
-                                            Innovative designs tailored to your unique needs, transforming spaces
-                                            into inspiring
-                                            environments. Our dedicated team brings your vision to life with
-                                            precision and creativity,
-                                            ensuring every project exceeds expectations.
-                                        </p>
-                                    </div>
-                                </li>
-
-                                <li class="accordion-item">
-                                    <a class="accordion-title" href="javascript:void(0)">
-                                        <i class="flaticon-play add"></i>
-                                        <i class="flaticon-play subtract"></i>
-                                        Timely Project Delivery
-                                    </a>
-
-                                    <div class="accordion-content">
-                                        <p>
-                                            We value your time and are committed to completing every project on
-                                            schedule while maintaining
-                                            the highest quality standards.
-                                        </p>
-                                    </div>
-                                </li>
-
-                                <li class="accordion-item">
-                                    <a class="accordion-title" href="javascript:void(0)">
-                                        <i class="flaticon-play add"></i>
-                                        <i class="flaticon-play subtract"></i>
-                                        Customized Design Approach
-                                    </a>
-
-                                    <div class="accordion-content">
-                                        <p>
-                                            Recognizing the uniqueness of every space, we craft designs that
-                                            perfectly align with your
-                                            personal style and specific needs.
-                                        </p>
-                                    </div>
-                                </li>
-
-                                <li class="accordion-item">
-                                    <a class="accordion-title" href="javascript:void(0)">
-                                        <i class="flaticon-play add"></i>
-                                        <i class="flaticon-play subtract"></i>
-                                        Proven Track Record of Excellence
-                                    </a>
-
-                                    <div class="accordion-content">
-                                        <p>
-                                            Renowned for delivering stunning, functional interiors and exteriors
-                                            that stand the test of time
-                                            and exceed client expectations.
-                                        </p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+                    <h3>Timely Project Delivery</h3>
+                    <p>
+                        Our team is committed to delivering every project on time, without compromising on quality or
+                        attention to detail.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 col-md-6">
+                <div class="single-choose-card">
+                    <div class="choose-icon">
+                        <i class="flaticon-search"></i>
                     </div>
+                    <h3>Customized Design Approach</h3>
+                    <p>
+                        We tailor every design to your specific needs, ensuring a personalized and impactful final
+                        result.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 col-md-6">
+                <div class="single-choose-card">
+                    <div class="choose-icon">
+                        <i class="flaticon-fluctuation"></i>
+                    </div>
+                    <h3>Proven Track Record of Excellence</h3>
+                    <p>
+                        With a history of successful projects, we consistently exceed client expectations through
+                        dedication and expertise.
+                    </p>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="choose-shape-1">
+        <img src="assets/frontend/images/choose-shape.png" alt="images">
+    </div>
+    <div class="choose-shape-2">
+        <img src="assets/frontend/images/choose-shape-2.png" alt="images">
     </div>
 </div>

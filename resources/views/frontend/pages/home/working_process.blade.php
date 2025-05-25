@@ -2,7 +2,7 @@
     <div class="container">
         <div class="section-title">
             <span class="top-title">WORKING PROCESS</span>
-            <h2>How we works</h2>
+            <h2>Our Work Process</h2>
         </div>
         <div class="row">
             <div class="col-lg-3 col-sm-6 col-md-6">
