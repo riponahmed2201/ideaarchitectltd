@@ -85,17 +85,27 @@
 
                 <div class="col-lg-4">
                     <aside class="widget-area">
+                        <div class="widget widget_search">
+                            <form class="search-form" action="javascript:void(0)">
+                                <input type="search" class="search-field" placeholder="Search...">
+                                <button type="button"><i class="ri-search-line"></i></button>
+                            </form>
+                        </div>
+
                         <div class="widget widget_pixab_posts_thumb">
                             <h3 class="widget-title">Recent Posts</h3>
 
                             @foreach ($recentBlogs as $recentBlog)
                                 <article class="item">
                                     <a href="{{ route('blog.show', $recentBlog->id) }}" class="thumb">
-                                        <span class="fullimage cover bg1" role="img"></span>
+                                        <img style="width: 90px; height:90px"
+                                            src="{{ Storage::url($recentBlog->featured_image) }}"
+                                            alt="{{ $recentBlog->title }}">
                                     </a>
                                     <div class="info">
                                         <h4 class="title usmall">
-                                            <a href="{{ route('blog.show', $blog->id) }}">{{ $recentBlog->title }}</a>
+                                            <a
+                                                href="{{ route('blog.show', $recentBlog->id) }}">{{ $recentBlog->title }}</a>
                                         </h4>
                                         <div class="d-flex justify-content-between align-items-center">
                                             <span>
@@ -114,22 +124,39 @@
                             <div class="contact-details-bg">
                                 <i class="flaticon-telephone"></i>
                                 <h4>Phone</h4>
-                                <a href="tel:+089027392793">+089027392793</a>
+                                <a href="tel:+8801732-691745">+8801732-691745</a> <br>
+                                <a href="tel:+8801738-275126">+8801738-275126</a>
                             </div>
 
                             <div class="contact-details-bg">
                                 <i class="flaticon-envelope"></i>
                                 <h4>Email</h4>
-                                <a href=""><span>[email&#160;protected]</span></a>
+                                <a href="javascript:void(0)">idea.architectsbd@gmail.com</span></a>
                             </div>
 
                             <div class="contact-details-bg">
                                 <i class="flaticon-placeholder"></i>
                                 <h4>Address</h4>
-                                <p>50 Nortambiya, UK.</p>
+                                <p>House: 1259, Road: 10, Avenue-2, Mirpur DOHS, Dhaka, Bangladesh</p>
                             </div>
 
                         </div>
+
+                        <div class="tags">
+                            <h2>Tags</h2>
+                            <ul>
+                                @forelse ($blog->tags as $tag)
+                                    <li>
+                                        <a href="javascript:void(0)">{{ $tag->name }}</a>
+                                    </li>
+                                @empty
+                                    <li>
+                                        <p>No Tag Found.</p>
+                                    </li>
+                                @endforelse
+                            </ul>
+                        </div>
+
                     </aside>
                 </div>
             </div>
