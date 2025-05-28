@@ -110,7 +110,7 @@ class BlogController extends Controller
                 Storage::disk('public')->delete($input['featured_image']);
             }
 
-            notify()->error("Something went wrong! Please try again.", "Error");
+            notify()->error("Failed to create blog", "Error");
             return back();
         }
     }
@@ -164,7 +164,7 @@ class BlogController extends Controller
                 Storage::disk('public')->delete($input['featured_image']);
             }
 
-            notify()->error("Something went wrong! Please try again.", "Error");
+            notify()->error("Failed to update blog", "Error");
             return back();
         }
     }

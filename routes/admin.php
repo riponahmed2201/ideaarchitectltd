@@ -3,9 +3,12 @@
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\LoginController;
+use App\Http\Controllers\Admin\PartnerController;
+use App\Http\Controllers\Admin\PortfolioController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\ServiceCategoryController;
 use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\TagController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,7 +19,7 @@ Route::post('/login', [LoginController::class, 'login'])->name('login');
 
 Route::middleware('admin')->group(function () {
 
-    Route::post('logout', [LoginController::class, 'logout'])->name('admin.logout');
+    Route::post('logout', [LoginController::class, 'logout'])->name('logout');
     Route::put('change-password', [LoginController::class, 'changePassword'])->name('changePassword');
     Route::put('password/update', [LoginController::class, 'updatePassword'])->name('password.update');
     Route::get('profile', [ProfileController::class, 'index'])->name('profile');
@@ -25,9 +28,20 @@ Route::middleware('admin')->group(function () {
     //Dashboard
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-    //Other Route Here
+    //Service
     Route::resource('service-categories', ServiceCategoryController::class);
     Route::resource('services', ServiceController::class);
+
+    //Blog
     Route::resource('tags', TagController::class);
     Route::resource('blogs', BlogController::class);
+
+    //Partner
+    Route::resource('partners', PartnerController::class);
+
+    //Sliders
+    Route::resource('sliders', SliderController::class);
+
+    //Portfolios
+    Route::resource('portfolios', PortfolioController::class);
 });

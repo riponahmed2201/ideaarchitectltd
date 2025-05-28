@@ -4,8 +4,8 @@
         <!--begin::Copyright-->
         <div class="text-dark order-2 order-md-1">
             <span class="text-muted fw-bold me-1">{{ date('Y') }}©</span>
-            <a href="javascript:void(0)" target="_blank" class="text-gray-800 text-hover-primary">PAU CSE & CSIT Alumni
-                Association</a>
+            <a href="javascript:void(0)" target="_blank" class="text-gray-800 text-hover-primary">Developed by Md. Ripon
+                Mia</a>
         </div>
         <!--end::Copyright-->
         <!--begin::Menu-->

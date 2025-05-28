@@ -51,7 +51,7 @@ class LoginController extends Controller
         $request->session()->regenerateToken();
 
         // Redirect to the login page or home page
-        return redirect('/')->with('success', 'You have been logged out successfully.');
+        return redirect('/admin/login')->with('success', 'You have been logged out successfully.');
     }
 
     public function updatePassword(Request $request)
@@ -73,7 +73,7 @@ class LoginController extends Controller
                     ]);
                     Auth::logout();
                     notify()->success('Password was changed successfully.', 'Success');
-                    return redirect('/');
+                    return redirect('/admin/login');
                 } else {
                     notify()->warning('New password can not be same as old password.', 'Warning');
                 }
