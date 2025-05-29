@@ -6,10 +6,12 @@ use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\PartnerController;
 use App\Http\Controllers\Admin\PortfolioController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\ServiceCategoryController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\TagController;
+use App\Http\Controllers\Admin\VideosController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -44,4 +46,10 @@ Route::middleware('admin')->group(function () {
 
     //Portfolios
     Route::resource('portfolios', PortfolioController::class);
+
+    //Projects
+    Route::resource('projects', ProjectController::class);
+
+    //Videos
+    Route::resource('videos', VideosController::class);
 });
