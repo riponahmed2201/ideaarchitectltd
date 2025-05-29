@@ -47,10 +47,10 @@
                             <a href="/about-us">About Us</a>
                         </li>
                         <li>
-                            <a href="#">Portfolio</a>
+                            <a href="/portfolio">Portfolio</a>
                         </li>
                         <li>
-                            <a href="#">Services</a>
+                            <a href="/services">Services</a>
                         </li>
                         <li>
                             <a href="/blog">Blog</a>
@@ -68,24 +68,17 @@
                 <div class="footer-widget ps-5">
                     <h2>Featured Services</h2>
                     <ul class="footer-list">
-                        <li>
-                            <a href="#">Hotel Design</a>
-                        </li>
-                        <li>
-                            <a href="#">Office Design</a>
-                        </li>
-                        <li>
-                            <a href="#">Exterior Design</a>
-                        </li>
-                        <li>
-                            <a href="#">Commercial Interior</a>
-                        </li>
-                        <li>
-                            <a href="#">Residential Interior</a>
-                        </li>
-                        <li>
-                            <a href="#">Architectural Consultancy</a>
-                        </li>
+                        @foreach (getServices()->take(6) as $service)
+                            @php
+                                $serviceDetailsRoute = route('services.show', [
+                                    'category_slug' => $service->category->slug,
+                                    'service_slug' => $service->slug,
+                                ]);
+                            @endphp
+                            <li>
+                                <a target="_blank" href="{{ $serviceDetailsRoute }}">{{ $service->name }}</a>
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
             </div>
@@ -109,7 +102,7 @@
                     <div class="footer-information">
                         <i class="flaticon-placeholder"></i>
                         <h3>Address</h3>
-                        <p>House: 1259, Road: 10, Avenue-2, Mirpur DOHS, Dhaka, Bangladesh</p>
+                        <p>Mirpur - 6, Dhaka-1216, Bangladesh</p>
                     </div>
                 </div>
             </div>

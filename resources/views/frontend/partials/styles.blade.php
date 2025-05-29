@@ -1,4 +1,6 @@
-<link rel="icon" type="image/png" href="{{ asset('assets/frontend/images/favicon.png') }}" />
+{{-- <link rel="icon" type="image/png" href="{{ asset('assets/frontend/images/favicon.png') }}" /> --}}
+<!-- Favicon -->
+<link rel="shortcut icon" href="{{ asset('assets/logo/logo.png') }}" />
 
 <!-- Link off css Fill -->
 <link rel="stylesheet" href="{{ asset('assets/frontend/css/bootstrap.min.css') }}" />

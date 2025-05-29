@@ -18,8 +18,13 @@
     <meta property="og:title" content="Idea Architects Limited – Interior & Exterior Design Experts" />
     <meta property="og:description"
         content="Elevate your spaces with Idea Architects Limited. We offer modern and functional interior and exterior design services for homes, offices, and commercial spaces." />
-    <meta property="og:url" content="https://ideaarchitectsltd.com" />
+    <meta property="og:url" content="https://ideaarchitectltd.com" />
     <meta property="og:site_name" content="Idea Architects Limited" />
+
+    <title>Idea Architect Limited | Login</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{ asset('assets/logo/logo.png') }}" />
 
     <!--begin::Fonts-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
@@ -44,8 +49,9 @@
             <!--begin::Content-->
             <div class="d-flex flex-center flex-column flex-column-fluid p-10 pb-lg-20">
                 <!--begin::Logo-->
-                <a href="/login" class="mb-12">
-                    <img alt="Logo" src="{{ asset('assets/admin/media/logos/logo-1.svg') }}" class="h-40px" />
+                <a href="/admin/login" class="mb-12">
+                    <img alt="Logo" src="{{ asset('assets/logo/logo.png') }}" class="h-40px" />
+                    <strong>Idea Architect Ltd</strong>
                 </a>
                 <!--end::Logo-->
                 <!--begin::Wrapper-->
@@ -56,7 +62,7 @@
                         <!--begin::Heading-->
                         <div class="text-center mb-10">
                             <!--begin::Title-->
-                            <h1 class="text-dark mb-3">Sign In to Idea Architects Limited</h1>
+                            <h1 class="text-dark mb-3">Sign In to Idea Architect Limited</h1>
                             <!--end::Title-->
                         </div>
                         <!--begin::Heading-->

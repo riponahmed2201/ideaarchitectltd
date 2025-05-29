@@ -2,8 +2,8 @@
     <div class="container">
         <div class="copyright-content">
             <p>
-                © Copyright
-                <a href="#" target="_blank">Idea Architects Ltd</a>
+                © {{ date('Y') }} Idea Architect Ltd. All rights reserved.
+                <a href="https://ideaarchitectltd.com">Idea Architect Ltd</a>
             </p>
         </div>
     </div>

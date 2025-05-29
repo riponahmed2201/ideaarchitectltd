@@ -1,32 +1,3 @@
-{{-- <div class="our-best-services-area pt-100 pb-70">
-    <div class="container">
-        <div class="section-title">
-            <span class="top-title">SERVICES WE PROVIDED</span>
-            <h2>Our Best Services</h2>
-        </div>
-        <div class="our-best-services-slider owl-carousel owl-theme">
-            @foreach ($serviceCategories as $serviceCategory)
-                <div class="best-services-card">
-                    <i class="flaticon-analysis"></i>
-                    <i class="flaticon-analysis best-icon"></i>
-                    <h3>
-                        <a href="#">{{ $serviceCategory->name }}</a>
-                    </h3>
-                    <div>
-                        {{ $serviceCategory->description }}
-                    </div>
-                    <div class="read-more">
-                        <a href="#">Read More <i class="flaticon-next"></i></a>
-                    </div>
-                </div>
-            @endforeach
-        </div>
-        <div class="services-btn">
-            <a href="/services" class="default-btn">All Services <i class="flaticon-next"></i></a>
-        </div>
-    </div>
-</div> --}}
-
 <div class="services-area pt-100 pb-100">
     <div class="container-fluid">
         <div class="provided-content">

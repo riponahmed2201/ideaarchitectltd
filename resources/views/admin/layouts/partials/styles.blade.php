@@ -1,8 +1,8 @@
 <!-- Canonical URL -->
-<link rel="canonical" href="https://ideaarchitectsltd.com" />
+<link rel="canonical" href="https://ideaarchitectltd.com" />
 
 <!-- Favicon -->
-<link rel="shortcut icon" href="{{ asset('assets/admin/media/logos/favicon.ico') }}" />
+<link rel="shortcut icon" href="{{ asset('assets/logo/logo.png') }}" />
 
 <!--begin::Fonts-->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />

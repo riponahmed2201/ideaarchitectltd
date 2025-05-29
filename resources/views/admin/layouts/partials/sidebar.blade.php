@@ -6,7 +6,8 @@
     <div class="aside-logo flex-column-auto" id="kt_aside_logo">
         <!--begin::Logo-->
         <a href="/admin/dashboard">
-            <img alt="Logo" src="{{ asset('assets/admin/media/logos/logo-1.svg') }}" class="h-25px logo" />
+            <img alt="Logo" src="{{ asset('assets/logo/logo.png') }}" class="h-25px logo" />
+            <strong class="text-black">Idea Architect Ltd</strong>
         </a>
         <!--end::Logo-->
         <!--begin::Aside toggler-->
@@ -40,10 +41,17 @@
             <!--begin::Menu-->
             <div class="menu menu-column menu-title-gray-800 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500"
                 id="#kt_aside_menu" data-kt-menu="true">
+
+                <div class="menu-item">
+                    <div class="menu-content pt-8 pb-2">
+                        <span class="menu-section text-muted text-uppercase fs-8 ls-1">🧑‍💼 General</span>
+                    </div>
+                </div>
+
                 <div class="menu-item">
                     <a class="menu-link {{ Request::is('admin/dashboard') ? 'active' : '' }}" href="/admin/dashboard">
                         <span class="menu-icon">
-                            <i class="bi bi-grid fs-3"></i>
+                            <i class="bi bi-speedometer2 fs-3 text-primary"></i>
                         </span>
                         <span class="menu-title">Dashboard</span>
                     </a>
@@ -53,16 +61,22 @@
                     <a class="menu-link {{ Request::is('admin/profile/overview') ? 'active' : '' }}"
                         href="/admin/profile/overview">
                         <span class="menu-icon">
-                            <i class="bi bi-person fs-3"></i>
+                            <i class="bi bi-person fs-3 text-info"></i>
                         </span>
                         <span class="menu-title">Profile</span>
                     </a>
                 </div>
 
                 <div class="menu-item">
+                    <div class="menu-content pt-8 pb-2">
+                        <span class="menu-section text-muted text-uppercase fs-8 ls-1">💼 Business Content</span>
+                    </div>
+                </div>
+
+                <div class="menu-item">
                     <a class="menu-link {{ Request::is('admin/partners*') ? 'active' : '' }}" href="/admin/partners">
                         <span class="menu-icon">
-                            <i class="bi bi-list-check fs-3"></i>
+                            <i class="bi bi-people fs-3 text-success"></i>
                         </span>
                         <span class="menu-title">Partners</span>
                     </a>
@@ -71,17 +85,23 @@
                 <div class="menu-item">
                     <a class="menu-link {{ Request::is('admin/sliders*') ? 'active' : '' }}" href="/admin/sliders">
                         <span class="menu-icon">
-                            <i class="bi bi-list-check fs-3"></i>
+                            <i class="bi bi-images fs-3 text-warning"></i>
                         </span>
                         <span class="menu-title">Sliders</span>
                     </a>
                 </div>
 
                 <div class="menu-item">
+                    <div class="menu-content pt-8 pb-2">
+                        <span class="menu-section text-muted text-uppercase fs-8 ls-1">🎨 Portfolio & Media</span>
+                    </div>
+                </div>
+
+                <div class="menu-item">
                     <a class="menu-link {{ Request::is('admin/portfolios*') ? 'active' : '' }}"
                         href="/admin/portfolios">
                         <span class="menu-icon">
-                            <i class="bi bi-list-check fs-3"></i>
+                            <i class="bi bi-briefcase fs-3 text-dark"></i>
                         </span>
                         <span class="menu-title">Portfolios</span>
                     </a>
@@ -90,16 +110,16 @@
                 <div class="menu-item">
                     <a class="menu-link {{ Request::is('admin/projects*') ? 'active' : '' }}" href="/admin/projects">
                         <span class="menu-icon">
-                            <i class="bi bi-list-check fs-3"></i>
+                            <i class="bi bi-kanban fs-3 text-secondary"></i>
                         </span>
                         <span class="menu-title">Projects</span>
                     </a>
                 </div>
 
                 <div class="menu-item">
-                    <a class="menu-link {{ Request::is('admin/Videos*') ? 'active' : '' }}" href="/admin/videos">
+                    <a class="menu-link {{ Request::is('admin/videos*') ? 'active' : '' }}" href="/admin/videos">
                         <span class="menu-icon">
-                            <i class="bi bi-list-check fs-3"></i>
+                            <i class="bi bi-camera-video fs-3 text-danger"></i>
                         </span>
                         <span class="menu-title">Videos</span>
                     </a>
@@ -107,14 +127,14 @@
 
                 <div class="menu-item">
                     <div class="menu-content pt-8 pb-2">
-                        <span class="menu-section text-muted text-uppercase fs-8 ls-1">Service Management</span>
+                        <span class="menu-section text-muted text-uppercase fs-8 ls-1">🛠 Services</span>
                     </div>
                 </div>
                 <div class="menu-item">
                     <a class="menu-link {{ Request::is('admin/service-categories*') ? 'active' : '' }}"
                         href="/admin/service-categories">
                         <span class="menu-icon">
-                            <i class="bi bi-list-check fs-3"></i>
+                            <i class="bi bi-layers fs-3 text-primary"></i>
                         </span>
                         <span class="menu-title">Service Categories</span>
                     </a>
@@ -122,7 +142,7 @@
                 <div class="menu-item">
                     <a class="menu-link {{ Request::is('admin/services*') ? 'active' : '' }}" href="/admin/services">
                         <span class="menu-icon">
-                            <i class="bi bi-list-check fs-3"></i>
+                            <i class="bi bi-tools fs-3 text-info"></i>
                         </span>
                         <span class="menu-title">Services</span>
                     </a>
@@ -130,13 +150,13 @@
 
                 <div class="menu-item">
                     <div class="menu-content pt-8 pb-2">
-                        <span class="menu-section text-muted text-uppercase fs-8 ls-1">Blog Management</span>
+                        <span class="menu-section text-muted text-uppercase fs-8 ls-1">🏷 Tags & Blogs</span>
                     </div>
                 </div>
                 <div class="menu-item">
                     <a class="menu-link {{ Request::is('admin/tags') ? 'active' : '' }}" href="/admin/tags">
                         <span class="menu-icon">
-                            <i class="bi bi-list-check fs-3"></i>
+                            <i class="bi bi-tags fs-3 text-success"></i>
                         </span>
                         <span class="menu-title">Tags</span>
                     </a>
@@ -144,15 +164,15 @@
                 <div class="menu-item">
                     <a class="menu-link {{ Request::is('admin/blogs') ? 'active' : '' }}" href="admin/blogs">
                         <span class="menu-icon">
-                            <i class="bi bi-list-check fs-3"></i>
+                            <i class="bi bi-journal-text fs-3 text-danger"></i>
                         </span>
                         <span class="menu-title">Blogs</span>
                     </a>
                 </div>
 
-                <div class="menu-item">
+                {{-- <div class="menu-item">
                     <div class="menu-content pt-8 pb-2">
-                        <span class="menu-section text-muted text-uppercase fs-8 ls-1">Pages</span>
+                        <span class="menu-section text-muted text-uppercase fs-8 ls-1">Settings</span>
                     </div>
                 </div>
                 <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
@@ -173,7 +193,7 @@
                             </a>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
             <!--end::Menu-->
         </div>
