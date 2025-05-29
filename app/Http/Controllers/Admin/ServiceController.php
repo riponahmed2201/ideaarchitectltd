@@ -98,11 +98,13 @@ class ServiceController extends Controller
             return to_route('admin.services.index');
         } catch (Exception $exception) {
             DB::rollBack();
+
             // If an image was uploaded, delete the newly uploaded file to prevent orphaned files
             if (isset($input['image']) && Storage::disk('public')->exists($input['image'])) {
                 Storage::disk('public')->delete($input['image']);
             }
-            notify()->error("Something went wrong! Please try again.", "Error");
+
+            notify()->error("Failed to create service", "Error");
             return back();
         }
     }
@@ -160,7 +162,7 @@ class ServiceController extends Controller
                 Storage::disk('public')->delete($input['image']);
             }
 
-            notify()->error("Something went wrong! Please try again.", "Error");
+            notify()->error("Failed to update service", "Error");
             return back();
         }
     }

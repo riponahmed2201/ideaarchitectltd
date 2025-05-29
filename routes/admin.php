@@ -28,28 +28,15 @@ Route::middleware('admin')->group(function () {
     Route::put('profile/update', [ProfileController::class, 'update'])->name('profile.update');
 
     //Dashboard
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-    //Service
     Route::resource('service-categories', ServiceCategoryController::class);
     Route::resource('services', ServiceController::class);
-
-    //Blog
     Route::resource('tags', TagController::class);
     Route::resource('blogs', BlogController::class);
-
-    //Partner
     Route::resource('partners', PartnerController::class);
-
-    //Sliders
     Route::resource('sliders', SliderController::class);
-
-    //Portfolios
     Route::resource('portfolios', PortfolioController::class);
-
-    //Projects
     Route::resource('projects', ProjectController::class);
-
-    //Videos
     Route::resource('videos', VideosController::class);
 });

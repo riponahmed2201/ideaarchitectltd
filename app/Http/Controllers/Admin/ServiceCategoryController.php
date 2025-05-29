@@ -70,10 +70,10 @@ class ServiceCategoryController extends Controller
 
         try {
             ServiceCategory::query()->create($input);
-            notify()->success("Service created successfully.", "Success");
+            notify()->success("Service category created successfully.", "Success");
             return to_route('admin.service-categories.index');
         } catch (Exception $exception) {
-            notify()->error("Something went wrong. Please try again.", "Error");
+            notify()->error("Failed to create service category", "Error");
             return back();
         }
     }
@@ -96,10 +96,10 @@ class ServiceCategoryController extends Controller
 
         try {
             $serviceCategory->update($input);
-            notify()->success("Service updated successfully.", "Success");
+            notify()->success("Service category updated successfully.", "Success");
             return to_route('admin.service-categories.index');
         } catch (Exception $exception) {
-            notify()->error("Something went wrong. Please try again.", "Error");
+            notify()->error("Failed to update service category", "Error");
             return back();
         }
     }

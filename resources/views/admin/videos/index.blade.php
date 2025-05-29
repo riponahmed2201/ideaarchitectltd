@@ -6,7 +6,7 @@
 
 @section('content')
     <!--begin::Toolbar -->
-    <x-toolbar :title="'Portfolios'" :breadcrumbs="[['label' => 'Home', 'url' => route('admin.dashboard')], ['label' => 'Portfolios', 'active' => true]]" />
+    <x-toolbar :title="'Videos'" :breadcrumbs="[['label' => 'Home', 'url' => route('admin.dashboard')], ['label' => 'Videos', 'active' => true]]" />
     <!--end::Toolbar -->
 
     <div class="post d-flex flex-column-fluid" id="kt_post">
@@ -41,7 +41,7 @@
                         <!--begin::Toolbar-->
                         <div class="d-flex justify-content-end">
                             <!--begin::Add service category-->
-                            <a href="/admin/portfolios/create" class="btn btn-primary">
+                            <a href="/admin/videos/create" class="btn btn-primary">
                                 <i class="bi bi-plus-circle-dotted"></i>
                                 Add New
                             </a>
@@ -61,11 +61,9 @@
                             <!--begin::Table row-->
                             <tr class="text-start text-muted fw-bolder fs-7 text-uppercase gs-0">
                                 <th>#</th>
-                                <th>Image</th>
+                                <th>URL</th>
                                 <th>Title</th>
-                                <th>Client Name</th>
-                                <th>Service</th>
-                                <th>Date</th>
+                                <th>Description</th>
                                 <th>Status</th>
                                 <th>Create At</th>
                                 <th>Action</th>
@@ -107,28 +105,20 @@
                         searchable: false,
                     },
                     {
-                        data: 'image',
-                        name: 'image'
+                        data: 'url',
+                        name: 'url'
                     },
                     {
                         data: 'title',
                         name: 'title'
                     },
                     {
-                        data: 'client_name',
-                        name: 'client_name'
-                    },
-                    {
-                        data: 'service.name',
-                        name: 'service.name'
+                        data: 'description',
+                        name: 'description'
                     },
                     {
                         data: 'status',
                         name: 'status'
-                    },
-                    {
-                        data: 'date',
-                        name: 'date'
                     },
                     {
                         data: 'created_at',

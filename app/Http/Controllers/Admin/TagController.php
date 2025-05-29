@@ -72,7 +72,7 @@ class TagController extends Controller
             notify()->success("Tag created successfully.", "Success");
             return to_route('admin.tags.index');
         } catch (Exception $exception) {
-            notify()->error("Something went wrong. Please try again.", "Error");
+            notify()->error("Failed to create tag", "Error");
             return back();
         }
     }
@@ -98,7 +98,7 @@ class TagController extends Controller
             notify()->success("Tag updated successfully.", "Success");
             return to_route('admin.tags.index');
         } catch (Exception $exception) {
-            notify()->error("Something went wrong. Please try again.", "Error");
+            notify()->error("Failed to update tag", "Error");
             return back();
         }
     }
