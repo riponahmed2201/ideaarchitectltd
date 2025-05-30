@@ -41,7 +41,7 @@ class ServiceController extends Controller
                 ->addIndexColumn()
                 ->addColumn('image', function ($row) {
                     if ($row->image) {
-                        $url = Storage::url($row->image);;
+                        $url = Storage::url($row->image);
                         return '<img src="' . $url . '" alt="Service Image" width="60" height="60">';
                     }
                     return '<span class="badge badge-light">No Image</span>';
