@@ -6,7 +6,7 @@
         </div>
         <div class="row">
             @foreach ($videos as $video)
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-4 col-md-6 mb-4">
                     <div class="ratio ratio-16x9">
                         <iframe width="853" height="480" src="https://www.youtube.com/embed/{{ $video->url }}"
                             title="{{ $video->title }}" frameborder="0"

@@ -74,7 +74,7 @@
 
                             <!-- URL -->
                             <div class="col-md-6 fv-row mb-5">
-                                <label class="required fs-5 fw-bold mb-2">URL</label>
+                                <label class="required fs-5 fw-bold mb-2">Embed Code (URL)</label>
                                 <input type="text" name="url" required
                                     class="form-control form-control-solid @error('url') is-invalid @enderror"
                                     placeholder="Enter URL" value="{{ old('url', $editModeData->url ?? '') }}" />
