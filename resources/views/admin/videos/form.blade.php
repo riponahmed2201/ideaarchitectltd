@@ -44,17 +44,6 @@
                                 @enderror
                             </div>
 
-                            <!-- URL -->
-                            <div class="col-md-6 fv-row mb-5">
-                                <label class="required fs-5 fw-bold mb-2">URL</label>
-                                <input type="text" name="url" required
-                                    class="form-control form-control-solid @error('url') is-invalid @enderror"
-                                    placeholder="Enter URL" value="{{ old('url', $editModeData->url ?? '') }}" />
-                                @error('url')
-                                    <div class="text-danger mt-2">{{ $message }}</div>
-                                @enderror
-                            </div>
-
                             <!-- Status -->
                             <div class="col-md-6 fv-row mb-5">
                                 <label class="required fs-5 fw-bold mb-2">Status</label>
@@ -67,6 +56,29 @@
                                     <option value="0" @selected(old('status', $editModeData->status ?? '') == 0)>Inactive</option>
                                 </select>
                                 @error('status')
+                                    <div class="text-danger mt-2">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <!-- Area (sqft) -->
+                            <div class="col-md-6 fv-row mb-5">
+                                <label class="fs-5 fw-bold mb-2">Area (sft)</label>
+                                <input type="text" name="area_sft"
+                                    class="form-control form-control-solid @error('area_sft') is-invalid @enderror"
+                                    placeholder="Enter area in sft"
+                                    value="{{ old('area_sft', $editModeData->area_sft ?? '') }}" />
+                                @error('area_sft')
+                                    <div class="text-danger mt-2">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <!-- URL -->
+                            <div class="col-md-6 fv-row mb-5">
+                                <label class="required fs-5 fw-bold mb-2">URL</label>
+                                <input type="text" name="url" required
+                                    class="form-control form-control-solid @error('url') is-invalid @enderror"
+                                    placeholder="Enter URL" value="{{ old('url', $editModeData->url ?? '') }}" />
+                                @error('url')
                                     <div class="text-danger mt-2">{{ $message }}</div>
                                 @enderror
                             </div>

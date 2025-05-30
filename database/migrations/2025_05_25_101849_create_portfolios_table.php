@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('portfolios', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('service_id')->constrained()->onDelete('cascade'); // Adds foreign key constraint
+            $table->foreignId('service_id')->constrained('services')->onDelete('cascade'); // Adds foreign key constraint
             $table->string('title');
             $table->string('client_name');
             $table->string('image');

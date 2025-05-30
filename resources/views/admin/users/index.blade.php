@@ -6,7 +6,7 @@
 
 @section('content')
     <!--begin::Toolbar -->
-    <x-toolbar :title="'Videos'" :breadcrumbs="[['label' => 'Home', 'url' => route('admin.dashboard')], ['label' => 'Videos', 'active' => true]]" />
+    <x-toolbar :title="'Users'" :breadcrumbs="[['label' => 'Home', 'url' => route('admin.dashboard')], ['label' => 'Users', 'active' => true]]" />
     <!--end::Toolbar -->
 
     <div class="post d-flex flex-column-fluid" id="kt_post">
@@ -41,7 +41,7 @@
                         <!--begin::Toolbar-->
                         <div class="d-flex justify-content-end">
                             <!--begin::Add service category-->
-                            <a href="/admin/videos/create" class="btn btn-primary">
+                            <a href="/admin/users/create" class="btn btn-primary">
                                 <i class="bi bi-plus-circle-dotted"></i>
                                 Add New
                             </a>
@@ -61,10 +61,11 @@
                             <!--begin::Table row-->
                             <tr class="text-start text-muted fw-bolder fs-7 text-uppercase gs-0">
                                 <th>#</th>
-                                <th>URL</th>
-                                <th>Title</th>
-                                <th>Area Sft</th>
-                                <th>Description</th>
+                                <th>Profile Info</th>
+                                <th>Gender</th>
+                                <th>DOB</th>
+                                <th>Address</th>
+                                <th>Social Links</th>
                                 <th>Status</th>
                                 <th>Create At</th>
                                 <th>Action</th>
@@ -106,20 +107,24 @@
                         searchable: false,
                     },
                     {
-                        data: 'url',
-                        name: 'url'
+                        data: 'profile_info',
+                        name: 'profile_info'
                     },
                     {
-                        data: 'title',
-                        name: 'title'
+                        data: 'profile.gender',
+                        name: 'profile.gender'
                     },
                     {
-                        data: 'area_sft',
-                        name: 'area_sft'
+                        data: 'profile.dob',
+                        name: 'profile.dob'
                     },
                     {
-                        data: 'description',
-                        name: 'description'
+                        data: 'profile.address',
+                        name: 'profile.address'
+                    },
+                    {
+                        data: 'social_links',
+                        name: 'social_links'
                     },
                     {
                         data: 'status',
@@ -145,51 +150,6 @@
             // Trigger table redraw on keyup event in the search input field
             search.keyup(function() {
                 table.draw();
-            });
-
-            //Delete
-            $(document).on('click', '.delete-btn', function() {
-                var id = $(this).data('id');
-                var url = $(this).data('url');
-
-                Swal.fire({
-                    title: 'Are you sure?',
-                    text: "You won't be able to revert this!",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, delete it!'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        $.ajax({
-                            url: url,
-                            type: 'DELETE',
-                            data: {
-                                _token: '{{ csrf_token() }}'
-                            },
-                            success: function(response) {
-                                const {
-                                    success,
-                                    statusCode,
-                                    message
-                                } = response;
-
-                                if (success && statusCode === 200) {
-                                    Swal.fire('Deleted!', message, 'success');
-                                    table.ajax.reload(); // reload the table
-                                } else {
-                                    Swal.fire('Error!', message, 'error');
-                                }
-
-                            },
-                            error: function(xhr) {
-                                Swal.fire('Error!', xhr.responseJSON?.error ??
-                                    'Something went wrong.', 'error');
-                            }
-                        });
-                    }
-                });
             });
 
         });

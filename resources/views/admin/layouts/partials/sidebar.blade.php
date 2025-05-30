@@ -68,6 +68,15 @@
                 </div>
 
                 <div class="menu-item">
+                    <a class="menu-link {{ Request::is('admin/users*') ? 'active' : '' }}" href="/admin/users">
+                        <span class="menu-icon">
+                            <i class="bi bi-people fs-3 text-danger"></i>
+                        </span>
+                        <span class="menu-title">Users</span>
+                    </a>
+                </div>
+
+                <div class="menu-item">
                     <div class="menu-content pt-8 pb-2">
                         <span class="menu-section text-muted text-uppercase fs-8 ls-1">💼 Business Content</span>
                     </div>
@@ -110,7 +119,7 @@
                 <div class="menu-item">
                     <a class="menu-link {{ Request::is('admin/projects*') ? 'active' : '' }}" href="/admin/projects">
                         <span class="menu-icon">
-                            <i class="bi bi-kanban fs-3 text-secondary"></i>
+                            <i class="bi bi-kanban fs-3 text-success"></i>
                         </span>
                         <span class="menu-title">Projects</span>
                     </a>

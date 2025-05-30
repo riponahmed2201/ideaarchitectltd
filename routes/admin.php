@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\ServiceCategoryController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\TagController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\VideosController;
 use Illuminate\Support\Facades\Route;
 
@@ -39,4 +40,7 @@ Route::middleware('admin')->group(function () {
     Route::resource('portfolios', PortfolioController::class);
     Route::resource('projects', ProjectController::class);
     Route::resource('videos', VideosController::class);
+
+//User
+    Route::resource('users', UserController::class);
 });

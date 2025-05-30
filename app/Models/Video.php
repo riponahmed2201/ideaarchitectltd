@@ -10,5 +10,5 @@ class Video extends Model
 
     protected $primaryKey = 'id';
 
-    protected $fillable = ['title', 'url', 'description', 'status'];
+    protected $fillable = ['title', 'url', 'area_sft', 'description', 'status'];
 }

@@ -137,7 +137,7 @@
                             <div class="contact-details-bg">
                                 <i class="flaticon-placeholder"></i>
                                 <h4>Address</h4>
-                                <p>House: 1259, Road: 10, Avenue-2, Mirpur DOHS, Dhaka, Bangladesh</p>
+                                <p>Mirpur - 6, Dhaka-1216, Bangladesh</p>
                             </div>
 
                         </div>

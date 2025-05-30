@@ -14,16 +14,21 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        $hashedPassword = Hash::make('password');
+        $user = User::create([
+            'name' => 'Admin',
+            'email' => 'admin@gmail.com',
+            'status' => 1,
+            'password' => Hash::make('password'),
+        ]);
 
-        $users = [
-            [
-                'name' => 'Admin',
-                'email' => 'admin@gmail.com',
-                'password' => $hashedPassword
-            ]
-        ];
-
-        User::insert($users);
+        $user->profile()->create([
+            'phone' => '0123456789',
+            'about_me' => 'I am the system admin.',
+            'picture' => null,
+            'facebook' => 'https://facebook.com',
+            'twitter' => 'https://twitter.com',
+            'linkedin' => 'https://linkedin.com',
+            'instagram' => 'https://instagram.com',
+        ]);
     }
 }
