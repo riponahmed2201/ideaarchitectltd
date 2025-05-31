@@ -13,7 +13,7 @@ class PortfolioController extends Controller
      */
     public function index()
     {
-        $portfolios = Portfolio::with('service')->where('status', 12)->paginate(1);
+        $portfolios = Portfolio::with('service')->where('status', 1)->paginate(12);
 
         return view('frontend.pages.portfolio.index', compact('portfolios'));
     }
