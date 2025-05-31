@@ -1,7 +1,7 @@
  <!-- Start Banner Two Area -->
  <div class="banner-two-area">
      <div class="banner-two-slider owl-carousel owl-theme">
-         @foreach ($sliders as $sliders)
+         @foreach ($sliders as $slider)
              <div class="single-banner-two-content">
                  <div class="container-fluid">
                      <div class="row align-items-center">
