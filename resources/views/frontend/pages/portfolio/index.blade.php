@@ -17,117 +17,31 @@
         <div class="container">
             <div class="section-title">
                 <span class="top-title">EXPLORE RECENT PORTFOLIOS</span>
-                <h2>Few Corporate Portfolios</h2>
+                <h2>Our Latest Portfolios</h2>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="portfolios-item portfolios-image">
-                        <a href="portfolio-details.html">
-                            <img src="assets/frontend/images/portfolios/portfolios-img-2.jpg" alt="image">
-                        </a>
-                        <div class="portfolios">
-                            <a data-fancybox="gallery" href="assets/frontend/images/portfolios/portfolios-img-2.jpg">
-                                <i class="flaticon-add"></i>
+                @forelse ($portfolios as $portfolio)
+                    <div class="col-lg-4 col-md-6">
+                        <div class="portfolios-item portfolios-image">
+                            <a href="{{ route('portfolio.show', $portfolio->id) }}">
+                                <img src="{{ Storage::url($portfolio->image) }}" alt="image">
                             </a>
-                        </div>
-                        <div class="portfolios-content">
-                            <p>Development</p>
-                            <h3>
-                                <a href="portfolio-details.html">Corporate Website</a>
-                            </h3>
+                            <div class="portfolios">
+                                <a data-fancybox="gallery" href="{{ Storage::url($portfolio->image) }}">
+                                    <i class="flaticon-add"></i>
+                                </a>
+                            </div>
+                            <div class="portfolios-content">
+                                <p>{{ $portfolio->service->name }}</p>
+                                <h3>
+                                    <a href="{{ route('portfolio.show', $portfolio->id) }}">{{ $portfolio->title }}</a>
+                                </h3>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="portfolios-item portfolios-image">
-                        <a href="portfolio-details.html">
-                            <img src="assets/frontend/images/portfolios/portfolios-img-3.jpg" alt="image">
-                        </a>
-                        <div class="portfolios">
-                            <a data-fancybox="gallery" href="assets/frontend/images/portfolios/portfolios-img-3.jpg">
-                                <i class="flaticon-add"></i>
-                            </a>
-                        </div>
-                        <div class="portfolios-content">
-                            <p>Senior Designer</p>
-                            <h3>
-                                <a href="portfolio-details.html">Investment Technology</a>
-                            </h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="portfolios-item portfolios-image">
-                        <a href="portfolio-details.html">
-                            <img src="assets/frontend/images/portfolios/portfolios-img-4.jpg" alt="image">
-                        </a>
-                        <div class="portfolios">
-                            <a data-fancybox="gallery" href="assets/frontend/images/portfolios/portfolios-img-4.jpg">
-                                <i class="flaticon-add"></i>
-                            </a>
-                        </div>
-                        <div class="portfolios-content">
-                            <p>Senior Development</p>
-                            <h3>
-                                <a href="portfolio-details.html">Website Technology</a>
-                            </h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="portfolios-item portfolios-image">
-                        <a href="portfolio-details.html">
-                            <img src="assets/frontend/images/portfolios/portfolios-img-1.jpg" alt="image">
-                        </a>
-                        <div class="portfolios">
-                            <a data-fancybox="gallery" href="assets/frontend/images/portfolios/portfolios-img-1.jpg">
-                                <i class="flaticon-add"></i>
-                            </a>
-                        </div>
-                        <div class="portfolios-content">
-                            <p>Factory Manager</p>
-                            <h3>
-                                <a href="portfolio-details.html">Investment strategy</a>
-                            </h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="portfolios-item portfolios-image">
-                        <a href="portfolio-details.html">
-                            <img src="assets/frontend/images/portfolios/portfolios-img-5.jpg" alt="image">
-                        </a>
-                        <div class="portfolios">
-                            <a data-fancybox="gallery" href="assets/frontend/images/portfolios/portfolios-img-4.jpg">
-                                <i class="flaticon-add"></i>
-                            </a>
-                        </div>
-                        <div class="portfolios-content">
-                            <p>Marketing Management</p>
-                            <h3>
-                                <a href="portfolio-details.html">Corporate Technology</a>
-                            </h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="portfolios-item portfolios-image">
-                        <a href="portfolio-details.html">
-                            <img src="assets/frontend/images/portfolios/portfolios-img-6.jpg" alt="image">
-                        </a>
-                        <div class="portfolios">
-                            <a data-fancybox="gallery" href="assets/frontend/images/portfolios/portfolios-img-4.jpg">
-                                <i class="flaticon-add"></i>
-                            </a>
-                        </div>
-                        <div class="portfolios-content">
-                            <p>Designer</p>>
-                            <h3>
-                                <a href="portfolio-details.html">Business solutions</a>
-                            </h3>
-                        </div>
-                    </div>
-                </div>
+                @empty
+                    <p class="text-danger text-center">No Portfolio Found!</p>
+                @endforelse
             </div>
             <div class="pagination-area">
                 <a href="/portfolio" class="prev page-numbers">

@@ -110,7 +110,7 @@
                     <a class="menu-link {{ Request::is('admin/portfolios*') ? 'active' : '' }}"
                         href="/admin/portfolios">
                         <span class="menu-icon">
-                            <i class="bi bi-briefcase fs-3 text-dark"></i>
+                            <i class="bi bi-briefcase fs-3 text-info"></i>
                         </span>
                         <span class="menu-title">Portfolios</span>
                     </a>

@@ -31,3 +31,4 @@ Route::get('/contact-us', [ContactUsController::class, 'index']);
 
 //Portfolio
 Route::get('/portfolio', [PortfolioController::class, 'index']);
+Route::get('/portfolio/details/{id}', [PortfolioController::class, 'show'])->name('portfolio.show');

@@ -40,7 +40,7 @@
 
                         <li class="nav-item">
                             <a href="/portfolio"
-                                class="nav-link {{ Request::is('portfolio') ? 'active' : '' }}">Portfolio</a>
+                                class="nav-link {{ Request::is('portfolio*') ? 'active' : '' }}">Portfolio</a>
                         </li>
 
                         <li class="nav-item">
