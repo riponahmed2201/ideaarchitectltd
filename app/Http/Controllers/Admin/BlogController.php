@@ -94,7 +94,7 @@ class BlogController extends Controller
             $blog = Blog::query()->create($input);
 
             // Attach tags (many-to-many)
-            if (!empty($validated['tags'])) {
+            if (!empty($input['tags'])) {
                 $blog->tags()->attach($input['tags']);
             }
 
