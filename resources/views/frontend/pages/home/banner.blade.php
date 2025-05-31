@@ -11,7 +11,7 @@
                                  <h1>{{ $slider->title }}</h1>
                                  <p>{{ $slider->short_description }}</p>
                                  <div class="banner-two-btn">
-                                     <a href="/about-us" class="default-btn">Our Services <i
+                                     <a href="/services" class="default-btn">Our Services <i
                                              class="flaticon-next"></i></a>
                                  </div>
                              </div>

@@ -1,4 +1,4 @@
-<div class="articles-area bg-color-3 pt-100 pb-70">
+<div class="articles-area bg-color-3 pb-70">
     <div class="container">
         <div class="section-title center-title">
             <span class="top-title">Client Success Stories</span>
