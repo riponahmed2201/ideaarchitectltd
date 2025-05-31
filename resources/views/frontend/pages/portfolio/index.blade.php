@@ -44,17 +44,7 @@
                 @endforelse
             </div>
             <div class="pagination-area">
-                <a href="/portfolio" class="prev page-numbers">
-                    <i class="flaticon-left"></i>
-                </a>
-
-                <span class="page-numbers current" aria-current="page">1</span>
-                <a href="/portfolio" class="page-numbers">2</a>
-
-                <a href="/portfolio" class="prev page-numbers">
-                    <i class="flaticon-next"></i>
-                </a>
-
+                {{ $portfolios->links() }}
             </div>
         </div>
     </div>

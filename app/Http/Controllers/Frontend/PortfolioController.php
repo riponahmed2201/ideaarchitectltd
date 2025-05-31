@@ -13,7 +13,7 @@ class PortfolioController extends Controller
      */
     public function index()
     {
-        $portfolios = Portfolio::with('service')->where('status', 1)->paginate(12);
+        $portfolios = Portfolio::with('service')->where('status', 12)->paginate(1);
 
         return view('frontend.pages.portfolio.index', compact('portfolios'));
     }
@@ -25,7 +25,7 @@ class PortfolioController extends Controller
     {
         $portfolio = Portfolio::with('service')->where('status', 1)->where('id', $id)->first();
 
-        $portfolioList = Portfolio::with('service')->where('status', 1)->get();
+        $portfolioList = Portfolio::with('service')->where('status', 1)->latest()->get();
 
         return view('frontend.pages.portfolio.show', compact('portfolio', 'portfolioList'));
     }
