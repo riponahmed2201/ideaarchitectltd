@@ -18,7 +18,7 @@
                          </div>
                          <div class="col-lg-6">
                              <div class="banner-two-image">
-                                 <img src="{{ Storage::url($slider->logo) }}" alt="{{ $slider->title }}">
+                                 <img src="{{ Storage::url($slider->image) }}" alt="{{ $slider->title }}">
                                  <div class="banner-two-shape">
                                      <img src="{{ asset('assets/frontend/images/banner/banner-two-shape-1.png') }}"
                                          alt="images">
