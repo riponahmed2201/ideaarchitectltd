@@ -68,15 +68,13 @@
                 <div class="footer-widget ps-5">
                     <h2>Featured Services</h2>
                     <ul class="footer-list">
-                        @foreach (getServices()->take(6) as $service)
-                            @php
-                                $serviceDetailsRoute = route('services.show', [
-                                    'category_slug' => $service->category->slug,
-                                    'service_slug' => $service->slug,
-                                ]);
-                            @endphp
+                        <li>
+                            <a target="_blank" href="/services">All Services</a>
+                        </li>
+                        @foreach (getServiceCategories() as $serviceCategory)
                             <li>
-                                <a target="_blank" href="{{ $serviceDetailsRoute }}">{{ $service->name }}</a>
+                                <a target="_blank"
+                                    href="{{ route('services.index', $serviceCategory->slug) }}">{{ $serviceCategory->name }}</a>
                             </li>
                         @endforeach
                     </ul>
