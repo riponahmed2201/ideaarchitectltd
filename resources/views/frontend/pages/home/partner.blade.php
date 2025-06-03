@@ -2,7 +2,7 @@
  <div class="partners-are-two ptb-100">
      <div class="container">
          <div class="section-title">
-             <span class="top-title">PARTNERS</span>
+             <span class="top-title">CLIENTS</span>
              <h2>We are Trusted by</h2>
          </div>
          <div class="partners-logo-slider owl-carousel owl-theme">

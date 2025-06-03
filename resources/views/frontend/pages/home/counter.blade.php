@@ -6,7 +6,27 @@
                     <div class="counter-content content-two">
                         <i class="flaticon-rating"></i>
                         <h2>
-                            <span class="odometer" data-count="1543">00</span>
+                            <span class="odometer" data-count="5">00</span>
+                            <span class="target">+</span>
+                        </h2>
+                        <p>Running Projects</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 col-md-6">
+                    <div class="counter-content content-two">
+                        <i class="flaticon-meeting"></i>
+                        <h2>
+                            <span class="odometer" data-count="57">00</span>
+                            <span class="target">+</span>
+                        </h2>
+                        <p>Finished Projects</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 col-md-6">
+                    <div class="counter-content content-two">
+                        <i class="flaticon-settings"></i>
+                        <h2>
+                            <span class="odometer" data-count="43">00</span>
                             <span class="target">+</span>
                         </h2>
                         <p>Satisfied Clients</p>
@@ -14,29 +34,9 @@
                 </div>
                 <div class="col-lg-3 col-sm-6 col-md-6">
                     <div class="counter-content content-two">
-                        <i class="flaticon-meeting"></i>
-                        <h2>
-                            <span class="odometer" data-count="143">00</span>
-                            <span class="target">+</span>
-                        </h2>
-                        <p>Expert Team</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 col-md-6">
-                    <div class="counter-content content-two">
-                        <i class="flaticon-settings"></i>
-                        <h2>
-                            <span class="odometer" data-count="543">00</span>
-                            <span class="target">+</span>
-                        </h2>
-                        <p>Activate Project</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 col-md-6">
-                    <div class="counter-content content-two">
                         <i class="flaticon-award-symbol"></i>
                         <h2>
-                            <span class="odometer" data-count="133">00</span>
+                            <span class="odometer" data-count="12">00</span>
                             <span class="target">+</span>
                         </h2>
                         <p>Awards Winning</p>

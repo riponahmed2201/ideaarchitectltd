@@ -72,7 +72,7 @@
                         <span class="menu-icon">
                             <i class="bi bi-people fs-3 text-danger"></i>
                         </span>
-                        <span class="menu-title">Users</span>
+                        <span class="menu-title">Team Members</span>
                     </a>
                 </div>
 

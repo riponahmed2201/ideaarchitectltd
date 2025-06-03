@@ -13,7 +13,7 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $blogs = Blog::query()->where('status', 1)->latest()->get(['id', 'title', 'slug', 'short_description', 'featured_image', 'created_at']);
+        $blogs = Blog::query()->where('status', 1)->latest()->paginate(12);
 
         return view('frontend.pages.blog.index', compact('blogs'));
     }

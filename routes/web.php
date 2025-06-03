@@ -19,6 +19,9 @@ Route::get('/privacy-policy', [HomeController::class, 'privacyPolicy']);
 Route::get('/blog', [BlogController::class, 'index']);
 Route::get('/blog/details/{id}', [BlogController::class, 'show'])->name('blog.show');
 
+//Video Gallery
+Route::get('/video-gallery', [HomeController::class, 'videoGallery']);
+
 //Services
 Route::get('/services/{slug?}', [ServiceController::class, 'index'])->name('services.index');
 Route::get('/services/details/{category_slug}/{service_slug}', [ServiceController::class, 'show'])->name('services.show');

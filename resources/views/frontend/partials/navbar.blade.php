@@ -31,10 +31,6 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="#" class="nav-link">Work Process</a>
-                        </li>
-
-                        <li class="nav-item">
                             <a href="/about-us" class="nav-link {{ Request::is('about-us') ? 'active' : '' }}">About</a>
                         </li>
 
@@ -58,6 +54,11 @@
                         </li>
 
                         <li class="nav-item">
+                            <a href="/video-gallery"
+                                class="nav-link {{ Request::is('video-gallery*') ? 'active' : '' }}">Video Gallery</a>
+                        </li>
+
+                        <li class="nav-item">
                             <a href="/blog" class="nav-link {{ Request::is('blog*') ? 'active' : '' }}">Blog</a>
                         </li>
 
@@ -68,7 +69,7 @@
                     </ul>
 
                     <div class="option-item">
-                        <a href="#" class="default-btn">Get in Touch<i class="flaticon-next"></i></a>
+                        <a href="/contact-us" class="default-btn">Get in Touch<i class="flaticon-next"></i></a>
                     </div>
                 </div>
         </div>

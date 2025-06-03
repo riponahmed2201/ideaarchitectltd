@@ -109,7 +109,7 @@
                             <!-- Content -->
                             <div class="col-md-12 fv-row mb-5">
                                 <label class="required fs-5 fw-bold mb-2">Content</label>
-                                <textarea name="content" required class="form-control form-control-solid @error('content') is-invalid @enderror"
+                                <textarea name="content" id="content" required class="form-control form-control-solid @error('content') is-invalid @enderror"
                                     placeholder="Enter blog content" data-kt-autosize="true">{{ old('content', $editModeData->content ?? '') }}</textarea>
                                 @error('content')
                                     <div class="text-danger mt-2">{{ $message }}</div>
@@ -130,8 +130,21 @@
 @endsection
 
 @push('scripts')
+    <!-- ckeditor -->
+    <script src="{{ asset('assets/admin/plugins/custom/ckeditor/ckeditor-classic.bundle.js') }}"></script>
+
     <script>
         $(document).ready(function() {
+
+            // Initialize CKEditor
+            ClassicEditor.create(document.querySelector("#content"))
+                .then((editor) => {
+                    console.log(editor);
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+
             $('#imageInput').on('change', function(event) {
                 const file = event.target.files[0];
                 if (file) {

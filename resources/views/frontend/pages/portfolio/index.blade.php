@@ -43,8 +43,9 @@
                     <p class="text-danger text-center">No Portfolio Found!</p>
                 @endforelse
             </div>
-            <div class="pagination-area">
-                {{ $portfolios->links() }}
+            <!-- Display pagination links -->
+            <div id="data">
+                {{ $portfolios->links('vendor.pagination.bootstrap-5') }}
             </div>
         </div>
     </div>

@@ -48,6 +48,11 @@
                     <p class="text-center text-danger">No Blog Found!</p>
                 @endforelse
             </div>
+
+            <!-- Display pagination links -->
+            <div id="data">
+                {{ $blogs->links('vendor.pagination.bootstrap-5') }}
+            </div>
         </div>
     </div>
     <!-- End our news articles -->
