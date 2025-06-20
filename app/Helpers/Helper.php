@@ -3,6 +3,8 @@
 use App\Models\Partner;
 use App\Models\Service;
 use App\Models\ServiceCategory;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 if (!function_exists('getServiceCategories')) {
 
@@ -43,5 +45,19 @@ if (!function_exists('getPartners')) {
     function getPartners()
     {
         return Partner::where('status', 1)->latest()->get();
+    }
+}
+
+if (!function_exists('getLoggedInUser')) {
+
+    /**
+     * Get logged in user details
+     *
+     * @param
+     * @return
+     */
+    function getLoggedInUser()
+    {
+        return Auth::user()->load('profile');
     }
 }

@@ -41,6 +41,6 @@ Route::middleware('admin')->group(function () {
     Route::resource('projects', ProjectController::class);
     Route::resource('videos', VideosController::class);
 
-//User
+    //User
     Route::resource('users', UserController::class);
 });

@@ -58,8 +58,8 @@
                 </div>
 
                 <div class="menu-item">
-                    <a class="menu-link {{ Request::is('admin/profile/overview') ? 'active' : '' }}"
-                        href="/admin/profile/overview">
+                    <a class="menu-link {{ Request::is('admin/profile') ? 'active' : '' }}"
+                        href="/admin/profile">
                         <span class="menu-icon">
                             <i class="bi bi-person fs-3 text-info"></i>
                         </span>

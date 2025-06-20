@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -13,7 +14,9 @@ class ProfileController extends Controller
 {
     public function index()
     {
-        return view('admin.profiles.index');
+        $profile = User::with('profile')->where('id', Auth::id())->first();
+
+        return view('admin.profiles.index', compact('profile'));
     }
 
     public function update(Request $request)

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UserRequest;
+use App\Http\Requests\UserUpdateRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
@@ -10,6 +12,7 @@ use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
@@ -105,9 +108,55 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
-        //
+        try {
+            DB::beginTransaction();
+
+            $user = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'status' => $request->status,
+                'password' => Hash::make('password'), // Change if needed
+            ]);
+
+            $profileData = $request->only([
+                'phone',
+                'gender',
+                'address',
+                'about_me',
+                'facebook',
+                'twitter',
+                'linkedin',
+                'instagram'
+            ]);
+
+            if ($request->dob) {
+                $profileData['dob'] = date("Y-m-d", strtotime(str_replace('/', '-', $request->dob)));
+            }
+
+            if ($request->hasFile('picture')) {
+                $profileData['picture'] = $request->file('picture')->store('profile_images', 'public');
+            }
+
+            $user->profile()->create($profileData);
+
+            DB::commit();
+
+            notify()->success("User created successfully.", "Success");
+            return to_route('admin.users.index');
+        } catch (Exception $exception) {
+
+            dd($exception);
+            DB::rollBack();
+            // If an picture was uploaded, delete the newly uploaded file to prevent orphaned files
+            if (isset($profileData['picture']) && Storage::disk('public')->exists($profileData['picture'])) {
+                Storage::disk('public')->delete($profileData['picture']);
+            }
+
+            notify()->error("Failed to create user", "Error");
+            return back();
+        }
     }
 
     /**
@@ -115,7 +164,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        //
+        return view('admin.users.show', compact('user'));
     }
 
     /**
@@ -129,9 +178,60 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $user)
+
+    public function update(UserUpdateRequest $request, User $user)
     {
-        //
+        try {
+            DB::beginTransaction();
+
+            $user->update([
+                'name' => $request->name,
+                'email' => $request->email,
+                'status' => $request->status,
+            ]);
+
+            $profileData = $request->only([
+                'phone',
+                'gender',
+                'address',
+                'about_me',
+                'facebook',
+                'twitter',
+                'linkedin',
+                'instagram'
+            ]);
+
+            if ($request->dob) {
+                $profileData['dob'] = date("Y-m-d", strtotime(str_replace('/', '-', $request->dob)));
+            }
+
+            if ($request->hasFile('picture')) {
+                // delete old image
+                if ($user->profile->picture) {
+                    Storage::disk('public')->delete($user->profile->picture);
+                }
+                $profileData['picture'] = $request->file('picture')->store('profile_images', 'public');
+            }
+
+            $user->profile()->updateOrCreate(
+                ['user_id' => $user->id],
+                $profileData
+            );
+
+            DB::commit();
+
+            notify()->success("User updated successfully.", "Success");
+            return to_route('admin.users.index');
+        } catch (Exception $exception) {
+            DB::rollBack();
+            // If an picture was uploaded, delete the newly uploaded file to prevent orphaned files
+            if (isset($profileData['picture']) && Storage::disk('public')->exists($profileData['picture'])) {
+                Storage::disk('public')->delete($profileData['picture']);
+            }
+
+            notify()->error("Failed to update user", "Error");
+            return back();
+        }
     }
 
     /**

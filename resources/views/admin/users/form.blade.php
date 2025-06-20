@@ -68,6 +68,41 @@
                                 @enderror
                             </div>
 
+                            <div class="col-md-6 mb-5">
+                                <label class="fs-5 fw-bold mb-2">Gender</label>
+                                <select name="gender"
+                                    class="form-select form-select-solid @error('gender') is-invalid @enderror"
+                                    data-control="select2" data-placeholder="Select Gender">
+                                    <option value="" disabled {{ !isset($editModeData) ? 'selected' : '' }}>Select
+                                        Gender</option>
+                                    <option value="Male" @selected(old('gender', $editModeData->profile->gender ?? '') == 'Male')>Male</option>
+                                    <option value="Female" @selected(old('gender', $editModeData->profile->gender ?? '') == 'Female')>Female</option>
+                                </select>
+                                @error('gender')
+                                    <div class="text-danger mt-2">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="col-md-6 mb-5">
+                                <label class="fs-5 fw-bold mb-2">Date of Birth</label>
+                                <input type="text" name="dob" id="dob" placeholder="Enter dob"
+                                    class="form-control form-control-solid @error('dob') is-invalid @enderror"
+                                    value="{{ old('dob', $editModeData->profile->dob ?? '') }}" />
+                                @error('dob')
+                                    <div class="text-danger mt-2">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="col-md-6 mb-5">
+                                <label class="fs-5 fw-bold mb-2">Address</label>
+                                <input type="text" name="address" placeholder="Enter address"
+                                    class="form-control form-control-solid @error('address') is-invalid @enderror"
+                                    value="{{ old('address', $editModeData->profile->address ?? '') }}" />
+                                @error('address')
+                                    <div class="text-danger mt-2">{{ $message }}</div>
+                                @enderror
+                            </div>
+
                             <!-- Status -->
                             <div class="col-md-6 fv-row mb-5">
                                 <label class="required fs-5 fw-bold mb-2">Status</label>
@@ -102,10 +137,10 @@
 
                             <!--  About Me / Description -->
                             <div class="col-md-12 mb-5">
-                                <label class="required fs-5 fw-bold mb-2">About Me</label>
-                                <textarea name="description" placeholder="Enter about me" required class="form-control form-control-solid @error('description') is-invalid @enderror"
-                                    data-kt-autosize="true">{{ old('description', $editModeData->profile->about_me ?? '') }}</textarea>
-                                @error('description')
+                                <label class="fs-5 fw-bold mb-2">About Me</label>
+                                <textarea name="about_me" placeholder="Enter about me"
+                                    class="form-control form-control-solid @error('about_me') is-invalid @enderror" data-kt-autosize="true">{{ old('about_me', $editModeData->profile->about_me ?? '') }}</textarea>
+                                @error('about_me')
                                     <div class="text-danger mt-2">{{ $message }}</div>
                                 @enderror
                             </div>
@@ -144,6 +179,9 @@
 @push('scripts')
     <script>
         $(document).ready(function() {
+            $("#dob").flatpickr({
+                dateFormat: "Y-m-d"
+            });
             $('#imageInput').on('change', function(event) {
                 const file = event.target.files[0];
                 if (file) {
