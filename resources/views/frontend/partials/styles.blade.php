@@ -21,4 +21,34 @@
 <!-- izitoast CSS -->
 <link href="{{ asset('css/iziToast.css') }}" rel="stylesheet">
 
+
+<style>
+    .whatsapp-chat {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 9999;
+    }
+
+    .chat-box {
+        display: flex;
+        align-items: center;
+        background-color: #ffffff;
+        border-radius: 25px;
+        padding: 10px 15px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        color: #000;
+        transition: box-shadow 0.3s;
+    }
+
+    .chat-box img {
+        width: 38px;
+        /* previously 28px */
+        height: 38px;
+        margin-left: 10px;
+    }
+</style>
+
 @stack('style')
