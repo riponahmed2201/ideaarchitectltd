@@ -1,10 +1,10 @@
 @extends('admin.layouts.app')
 
 @section('content')
-    <x-toolbar :title="isset($editModeData) ? 'Edit User' : 'Add User'" :breadcrumbs="[
+    <x-toolbar :title="isset($editModeData) ? 'Edit Team Member' : 'Add Team Member'" :breadcrumbs="[
         ['label' => 'Home', 'url' => route('admin.dashboard')],
-        ['label' => 'Users', 'url' => route('admin.users.index')],
-        ['label' => isset($editModeData) ? 'Edit User' : 'Add User', 'active' => true],
+        ['label' => 'Team Members', 'url' => route('admin.users.index')],
+        ['label' => isset($editModeData) ? 'Edit Team Member' : 'Add Team Member', 'active' => true],
     ]" />
 
     <div class="post d-flex flex-column-fluid" id="kt_post">
@@ -17,7 +17,7 @@
                         <div class="d-flex justify-content-end">
                             <a href="{{ route('admin.users.index') }}" class="btn btn-primary">
                                 <i class="bi bi-list-check"></i>
-                                User List
+                                Team Member List
                             </a>
                         </div>
                     </div>

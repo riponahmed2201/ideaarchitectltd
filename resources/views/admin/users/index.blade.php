@@ -6,7 +6,7 @@
 
 @section('content')
     <!--begin::Toolbar -->
-    <x-toolbar :title="'Users'" :breadcrumbs="[['label' => 'Home', 'url' => route('admin.dashboard')], ['label' => 'Users', 'active' => true]]" />
+    <x-toolbar :title="'Team Members'" :breadcrumbs="[['label' => 'Home', 'url' => route('admin.dashboard')], ['label' => 'Team Members', 'active' => true]]" />
     <!--end::Toolbar -->
 
     <div class="post d-flex flex-column-fluid" id="kt_post">
