@@ -17,7 +17,7 @@
 
     <!-- WhatsApp Chat Button -->
     <div class="whatsapp-chat">
-        <a href="https://wa.me/8801732691745" target="_blank">
+        <a href="https://wa.me/8801841275126" target="_blank">
             <div class="chat-box">
                 Need Help? <strong>Chat with us</strong>
                 <img src="{{ asset('assets/frontend/images/whatsapp.jpg') }}" alt="WhatsApp" />

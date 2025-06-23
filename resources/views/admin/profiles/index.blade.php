@@ -1,7 +1,15 @@
 @extends('admin.layouts.app')
 
+@push('styles')
+    <style>
+        .disabled-input-color {
+            background-color: #d2d2d2 !important;
+        }
+    </style>
+@endpush
 @section('content')
-    <x-toolbar :title="'Profile'" :breadcrumbs="[['label' => 'Home', 'url' => route('admin.dashboard')], ['label' => 'Profile', 'active' => true]]" />
+    <x-toolbar :title="'Profile'"
+               :breadcrumbs="[['label' => 'Home', 'url' => route('admin.dashboard')], ['label' => 'Profile', 'active' => true]]"/>
 
     <div class="post d-flex flex-column-fluid" id="kt_post">
         <!--begin::Container-->
@@ -14,7 +22,7 @@
                         <!--begin: Pic-->
                         <div class="me-7 mb-4">
                             <div class="symbol symbol-100px symbol-lg-160px symbol-fixed position-relative">
-                                <img src="{{ Storage::url($profile->profile->picture) }}" alt="{{ $profile->name }}" />
+                                <img src="{{ Storage::url($profile->profile->picture) }}" alt="{{ $profile->name }}"/>
                                 <div
                                     class="position-absolute translate-middle bottom-0 start-100 mb-6 bg-success rounded-circle border border-4 border-white h-20px w-20px">
                                 </div>
@@ -28,13 +36,13 @@
                         <!--begin::Nav item-->
                         <li class="nav-item mt-2">
                             <a class="nav-link text-active-primary ms-0 me-10 py-5 active"
-                                href="/profile/overview">Overview</a>
+                               href="/admin/profile">Overview</a>
                         </li>
                         <!--end::Nav item-->
                         <!--begin::Nav item-->
                         <li class="nav-item mt-2">
-                            <a class="nav-link text-active-primary ms-0 me-10 py-5" href="/profile/education">Edit
-                                Password</a>
+                            <a class="nav-link text-active-primary ms-0 me-10 py-5" href="/admin/password-change">
+                                Password Change</a>
                         </li>
                         <!--end::Nav item-->
                     </ul>
@@ -66,49 +74,50 @@
 
                                 <div class="col-md-6 fv-row mb-5">
                                     <label class="fs-5 fw-bold mb-2">Name</label>
-                                    <input type="text" class="form-control form-control-solid" disabled
-                                        value="{{ $profile->name }}" />
+                                    <input type="text" class="form-control disabled-input-color" disabled
+                                           value="{{ $profile->name }}"/>
                                 </div>
 
                                 <div class="col-md-6 fv-row mb-5">
                                     <label class="fs-5 fw-bold mb-2">Email</label>
-                                    <input type="text" class="form-control form-control-solid" disabled
-                                        value="{{ $profile->email }}" />
+                                    <input type="text" class="form-control disabled-input-color" disabled
+                                           value="{{ $profile->email }}"/>
                                 </div>
 
                                 <div class="col-md-6 fv-row mb-5">
                                     <label class="fs-5 fw-bold mb-2">Phone</label>
-                                    <input type="text" class="form-control form-control-solid" disabled
-                                        value="{{ $profile->profile->phone }}" />
+                                    <input type="text" class="form-control disabled-input-color" disabled
+                                           value="{{ $profile->profile->phone }}"/>
                                 </div>
 
                                 <div class="col-md-6 fv-row mb-5">
                                     <label class="fs-5 fw-bold mb-2">Gender</label>
-                                    <input type="text" class="form-control form-control-solid" disabled
-                                        value="{{ $profile->profile->gender }}" />
+                                    <input type="text" class="form-control disabled-input-color" disabled
+                                           value="{{ $profile->profile->gender }}"/>
                                 </div>
 
                                 <div class="col-md-6 fv-row mb-5">
                                     <label class="fs-5 fw-bold mb-2">Date of Birth</label>
-                                    <input type="text" class="form-control form-control-solid" disabled
-                                        value="{{ $profile->profile->dob }}" />
+                                    <input type="text" class="form-control disabled-input-color" disabled
+                                           value="{{ $profile->profile->dob }}"/>
                                 </div>
 
                                 <div class="col-md-6 fv-row mb-5">
                                     <label class="fs-5 fw-bold mb-2">Address</label>
-                                    <input type="text" class="form-control form-control-solid" disabled
-                                        value="{{ $profile->profile->address }}" />
+                                    <input type="text" class="form-control disabled-input-color" disabled
+                                           value="{{ $profile->profile->address }}"/>
                                 </div>
 
                                 <div class="col-md-6 fv-row mb-5">
                                     <label class="fs-5 fw-bold mb-2">Status</label>
-                                    <input type="text" class="form-control form-control-solid" disabled
-                                        value="{{ $profile->status == 1 ? 'Active' : 'Inactive' }}" />
+                                    <input type="text" class="form-control disabled-input-color" disabled
+                                           value="{{ $profile->status == 1 ? 'Active' : 'Inactive' }}"/>
                                 </div>
 
                                 <div class="col-md-12 fv-row mb-5">
                                     <label class="fs-5 fw-bold mb-2">About Me</label>
-                                    <textarea class="form-control form-control-solid" disabled data-kt-autosize="true">{{ $profile->profile->about_me }}</textarea>
+                                    <textarea class="form-control disabled-input-color" disabled
+                                              data-kt-autosize="true">{{ $profile->profile->about_me }}</textarea>
                                 </div>
 
                                 <div class="mb-4">
@@ -117,26 +126,26 @@
 
                                 <div class="col-md-6 fv-row mb-5">
                                     <label class="fs-5 fw-bold mb-2">Facebook Profile</label>
-                                    <input type="text" class="form-control form-control-solid" disabled
-                                        value="{{ $profile->profile->facebook }}" />
+                                    <input type="text" class="form-control disabled-input-color" disabled
+                                           value="{{ $profile->profile->facebook }}"/>
                                 </div>
 
                                 <div class="col-md-6 fv-row mb-5">
                                     <label class="fs-5 fw-bold mb-2">Linkedin Profile</label>
-                                    <input type="text" class="form-control form-control-solid" disabled
-                                        value="{{ $profile->profile->linkedin }}" />
+                                    <input type="text" class="form-control disabled-input-color" disabled
+                                           value="{{ $profile->profile->linkedin }}"/>
                                 </div>
 
                                 <div class="col-md-6 fv-row mb-5">
                                     <label class="fs-5 fw-bold mb-2">Twitter Profile</label>
-                                    <input type="text" class="form-control form-control-solid" disabled
-                                        value="{{ $profile->profile->twitter }}" />
+                                    <input type="text" class="form-control disabled-input-color" disabled
+                                           value="{{ $profile->profile->twitter }}"/>
                                 </div>
 
                                 <div class="col-md-6 fv-row mb-5">
                                     <label class="fs-5 fw-bold mb-2">Instagram Profile</label>
-                                    <input type="text" class="form-control form-control-solid" disabled
-                                        value="{{ $profile->profile->instagram }}" />
+                                    <input type="text" class="form-control disabled-input-color" disabled
+                                           value="{{ $profile->profile->instagram }}"/>
                                 </div>
 
                             </div>

@@ -53,39 +53,4 @@ class LoginController extends Controller
         // Redirect to the login page or home page
         return redirect('/admin/login')->with('success', 'You have been logged out successfully.');
     }
-
-    public function updatePassword(Request $request)
-    {
-        $request->validate([
-            'current_password' => 'required',
-            'password' => 'required|confirmed',
-        ]);
-
-        try {
-            $user = Auth::user();
-
-            $hashedPassword = $user->password;
-
-            if (Hash::check($request->current_password, $hashedPassword)) {
-                if (!Hash::check($request->password, $hashedPassword)) {
-                    $user->update([
-                        'password' => Hash::make($request->password)
-                    ]);
-                    Auth::logout();
-                    notify()->success('Password was changed successfully.', 'Success');
-                    return redirect('/admin/login');
-                } else {
-                    notify()->warning('New password can not be same as old password.', 'Warning');
-                }
-            } else {
-                notify()->error('Current password not match.', 'Error');
-            }
-
-            return back();
-        } catch (Exception $exception) {
-            Log::error("Password update failed", ['error' => $exception->getMessage()]);
-            notify()->error("Something went wrong! Please try again.", "Error");
-            return back();
-        }
-    }
 }
