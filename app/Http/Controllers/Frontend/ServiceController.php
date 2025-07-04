@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Portfolio;
 use App\Models\Service;
 use App\Models\ServiceCategory;
 use Illuminate\Http\Request;
@@ -42,6 +43,8 @@ class ServiceController extends Controller
 
         $serviceInfo = Service::query()->where('slug', $serviceSlug)->first();
 
-        return view('frontend.pages.services.show', compact('services', 'serviceInfo'));
+        $portfolios = Portfolio::with('service')->where('service_id', $serviceInfo->id)->latest()->get();
+
+        return view('frontend.pages.services.show', compact('services', 'serviceInfo', 'portfolios'));
     }
 }

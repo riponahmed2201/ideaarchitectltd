@@ -57,6 +57,17 @@
                                 @enderror
                             </div>
 
+                            <!-- Email -->
+                            <div class="col-md-6 mb-5">
+                                <label class="required fs-5 fw-bold mb-2">Designation</label>
+                                <input type="text" name="designation" required placeholder="Enter designation"
+                                    class="form-control form-control-solid @error('designation') is-invalid @enderror"
+                                    value="{{ old('designation', $editModeData->profile->designation ?? '') }}" />
+                                @error('designation')
+                                    <div class="text-danger mt-2">{{ $message }}</div>
+                                @enderror
+                            </div>
+
                             <!-- Phone -->
                             <div class="col-md-6 mb-5">
                                 <label class="required fs-5 fw-bold mb-2">Phone</label>

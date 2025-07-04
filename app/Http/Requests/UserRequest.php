@@ -24,6 +24,7 @@ class UserRequest extends FormRequest
         return [
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users',
+            'designation' => 'required|string',
             'phone' => 'required|unique:profiles,phone',
             'about_me' => 'nullable|string',
             'picture' => 'nullable|image|max:2048',

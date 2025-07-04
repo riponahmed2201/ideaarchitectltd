@@ -24,9 +24,10 @@
                 <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1500" data-aos-once="true">
                     <div class="corporate-website-content">
                         <h2>{{ $portfolio->title }}</h2>
-                        <p>
-                            {{ $portfolio->description }}
-                        </p>
+                        <div>
+                            {!! html_entity_decode($portfolio->description) !!}
+                        </div>
+
                         <ul>
                             <li><i class="flaticon-tag"></i><span>Service:</span> {{ $portfolio->service->name }}</li>
                             <li><i class="flaticon-user"></i><span> Client:</span>{{ $portfolio->client_name }}</li>

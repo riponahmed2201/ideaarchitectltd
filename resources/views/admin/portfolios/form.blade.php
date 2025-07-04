@@ -121,8 +121,8 @@
                             <!-- Description -->
                             <div class="col-md-12 fv-row mb-5">
                                 <label class="required fs-5 fw-bold mb-2">Description</label>
-                                <textarea name="description" required class="form-control form-control-solid @error('description') is-invalid @enderror"
-                                    placeholder="Enter description" data-kt-autosize="true">{{ old('description', $editModeData->description ?? '') }}</textarea>
+                                <textarea name="description" id="kt_docs_ckeditor_classic"
+                                    class="form-control form-control-solid @error('description') is-invalid @enderror" data-kt-autosize="true"> {!! old('description', $editModeData->description ?? '') !!}</textarea>
                                 @error('description')
                                     <div class="text-danger mt-2">{{ $message }}</div>
                                 @enderror
@@ -142,8 +142,18 @@
 @endsection
 
 @push('scripts')
+    <script src="{{ asset('assets/admin/plugins/custom/ckeditor/ckeditor-classic.bundle.js') }}"></script>
+
     <script>
         $(document).ready(function() {
+
+            ClassicEditor.create(document.querySelector("#kt_docs_ckeditor_classic"))
+                .then((editor) => {
+                    console.log(editor);
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
 
             $("#date").flatpickr({
                 dateFormat: "Y-m-d"

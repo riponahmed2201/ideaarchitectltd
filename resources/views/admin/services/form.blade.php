@@ -95,11 +95,21 @@
                                 @enderror
                             </div>
 
+                            <!-- Short Description -->
+                            <div class="col-md-12 fv-row mb-5">
+                                <label class="required fs-5 fw-bold mb-2">Short Description</label>
+                                <textarea name="short_description" placeholder="Enter short description"
+                                    class="form-control form-control-solid @error('short_description') is-invalid @enderror" data-kt-autosize="true">{{ old('short_description', $editModeData->short_description ?? '') }}</textarea>
+                                @error('short_description')
+                                    <div class="text-danger mt-2">{{ $message }}</div>
+                                @enderror
+                            </div>
+
                             <!-- Description -->
                             <div class="col-md-12 fv-row mb-5">
                                 <label class="required fs-5 fw-bold mb-2">Description</label>
-                                <textarea name="description" required class="form-control form-control-solid @error('description') is-invalid @enderror"
-                                    placeholder="Enter description" data-kt-autosize="true">{{ old('description', $editModeData->description ?? '') }}</textarea>
+                                <textarea name="description" id="kt_docs_ckeditor_classic"
+                                    class="form-control form-control-solid @error('description') is-invalid @enderror" data-kt-autosize="true">{!! old('description', $editModeData->description ?? '') !!}</textarea>
                                 @error('description')
                                     <div class="text-danger mt-2">{{ $message }}</div>
                                 @enderror
@@ -119,8 +129,19 @@
 @endsection
 
 @push('scripts')
+    <script src="{{ asset('assets/admin/plugins/custom/ckeditor/ckeditor-classic.bundle.js') }}"></script>
+
     <script>
         $(document).ready(function() {
+
+            ClassicEditor.create(document.querySelector("#kt_docs_ckeditor_classic"))
+                .then((editor) => {
+                    console.log(editor);
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+
             $('#imageInput').on('change', function(event) {
                 const file = event.target.files[0];
                 if (file) {

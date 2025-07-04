@@ -10,7 +10,7 @@ class Profile extends Model
 
     protected $primaryKey = 'id';
 
-    protected $fillable = ['user_id', 'phone', 'about_me', 'picture', 'gender', 'dob', 'address', 'facebook', 'twitter', 'linkedin', 'instagram', 'status'];
+    protected $fillable = ['user_id', 'phone', 'designation', 'about_me', 'picture', 'gender', 'dob', 'address', 'facebook', 'twitter', 'linkedin', 'instagram', 'status'];
 
     public function user()
     {

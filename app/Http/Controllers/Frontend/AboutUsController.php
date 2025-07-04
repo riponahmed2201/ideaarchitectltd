@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AboutUsController extends Controller
@@ -12,6 +13,8 @@ class AboutUsController extends Controller
      */
     public function index()
     {
-        return view('frontend.pages.about.index');
+        $users = User::with('profile')->where('status', 1)->get();
+
+        return view('frontend.pages.about.index', compact('users'));
     }
 }

@@ -62,11 +62,41 @@
                         </div>
                         <h3>{{ $serviceInfo->name }}</h3>
                         <div>{{ $serviceInfo->short_description }}</div>
-                        <div>{{ $serviceInfo->description }}</div>
+                        <div>
+                            {!! html_entity_decode($serviceInfo->description) !!}
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- End Services Details Area -->
+
+    <!-- Start Portfolio Details Area -->
+    <div class="our-portfolio-area pb-70">
+        <div class="container">
+            <div class="corporate-website-slider owl-carousel owl-theme">
+
+                @foreach ($portfolios as $portfolio)
+                    <div class="portfolios-item portfolios-image">
+                        <a href="{{ route('portfolio.show', $portfolio->id) }}">
+                            <img src="{{ Storage::url($portfolio->image) }}" alt="{{ $portfolio->title }}">
+                        </a>
+                        <div class="portfolios">
+                            <a data-fancybox="gallery" href="{{ Storage::url($portfolio->image) }}">
+                                <i class="flaticon-add"></i>
+                            </a>
+                        </div>
+                        <div class="portfolios-content">
+                            <p>{{ $portfolio->service->name }}</p>
+                            <h3>
+                                <a href="{{ route('portfolio.show', $portfolio->id) }}">{{ $portfolio->title }}</a>
+                            </h3>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+    <!-- End Portfolio Details Area -->
 @endsection

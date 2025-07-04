@@ -66,7 +66,6 @@
                                 <th>Location</th>
                                 <th>Area sft</th>
                                 <th>Date</th>
-                                <th>Description</th>
                                 <th>Status</th>
                                 <th>Create At</th>
                                 <th>Action</th>
@@ -126,10 +125,6 @@
                     {
                         data: 'date',
                         name: 'date'
-                    },
-                    {
-                        data: 'description',
-                        name: 'description'
                     },
                     {
                         data: 'status',

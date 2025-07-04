@@ -47,7 +47,8 @@
                         <!-- Description -->
                         <div class="col-md-12 fv-row mb-5">
                             <label class="fs-5 fw-bold mb-2">Description</label>
-                            <textarea class="form-control ready-only-input-color" readonly data-kt-autosize="true">{{ $service->description }}</textarea>
+                            <div class="form-control ready-only-input-color" readonly data-kt-autosize="true">
+                                {!! html_entity_decode($service->description) !!}</div>
                         </div>
                     </div>
                 </div>

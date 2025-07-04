@@ -80,166 +80,54 @@
                 <h2>Our Expert Team</h2>
             </div>
             <div class="row">
-                <div class="col-lg-3 col-sm-6 col-md-6">
-                    <div class="single-team-member-content">
-                        <div class="team-img">
-                            <img src="assets/frontend/images/team/team-1.jpg" alt="Images">
-                        </div>
-                        <div class="single-team-item">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="team-content-bg">
-                                    <h3 class="alex">Alex Maxwel</h3>
-                                    <p>CEO & Founder</p>
-                                </div>
-                                <div class="team-icon">
-                                    <i class="flaticon-share share"></i>
-                                    <ul>
-                                        <li>
-                                            <a href="https://www.google.com/" target="_blank">
-                                                <i class="flaticon-google-plus"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="https://www.facebook.com/" target="_blank">
-                                                <i class="flaticon-facebook-logo"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="https://twitter.com/" target="_blank">
-                                                <i class="flaticon-twitter"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="https://www.pinterest.com/" target="_blank">
-                                                <i class="flaticon-pinterest"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
+
+                @foreach ($users as $user)
+                    <div class="col-lg-3 col-sm-6 col-md-6">
+                        <div class="single-team-member-content">
+                            <div class="team-img">
+                                <img style="width:306px; height:403px"
+                                    src="{{ Storage::url($user?->profile?->picture) ?: '#' }}" alt="{{ $user->name }}">
+                            </div>
+                            <div class="single-team-item">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="team-content-bg">
+                                        <h3 class="alex">{{ $user->name }}</h3>
+                                        <p>{{ $user->profile->designation }}</p>
+                                    </div>
+                                    <div class="team-icon">
+                                        <i class="flaticon-share share"></i>
+                                        <ul>
+                                            <li>
+                                                <a href="{{ $user->profile->linkedin }}"
+                                                    title="{{ $user->profile->linkedin }}" target="_blank">
+                                                    Linkedin
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ $user->profile->facebook }}"
+                                                    title="{{ $user->profile->facebook }}" target="_blank">
+                                                    Facebook
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ $user->profile->twitter }}"
+                                                    title="{{ $user->profile->twitter }}" target="_blank">
+                                                    Twitter
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ $user->profile->instagram }}"
+                                                    title="{{ $user->profile->instagram }}" target="_blank">
+                                                    Instagram
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 col-md-6">
-                    <div class="single-team-member-content">
-                        <div class="team-img">
-                            <img src="assets/frontend/images/team/team-2.jpg" alt="Images">
-                        </div>
-                        <div class="single-team-item">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="team-content-bg">
-                                    <h3 class="alex">Justin Roberto</h3>
-                                    <p>Head Of Marketing</p>
-                                </div>
-                                <div class="team-icon">
-                                    <i class="flaticon-share share"></i>
-                                    <ul>
-                                        <li>
-                                            <a href="https://www.google.com/" target="_blank">
-                                                <i class="flaticon-google-plus"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="https://www.facebook.com/" target="_blank">
-                                                <i class="flaticon-facebook-logo"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="https://twitter.com/" target="_blank">
-                                                <i class="flaticon-twitter"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="https://www.pinterest.com/" target="_blank">
-                                                <i class="flaticon-pinterest"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 col-md-6">
-                    <div class="single-team-member-content">
-                        <div class="team-img">
-                            <img src="assets/frontend/images/team/team-3.jpg" alt="Images">
-                        </div>
-                        <div class="single-team-item">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="team-content-bg">
-                                    <h3 class="alex">Louis Agassiz</h3>
-                                    <p>Web Developer</p>
-                                </div>
-                                <div class="team-icon">
-                                    <i class="flaticon-share share"></i>
-                                    <ul>
-                                        <li>
-                                            <a href="https://www.google.com/" target="_blank">
-                                                <i class="flaticon-google-plus"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="https://www.facebook.com/" target="_blank">
-                                                <i class="flaticon-facebook-logo"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="https://twitter.com/" target="_blank">
-                                                <i class="flaticon-twitter"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="https://www.pinterest.com/" target="_blank">
-                                                <i class="flaticon-pinterest"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 col-md-6">
-                    <div class="single-team-member-content">
-                        <div class="team-img">
-                            <img src="assets/frontend/images/team/team-4.jpg" alt="Images">
-                        </div>
-                        <div class="single-team-item">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="team-content-bg">
-                                    <h3 class="alex">Carl Anderson</h3>
-                                    <p>Android / IOS Developer</p>
-                                </div>
-                                <div class="team-icon">
-                                    <i class="flaticon-share share"></i>
-                                    <ul>
-                                        <li>
-                                            <a href="https://www.google.com/" target="_blank">
-                                                <i class="flaticon-google-plus"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="https://www.facebook.com/" target="_blank">
-                                                <i class="flaticon-facebook-logo"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="https://twitter.com/" target="_blank">
-                                                <i class="flaticon-twitter"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="https://www.pinterest.com/" target="_blank">
-                                                <i class="flaticon-pinterest"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>

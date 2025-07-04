@@ -109,8 +109,8 @@
                             <!-- Content -->
                             <div class="col-md-12 fv-row mb-5">
                                 <label class="required fs-5 fw-bold mb-2">Content</label>
-                                <textarea name="content" id="content" required class="form-control form-control-solid @error('content') is-invalid @enderror"
-                                    placeholder="Enter blog content" data-kt-autosize="true">{{ old('content', $editModeData->content ?? '') }}</textarea>
+                                <textarea name="content" id="content" class="form-control form-control-solid @error('content') is-invalid @enderror"
+                                    data-kt-autosize="true">{!! old('content', $editModeData->content ?? '') !!}</textarea>
                                 @error('content')
                                     <div class="text-danger mt-2">{{ $message }}</div>
                                 @enderror

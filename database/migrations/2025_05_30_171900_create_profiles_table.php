@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade'); // Adds foreign key constraint
+            $table->string('designation');
             $table->string('phone', 20)->unique();
             $table->longText('about_me')->nullable();
             $table->string('picture')->nullable();

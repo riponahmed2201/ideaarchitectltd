@@ -38,7 +38,7 @@
                         <br>
 
                         <div>
-                            {{ $blog->content }}
+                            {!! html_entity_decode($blog->content) !!}
                         </div>
 
                         <div class="d-flex justify-content-between align-items-center">
@@ -104,8 +104,7 @@
                                     </a>
                                     <div class="info">
                                         <h4 class="title usmall">
-                                            <a
-                                                href="{{ route('blog.show', $recentBlog->id) }}">{{ $recentBlog->title }}</a>
+                                            <a href="{{ route('blog.show', $recentBlog->id) }}">{{ $recentBlog->title }}</a>
                                         </h4>
                                         <div class="d-flex justify-content-between align-items-center">
                                             <span>

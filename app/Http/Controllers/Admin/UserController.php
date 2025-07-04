@@ -43,6 +43,7 @@ class UserController extends Controller
                     $avatar = Storage::url($row?->profile?->picture);
                     $name = $row->name;
                     $email = $row->email;
+                    $designation = $row?->profile?->designation ?? ''; // in case phone is null
                     $phone = $row?->profile?->phone ?? 'N/A'; // in case phone is null
 
                     return '
@@ -51,11 +52,12 @@ class UserController extends Controller
                                 <img alt="Pic" src="' . $avatar . '" />
                             </div>
                             <div class="d-flex justify-content-start flex-column">
-                                <a href="#" class="text-dark fw-bolder text-hover-primary mb-1 fs-6">' . $name . '</a>
-                                <a href="#" class="text-muted text-hover-primary fw-bold d-block fs-7">
+                                <a href="javascript:void(0)" class="text-dark fw-bolder text-hover-primary mb-1 fs-6">' . $name . '</a>
+                                <a href="javascript:void(0)" class="text-dark fw-bolder text-hover-primary mb-1 fs-6">' . $designation . '</a>
+                                <a href="javascript:void(0)" class="text-muted text-hover-primary fw-bold d-block fs-7">
                                     <span class="text-dark">Email</span>: ' . $email . '
                                 </a>
-                                <a href="#" class="text-muted text-hover-primary fw-bold d-block fs-7">
+                                <a href="javascript:void(0)" class="text-muted text-hover-primary fw-bold d-block fs-7">
                                     <span class="text-dark">Phone</span>: ' . $phone . '
                                 </a>
                             </div>
@@ -121,6 +123,7 @@ class UserController extends Controller
             ]);
 
             $profileData = $request->only([
+                'designation',
                 'phone',
                 'gender',
                 'address',
@@ -191,6 +194,7 @@ class UserController extends Controller
             ]);
 
             $profileData = $request->only([
+                'designation',
                 'phone',
                 'gender',
                 'address',
