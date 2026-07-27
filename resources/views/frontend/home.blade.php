@@ -7,7 +7,7 @@
     @include('frontend.pages.home.counter')
     @include('frontend.pages.home.testimonials')
     @include('frontend.pages.home.working_process')
-    @include('frontend.pages.home.partner')
+    @include('frontend.pages.home.clients')
     @include('frontend.pages.home.team')
     @include('frontend.pages.home.choose')
     @include('frontend.pages.home.cta')

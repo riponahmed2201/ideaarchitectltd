@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
-use App\Models\Partner;
+use App\Models\Client;
 use App\Models\Portfolio;
 use App\Models\Service;
 use App\Models\ServiceCategory;
@@ -19,7 +19,7 @@ class DashboardController extends Controller
     {
         $counts = [
             'serviceCount' => Service::count(),
-            'partnerCount' => Partner::count(),
+            'clientCount' => Client::count(),
             'blogCount' => Blog::count(),
             'serviceCategoryCount' => ServiceCategory::count(),
             'portfolioCount' => Portfolio::count(),

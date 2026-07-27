@@ -9,11 +9,11 @@
         <div id="kt_content_container" class="container-fluid">
             <div class="row g-5 g-xl-8">
                 <div class="col-xl-4">
-                    <a href="/admin/partners" class="card bg-success hoverable card-xl-stretch mb-xl-8">
+                    <a href="{{ route('admin.clients.index') }}" class="card bg-success hoverable card-xl-stretch mb-xl-8">
                         <div class="card-body">
                             <i class="bi bi-people fs-1 text-white"></i>
-                            <div class="text-white fw-bolder fs-2 mb-2 mt-5">Total Partners</div>
-                            <div class="fw-bold text-white">{{ $partnerCount ?? 0 }}</div>
+                            <div class="text-white fw-bolder fs-2 mb-2 mt-5">Total Clients</div>
+                            <div class="fw-bold text-white">{{ $clientCount ?? 0 }}</div>
                         </div>
                     </a>
                 </div>

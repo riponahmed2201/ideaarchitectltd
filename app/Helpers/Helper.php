@@ -24,10 +24,10 @@ if (! function_exists('getServices')) {
     }
 }
 
-if (! function_exists('getPartners')) {
-    function getPartners()
+if (! function_exists('getClients')) {
+    function getClients()
     {
-        return \App\Models\Partner::where('status', 1)->latest()->get();
+        return \App\Models\Client::where('status', 1)->latest()->get();
     }
 }
 

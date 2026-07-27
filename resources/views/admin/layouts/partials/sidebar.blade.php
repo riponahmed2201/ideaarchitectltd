@@ -83,11 +83,11 @@
                 </div>
 
                 <div class="menu-item">
-                    <a class="menu-link {{ Request::is('admin/partners*') ? 'active' : '' }}" href="/admin/partners">
+                    <a class="menu-link {{ Request::is('admin/clients*') ? 'active' : '' }}" href="{{ route('admin.clients.index') }}">
                         <span class="menu-icon">
                             <i class="bi bi-people fs-3 text-success"></i>
                         </span>
-                        <span class="menu-title">Partners</span>
+                        <span class="menu-title">Clients</span>
                     </a>
                 </div>
 

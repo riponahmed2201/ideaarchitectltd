@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Partner;
+use App\Models\Client;
 use App\Models\Portfolio;
 use App\Models\ServiceCategory;
 use App\Models\Setting;
@@ -49,7 +49,7 @@ class HomeController extends Controller
         $counters = [
             'total_projects' => Portfolio::where('status', 1)->count(),
             'finished_projects' => Portfolio::where('status', 1)->where('status_type', 'finished')->count(),
-            'satisfied_clients' => Partner::where('status', 1)->count() ?: Portfolio::where('status', 1)->distinct('client_name')->count('client_name'),
+            'satisfied_clients' => Client::where('status', 1)->count() ?: Portfolio::where('status', 1)->distinct('client_name')->count('client_name'),
             'awards' => (int) Setting::get('awards_count', 12),
         ];
 

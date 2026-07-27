@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
             ServiceSeeder::class,
             TagSeeder::class,
             SliderSeeder::class,
-            PartnerSeeder::class,
+            ClientSeeder::class,
             PortfolioSeeder::class,
             BlogSeeder::class,
             FaqSeeder::class,

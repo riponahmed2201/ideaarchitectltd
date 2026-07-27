@@ -4,11 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Partner extends Model
+class Client extends Model
 {
-    protected $table = 'partners';
-
-    protected $primaryKey = 'id';
-
     protected $fillable = ['name', 'description', 'logo', 'status'];
 }
