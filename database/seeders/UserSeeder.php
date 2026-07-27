@@ -22,6 +22,7 @@ class UserSeeder extends Seeder
         ]);
 
         $user->profile()->create([
+            'designation' => 'System Admin',
             'phone' => '0123456789',
             'about_me' => 'I am the system admin.',
             'picture' => null,
