@@ -152,6 +152,33 @@
                 table.draw();
             });
 
+            $(document).on('click', '.delete-btn', function() {
+                var url = $(this).data('url');
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $.ajax({
+                            url: url,
+                            type: 'DELETE',
+                            data: { _token: '{{ csrf_token() }}' },
+                            success: function(response) {
+                                if (response.success) {
+                                    Swal.fire('Deleted!', response.message, 'success');
+                                    table.ajax.reload();
+                                } else {
+                                    Swal.fire('Error!', response.message, 'error');
+                                }
+                            }
+                        });
+                    }
+                });
+            });
+
         });
     </script>
 @endpush

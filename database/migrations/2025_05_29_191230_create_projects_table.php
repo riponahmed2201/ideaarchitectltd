@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('type')->default('finished');
             $table->string('area_sft');
             $table->longText('url')->nullable();
             $table->longText('image');

@@ -23,7 +23,7 @@
                 @forelse ($portfolios as $portfolio)
                     <div class="col-lg-4 col-md-6">
                         <div class="portfolios-item portfolios-image">
-                            <a href="{{ route('portfolio.show', $portfolio->id) }}">
+                            <a href="{{ route('portfolio.show', $portfolio->slug) }}">
                                 <img src="{{ Storage::url($portfolio->image) }}" alt="image">
                             </a>
                             <div class="portfolios">
@@ -34,7 +34,7 @@
                             <div class="portfolios-content">
                                 <p>{{ $portfolio->service->name }}</p>
                                 <h3>
-                                    <a href="{{ route('portfolio.show', $portfolio->id) }}">{{ $portfolio->title }}</a>
+                                    <a href="{{ route('portfolio.show', $portfolio->slug) }}">{{ $portfolio->title }}</a>
                                 </h3>
                             </div>
                         </div>

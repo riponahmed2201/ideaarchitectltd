@@ -20,7 +20,7 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="articles-content">
                             <div class="blog-image">
-                                <a href="{{ route('blog.show', $blog->id) }}">
+                                <a href="{{ route('blog.show', $blog->slug) }}">
                                     <img src="{{ Storage::url($blog->featured_image) }}" alt="Images">
                                 </a>
                             </div>
@@ -29,12 +29,12 @@
                                     <i class="flaticon-calendar"></i>
                                     <span>{{ date('F d, Y', strtotime($blog->created_at)) }}</span>
                                 </div>
-                                <a href="{{ route('blog.show', $blog->id) }}">
+                                <a href="{{ route('blog.show', $blog->slug) }}">
                                     <h3>{{ $blog->title }}</h3>
                                 </a>
                                 <p>{{ $blog->short_description }}</p>
                                 <div class="blog-btn-two">
-                                    <a href="{{ route('blog.show', $blog->id) }}">
+                                    <a href="{{ route('blog.show', $blog->slug) }}">
                                         <i class="flaticon-next"></i>
                                     </a>
                                 </div>

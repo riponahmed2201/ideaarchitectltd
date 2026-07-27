@@ -171,11 +171,35 @@
                     </a>
                 </div>
                 <div class="menu-item">
-                    <a class="menu-link {{ Request::is('admin/blogs') ? 'active' : '' }}" href="admin/blogs">
+                    <a class="menu-link {{ Request::is('admin/blogs*') ? 'active' : '' }}" href="/admin/blogs">
                         <span class="menu-icon">
                             <i class="bi bi-journal-text fs-3 text-danger"></i>
                         </span>
                         <span class="menu-title">Blogs</span>
+                    </a>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-content pt-8 pb-2">
+                        <span class="menu-section text-muted text-uppercase fs-8 ls-1">⚙️ Settings</span>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <a class="menu-link {{ Request::is('admin/contact-inquiries*') ? 'active' : '' }}" href="/admin/contact-inquiries">
+                        <span class="menu-icon">
+                            <i class="bi bi-envelope fs-3 text-primary"></i>
+                        </span>
+                        <span class="menu-title">Contact Inquiries</span>
+                    </a>
+                </div>
+
+                <div class="menu-item">
+                    <a class="menu-link {{ Request::is('admin/settings*') ? 'active' : '' }}" href="/admin/settings">
+                        <span class="menu-icon">
+                            <i class="bi bi-gear fs-3 text-secondary"></i>
+                        </span>
+                        <span class="menu-title">Site Settings</span>
                     </a>
                 </div>
 

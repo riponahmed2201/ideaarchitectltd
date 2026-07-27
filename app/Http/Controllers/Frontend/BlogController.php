@@ -8,9 +8,6 @@ use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
-    /**
-     * Display a listing of the blog posts.
-     */
     public function index()
     {
         $blogs = Blog::query()->where('status', 1)->latest()->paginate(12);
@@ -18,14 +15,16 @@ class BlogController extends Controller
         return view('frontend.pages.blog.index', compact('blogs'));
     }
 
-    /**
-     * Display the specified blog post.
-     */
-    public function show(int $id)
+    public function show(string $slug)
     {
-        $recentBlogs = Blog::query()->where('status', 1)->latest()->take(5)->get(['id', 'title', 'created_at']);
+        $blog = Blog::with('tags')->where('status', 1)->where('slug', $slug)->firstOrFail();
 
-        $blog = Blog::with('tags')->where('id', $id)->latest()->first(['id', 'title', 'slug', 'short_description', 'content', 'featured_image', 'created_at']);
+        $recentBlogs = Blog::query()
+            ->where('status', 1)
+            ->where('id', '!=', $blog->id)
+            ->latest()
+            ->take(5)
+            ->get(['id', 'title', 'slug', 'created_at']);
 
         return view('frontend.pages.blog.show', compact('blog', 'recentBlogs'));
     }

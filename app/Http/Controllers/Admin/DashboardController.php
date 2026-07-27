@@ -6,9 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use App\Models\Partner;
 use App\Models\Portfolio;
+use App\Models\Project;
 use App\Models\Service;
 use App\Models\ServiceCategory;
+use App\Models\Slider;
 use App\Models\Tag;
+use App\Models\Video;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -22,6 +25,9 @@ class DashboardController extends Controller
             'serviceCategoryCount' => ServiceCategory::count(),
             'portfolioCount' => Portfolio::count(),
             'tagCount' => Tag::count(),
+            'slidersCount' => Slider::count(),
+            'projectCount' => Project::count(),
+            'videoCount' => Video::count(),
         ];
 
         return view('admin.dashboard', $counts);

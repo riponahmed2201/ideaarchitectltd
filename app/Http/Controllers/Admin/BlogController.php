@@ -30,7 +30,7 @@ class BlogController extends Controller
             $query = Blog::with('tags')
                 ->when($searchKeyword, function ($q) use ($searchKeyword) {
                     $q->where(function ($q) use ($searchKeyword) {
-                        $q->where('name', 'LIKE', "%$searchKeyword%")
+                        $q->where('title', 'LIKE', "%$searchKeyword%")
                             ->orWhere('short_description', 'LIKE', "%$searchKeyword%")
                             ->orWhere('content', 'LIKE', "%$searchKeyword%")
                             ->orWhere('status', 'LIKE', "%$searchKeyword%");

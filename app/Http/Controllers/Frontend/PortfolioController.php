@@ -8,9 +8,6 @@ use Illuminate\Http\Request;
 
 class PortfolioController extends Controller
 {
-    /**
-     * Display a listing of the portfolio.
-     */
     public function index()
     {
         $portfolios = Portfolio::with('service')->where('status', 1)->latest()->paginate(12);
@@ -18,14 +15,15 @@ class PortfolioController extends Controller
         return view('frontend.pages.portfolio.index', compact('portfolios'));
     }
 
-    /**
-     * Display a listing of the portfolio.
-     */
-    public function show(int $id)
+    public function show(string $slug)
     {
-        $portfolio = Portfolio::with('service')->where('status', 1)->where('id', $id)->first();
+        $portfolio = Portfolio::with('service')->where('status', 1)->where('slug', $slug)->firstOrFail();
 
-        $portfolioList = Portfolio::with('service')->where('status', 1)->latest()->get();
+        $portfolioList = Portfolio::with('service')
+            ->where('status', 1)
+            ->where('id', '!=', $portfolio->id)
+            ->latest()
+            ->get();
 
         return view('frontend.pages.portfolio.show', compact('portfolio', 'portfolioList'));
     }

@@ -90,6 +90,8 @@ class PortfolioController extends Controller
             $input['image'] = $imagePath;
         }
 
+        $input['slug'] = $this->generateUniqueSlug($input['title']);
+
         try {
             Portfolio::query()->create($input);
             notify()->success("Portfolio created successfully.", "Success");
@@ -137,6 +139,8 @@ class PortfolioController extends Controller
             }
         }
 
+        $input['slug'] = $this->generateUniqueSlug($input['title'], $portfolio->id);
+
         try {
             $portfolio->update($input);
             notify()->success("Portfolio updated successfully.", "Success");
@@ -170,5 +174,20 @@ class PortfolioController extends Controller
         } catch (Exception $e) {
             return response()->json(['success' => false, 'statusCode' => 500, 'message' => 'Failed to delete portfolio.']);
         }
+    }
+
+    private function generateUniqueSlug(string $title, ?int $excludeId = null): string
+    {
+        $slug = Str::slug($title);
+        $originalSlug = $slug;
+        $count = 1;
+
+        while (Portfolio::where('slug', $slug)
+            ->when($excludeId, fn ($q) => $q->where('id', '!=', $excludeId))
+            ->exists()) {
+            $slug = $originalSlug . '-' . $count++;
+        }
+
+        return $slug;
     }
 }

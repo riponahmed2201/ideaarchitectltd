@@ -10,5 +10,5 @@ class Project extends Model
 
     protected $primaryKey = 'id';
 
-    protected $fillable = ['title', 'url', 'area_sft', 'image', 'location', 'description', 'date', 'status'];
+    protected $fillable = ['title', 'type', 'url', 'area_sft', 'image', 'location', 'description', 'date', 'status'];
 }

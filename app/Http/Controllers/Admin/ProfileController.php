@@ -6,9 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\Rule;
-use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
@@ -21,30 +21,34 @@ class ProfileController extends Controller
 
     public function update(Request $request)
     {
+        $user = $request->user();
+
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore(Auth::user()->id)],
-            'phone' => ['required', 'string', 'max:20', Rule::unique('users')->ignore(Auth::user()->id)],
+            'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
+            'phone' => ['required', 'string', 'max:20', Rule::unique('profiles', 'phone')->ignore($user->profile?->id)],
         ]);
 
-        $input = $request->only(['name', 'email', 'phone']);
-
         try {
-
-            $user = $request->user();
-            $user->fill($input);
+            $user->update($request->only(['name', 'email']));
 
             if ($user->isDirty('email')) {
                 $user->email_verified_at = null;
+                $user->save();
             }
 
-            $user->save();
+            $user->profile()->updateOrCreate(
+                ['user_id' => $user->id],
+                ['phone' => $request->phone, 'designation' => $user->profile?->designation ?? 'Admin']
+            );
 
-            notify()->success("Profile updated successfully.", "Success");
+            notify()->success('Profile updated successfully.', 'Success');
+
             return back();
         } catch (Exception $exception) {
-            Log::error("Profile update failed", ['error' => $exception->getMessage()]);
-            notify()->error("Something went wrong! Please try again.", "Error");
+            Log::error('Profile update failed', ['error' => $exception->getMessage()]);
+            notify()->error('Something went wrong! Please try again.', 'Error');
+
             return back();
         }
     }

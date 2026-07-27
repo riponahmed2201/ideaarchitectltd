@@ -10,6 +10,7 @@ class Portfolio extends Model
     protected $fillable = [
         'service_id',
         'title',
+        'slug',
         'client_name',
         'image',
         'date',

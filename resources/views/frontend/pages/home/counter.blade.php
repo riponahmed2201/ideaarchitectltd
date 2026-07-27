@@ -6,7 +6,7 @@
                     <div class="counter-content content-two">
                         <i class="flaticon-rating"></i>
                         <h2>
-                            <span class="odometer" data-count="5">00</span>
+                            <span class="odometer" data-count="{{ $counters['running_projects'] ?? 0 }}">00</span>
                             <span class="target">+</span>
                         </h2>
                         <p>Running Projects</p>
@@ -16,7 +16,7 @@
                     <div class="counter-content content-two">
                         <i class="flaticon-meeting"></i>
                         <h2>
-                            <span class="odometer" data-count="57">00</span>
+                            <span class="odometer" data-count="{{ $counters['finished_projects'] ?? 0 }}">00</span>
                             <span class="target">+</span>
                         </h2>
                         <p>Finished Projects</p>
@@ -26,7 +26,7 @@
                     <div class="counter-content content-two">
                         <i class="flaticon-settings"></i>
                         <h2>
-                            <span class="odometer" data-count="43">00</span>
+                            <span class="odometer" data-count="{{ $counters['satisfied_clients'] ?? 0 }}">00</span>
                             <span class="target">+</span>
                         </h2>
                         <p>Satisfied Clients</p>
@@ -36,7 +36,7 @@
                     <div class="counter-content content-two">
                         <i class="flaticon-award-symbol"></i>
                         <h2>
-                            <span class="odometer" data-count="12">00</span>
+                            <span class="odometer" data-count="{{ $counters['awards'] ?? 0 }}">00</span>
                             <span class="target">+</span>
                         </h2>
                         <p>Awards Winning</p>

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('service_id')->constrained('services')->onDelete('cascade'); // Adds foreign key constraint
             $table->string('title');
+            $table->string('slug')->unique();
             $table->string('client_name');
             $table->string('image');
             $table->date('date');

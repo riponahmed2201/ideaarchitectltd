@@ -12,6 +12,10 @@
 <script src="{{ asset('assets/frontend/js/wow.min.js') }}"></script>
 <script src="{{ asset('assets/frontend/js/ajaxchimp.min.js') }}"></script>
 <script src="{{ asset('assets/frontend/js/form-validator.min.js') }}"></script>
+<script>
+    window.csrfToken = '{{ csrf_token() }}';
+    window.contactFormUrl = '{{ route('contact.store') }}';
+</script>
 <script src="{{ asset('assets/frontend/js/contact-form-script.js') }}"></script>
 <script src="{{ asset('assets/frontend/js/custom.js') }}"></script>
 

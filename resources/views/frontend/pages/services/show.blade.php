@@ -79,7 +79,7 @@
 
                 @foreach ($portfolios as $portfolio)
                     <div class="portfolios-item portfolios-image">
-                        <a href="{{ route('portfolio.show', $portfolio->id) }}">
+                        <a href="{{ route('portfolio.show', $portfolio->slug) }}">
                             <img src="{{ Storage::url($portfolio->image) }}" alt="{{ $portfolio->title }}">
                         </a>
                         <div class="portfolios">
@@ -90,7 +90,7 @@
                         <div class="portfolios-content">
                             <p>{{ $portfolio->service->name }}</p>
                             <h3>
-                                <a href="{{ route('portfolio.show', $portfolio->id) }}">{{ $portfolio->title }}</a>
+                                <a href="{{ route('portfolio.show', $portfolio->slug) }}">{{ $portfolio->title }}</a>
                             </h3>
                         </div>
                     </div>

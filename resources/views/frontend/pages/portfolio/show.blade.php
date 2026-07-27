@@ -46,7 +46,7 @@
             <div class="corporate-website-slider owl-carousel owl-theme">
                 @foreach ($portfolioList as $item)
                     <div class="portfolios-item portfolios-image">
-                        <a href="{{ route('portfolio.show', $item->id) }}">
+                        <a href="{{ route('portfolio.show', $item->slug) }}">
                             <img src="{{ Storage::url($item->image) }}" alt="{{ $item->title }}">
                         </a>
                         <div class="portfolios">
@@ -57,7 +57,7 @@
                         <div class="portfolios-content">
                             <p>{{ $item->service->name }}</p>
                             <h3>
-                                <a href="{{ route('portfolio.show', $item->id) }}">{{ $item->title }}</a>
+                                <a href="{{ route('portfolio.show', $item->slug) }}">{{ $item->title }}</a>
                             </h3>
                         </div>
                     </div>

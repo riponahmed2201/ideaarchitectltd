@@ -180,6 +180,11 @@ class ServiceSeeder extends Seeder
             ],
         ];
 
-        Service::insert($services);
+        foreach ($services as $service) {
+            Service::updateOrCreate(
+                ['slug' => $service['slug']],
+                $service
+            );
+        }
     }
 }

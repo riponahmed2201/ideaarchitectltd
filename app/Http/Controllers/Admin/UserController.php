@@ -13,6 +13,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
@@ -31,8 +32,11 @@ class UserController extends Controller
                 ->when($searchKeyword, function ($q) use ($searchKeyword) {
                     $q->where(function ($q) use ($searchKeyword) {
                         $q->where('name', 'LIKE', "%$searchKeyword%")
-                            ->orWhere('phone', 'LIKE', "%$searchKeyword%")
-                            ->orWhere('email', 'LIKE', "%$searchKeyword%");
+                            ->orWhere('email', 'LIKE', "%$searchKeyword%")
+                            ->orWhereHas('profile', function ($q) use ($searchKeyword) {
+                                $q->where('phone', 'LIKE', "%$searchKeyword%")
+                                    ->orWhere('designation', 'LIKE', "%$searchKeyword%");
+                            });
                     });
                 })
                 ->latest();
@@ -89,8 +93,9 @@ class UserController extends Controller
                 ->addColumn('action', function ($row) {
                     $editUrl = route('admin.users.edit', $row->id);
                     $viewUrl = route('admin.users.show', $row->id);
+                    $deleteUrl = route('admin.users.destroy', $row->id);
 
-                    return view('admin.users.partials.actions', compact('editUrl', 'viewUrl'))->render();
+                    return view('admin.users.partials.actions', compact('editUrl', 'viewUrl', 'deleteUrl'))->render();
                 })
                 ->rawColumns(['action', 'status', 'profile_info', 'social_links']) // Make sure picture is marked raw
                 ->make(true);
@@ -149,9 +154,8 @@ class UserController extends Controller
             notify()->success("User created successfully.", "Success");
             return to_route('admin.users.index');
         } catch (Exception $exception) {
-
-            dd($exception);
             DB::rollBack();
+            Log::error('User creation failed', ['error' => $exception->getMessage()]);
             // If an picture was uploaded, delete the newly uploaded file to prevent orphaned files
             if (isset($profileData['picture']) && Storage::disk('public')->exists($profileData['picture'])) {
                 Storage::disk('public')->delete($profileData['picture']);
@@ -243,6 +247,22 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        try {
+            if ($user->id === auth()->id()) {
+                return response()->json(['success' => false, 'statusCode' => 403, 'message' => 'You cannot delete your own account.']);
+            }
+
+            if ($user->profile?->picture && Storage::disk('public')->exists($user->profile->picture)) {
+                Storage::disk('public')->delete($user->profile->picture);
+            }
+
+            $user->delete();
+
+            return response()->json(['success' => true, 'statusCode' => 200, 'message' => 'User deleted successfully.']);
+        } catch (Exception $e) {
+            Log::error('User deletion failed', ['error' => $e->getMessage()]);
+
+            return response()->json(['success' => false, 'statusCode' => 500, 'message' => 'Failed to delete user.']);
+        }
     }
 }

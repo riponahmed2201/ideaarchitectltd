@@ -10,6 +10,7 @@ use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
@@ -52,8 +53,10 @@ class ProjectController extends Controller
                 ->addColumn('created_at', fn($row) => Carbon::parse($row->created_at)->diffForHumans())
                 ->addColumn('action', function ($row) {
                     $editUrl = route('admin.projects.edit', $row->id);
+                    $deleteUrl = route('admin.projects.destroy', $row->id);
 
-                    return '<a href="' . $editUrl . '" class="btn btn-sm btn-primary">Edit</a>';
+                    return '<a href="' . $editUrl . '" class="btn btn-sm btn-primary">Edit</a>
+                    <button type="button" class="btn btn-sm btn-danger delete-btn" data-id="' . $row->id . '" data-url="' . $deleteUrl . '">Delete</button>';
                 })
                 ->rawColumns(['action', 'status', 'image']) // Make sure image is marked raw
                 ->make(true);
@@ -90,8 +93,7 @@ class ProjectController extends Controller
             notify()->success("Project created successfully.", "Success");
             return to_route('admin.projects.index');
         } catch (Exception $exception) {
-
-            dd($exception);
+            Log::error('Project creation failed', ['error' => $exception->getMessage()]);
             // If a image was uploaded, delete the file to prevent orphaned files
             if (isset($input['image']) && Storage::disk('public')->exists($input['image'])) {
                 Storage::disk('public')->delete($input['image']);
@@ -160,6 +162,18 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
-        //
+        try {
+            if ($project->image && Storage::disk('public')->exists($project->image)) {
+                Storage::disk('public')->delete($project->image);
+            }
+
+            $project->delete();
+
+            return response()->json(['success' => true, 'statusCode' => 200, 'message' => 'Project deleted successfully.']);
+        } catch (Exception $e) {
+            Log::error('Project deletion failed', ['error' => $e->getMessage()]);
+
+            return response()->json(['success' => false, 'statusCode' => 500, 'message' => 'Failed to delete project.']);
+        }
     }
 }

@@ -16,4 +16,9 @@ class Service extends Model
     {
         return $this->belongsTo(ServiceCategory::class, 'service_category_id');
     }
+
+    public function portfolios()
+    {
+        return $this->hasMany(Portfolio::class);
+    }
 }

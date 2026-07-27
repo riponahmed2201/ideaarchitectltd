@@ -90,6 +90,21 @@
                                 @enderror
                             </div>
 
+                            <!-- Type -->
+                            <div class="col-md-6 fv-row mb-5">
+                                <label class="required fs-5 fw-bold mb-2">Project Type</label>
+                                <select name="type" required
+                                    class="form-select form-select-solid @error('type') is-invalid @enderror"
+                                    data-control="select2" data-placeholder="Select Type">
+                                    <option value="" disabled {{ !isset($editModeData) ? 'selected' : '' }}>Select Type</option>
+                                    <option value="running" @selected(old('type', $editModeData->type ?? '') == 'running')>Running</option>
+                                    <option value="finished" @selected(old('type', $editModeData->type ?? 'finished') == 'finished')>Finished</option>
+                                </select>
+                                @error('type')
+                                    <div class="text-danger mt-2">{{ $message }}</div>
+                                @enderror
+                            </div>
+
                             <!-- Status -->
                             <div class="col-md-6 fv-row mb-5">
                                 <label class="required fs-5 fw-bold mb-2">Status</label>

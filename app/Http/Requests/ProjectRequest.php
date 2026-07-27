@@ -25,6 +25,7 @@ class ProjectRequest extends FormRequest
 
         return [
             'title' => ['required', 'string', 'max:255'],
+            'type' => ['required', 'in:running,finished'],
             'area_sft' => ['required', 'string', 'max:255'],
             'url' => ['nullable'],
             'image' => [$isUpdate ? 'nullable' : 'required', 'image', 'max:2048'], // max 2MB

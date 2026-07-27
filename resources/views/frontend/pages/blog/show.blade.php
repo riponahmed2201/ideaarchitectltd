@@ -97,14 +97,14 @@
 
                             @foreach ($recentBlogs as $recentBlog)
                                 <article class="item">
-                                    <a href="{{ route('blog.show', $recentBlog->id) }}" class="thumb">
+                                    <a href="{{ route('blog.show', $recentBlog->slug) }}" class="thumb">
                                         <img style="width: 90px; height:90px"
                                             src="{{ Storage::url($recentBlog->featured_image) }}"
                                             alt="{{ $recentBlog->title }}">
                                     </a>
                                     <div class="info">
                                         <h4 class="title usmall">
-                                            <a href="{{ route('blog.show', $recentBlog->id) }}">{{ $recentBlog->title }}</a>
+                                            <a href="{{ route('blog.show', $recentBlog->slug) }}">{{ $recentBlog->title }}</a>
                                         </h4>
                                         <div class="d-flex justify-content-between align-items-center">
                                             <span>
