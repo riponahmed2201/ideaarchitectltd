@@ -5,7 +5,7 @@
     --ia-footer-border: rgba(255, 255, 255, 0.08);
     --ia-footer-text: rgba(255, 255, 255, 0.78);
     --ia-footer-heading: #ffffff;
-    --ia-primary: #ec7d2b;
+    --ia-primary: #c9782f;
     background: var(--ia-footer-bg);
     color: var(--ia-footer-text);
 }

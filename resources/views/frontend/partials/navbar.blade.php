@@ -30,7 +30,9 @@
                             <a href="/portfolio" class="nav-link {{ Request::is('portfolio*') ? 'active' : '' }}">Portfolio</a>
                         </li>
                         <li class="nav-item">
-                            <a href="javascript:void(0)" class="nav-link dropdown-toggle">Services</a>
+                            <a href="javascript:void(0)" class="nav-link dropdown-toggle ia-dropdown-link">
+                                Services <i class="ri-arrow-down-s-line ia-nav-caret"></i>
+                            </a>
                             <ul class="dropdown-menu">
                                 @foreach (getServiceCategories() as $serviceCategory)
                                     <li class="nav-item">
@@ -42,7 +44,7 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a href="/video-gallery" class="nav-link {{ Request::is('video-gallery*') ? 'active' : '' }}">Video Gallery</a>
+                            <a href="/video-gallery" class="nav-link {{ Request::is('video-gallery*') ? 'active' : '' }}">Videos</a>
                         </li>
                         <li class="nav-item">
                             <a href="/about-us#clients" class="nav-link">Clients</a>

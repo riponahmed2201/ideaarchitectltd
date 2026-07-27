@@ -38,7 +38,7 @@
 .ia-topbar .top-left li i {
     position: static;
     transform: none;
-    color: #ec7d2b;
+    color: #c9782f;
     font-size: 15px;
     flex-shrink: 0;
 }
@@ -109,9 +109,13 @@
     display: flex;
     align-items: center;
     flex-wrap: nowrap;
-    gap: 0;
+    gap: 2px;
     margin: 0 !important;
     padding: 0;
+}
+
+.ia-nav-list > .nav-item {
+    flex-shrink: 0;
 }
 
 /* Override theme's huge 20px left/right margins on nav links */
@@ -119,10 +123,36 @@
 .main-nav .ia-nav-list .nav-item .nav-link {
     margin-left: 0 !important;
     margin-right: 0 !important;
-    padding: 8px 9px !important;
-    font-size: 13.5px;
+    padding: 10px 12px !important;
+    font-size: 14px;
     font-weight: 500;
     white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Services dropdown — remove theme absolute chevron that overlaps next item */
+.main-nav nav .navbar-nav .nav-item .nav-link.ia-dropdown-link::after,
+.main-nav .ia-nav-list .nav-item .nav-link.dropdown-toggle::after {
+    display: none !important;
+    content: none !important;
+}
+
+.main-nav nav .navbar-nav .nav-item .nav-link.ia-dropdown-link {
+    padding-right: 12px !important;
+}
+
+.ia-nav-caret {
+    font-size: 15px;
+    line-height: 1;
+    margin-left: 2px;
+    color: inherit;
+    transition: transform 0.25s ease;
+}
+
+.main-nav nav .navbar-nav .nav-item:hover .ia-nav-caret {
+    transform: rotate(180deg);
 }
 
 .main-nav .navbar-collapse {
@@ -140,12 +170,26 @@
 }
 
 .main-nav nav .navbar-nav .nav-item .nav-link {
-    padding: 8px 9px !important;
-    font-size: 13.5px;
+    padding: 10px 12px !important;
+    font-size: 14px;
     font-weight: 500;
     white-space: nowrap;
     margin-left: 0 !important;
     margin-right: 0 !important;
+}
+
+/* Active/hover underline — keep inside link, don't stretch full row */
+.main-nav nav .navbar-nav.ia-nav-list .nav-item .nav-link::before {
+    left: 12px;
+    right: 12px;
+    width: auto !important;
+}
+
+.main-nav nav .navbar-nav.ia-nav-list .nav-item .nav-link:hover::before,
+.main-nav nav .navbar-nav.ia-nav-list .nav-item .nav-link.active::before {
+    width: calc(100% - 24px) !important;
+    left: 12px;
+    right: auto;
 }
 
 .main-nav .option-item {
@@ -208,12 +252,17 @@ body:not(.ia-page-home) .main-nav {
 @media (max-width: 1399px) {
     .main-nav nav .navbar-nav.ia-nav-list .nav-item .nav-link,
     .main-nav .ia-nav-list .nav-item .nav-link {
-        padding: 8px 7px !important;
-        font-size: 12.5px;
+        padding: 9px 10px !important;
+        font-size: 13px;
     }
 }
 
 @media (min-width: 1400px) {
+    .main-nav nav .navbar-nav.ia-nav-list .nav-item .nav-link,
+    .main-nav .ia-nav-list .nav-item .nav-link {
+        padding: 10px 14px !important;
+    }
+
     .main-nav .container-fluid {
         max-width: 1440px;
         margin: 0 auto;
