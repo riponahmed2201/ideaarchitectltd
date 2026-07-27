@@ -8,11 +8,18 @@ use Illuminate\Http\Request;
 
 class PortfolioController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $portfolios = Portfolio::with('service')->where('status', 1)->latest()->paginate(12);
+        $activeFilter = $request->get('type', 'all');
 
-        return view('frontend.pages.portfolio.index', compact('portfolios'));
+        $portfolios = Portfolio::with('service')
+            ->where('status', 1)
+            ->when($activeFilter !== 'all', fn ($q) => $q->where('space_type', $activeFilter))
+            ->latest()
+            ->paginate(12)
+            ->withQueryString();
+
+        return view('frontend.pages.portfolio.index', compact('portfolios', 'activeFilter'));
     }
 
     public function show(string $slug)
@@ -22,7 +29,9 @@ class PortfolioController extends Controller
         $portfolioList = Portfolio::with('service')
             ->where('status', 1)
             ->where('id', '!=', $portfolio->id)
+            ->when($portfolio->space_type, fn ($q) => $q->where('space_type', $portfolio->space_type))
             ->latest()
+            ->take(6)
             ->get();
 
         return view('frontend.pages.portfolio.show', compact('portfolio', 'portfolioList'));

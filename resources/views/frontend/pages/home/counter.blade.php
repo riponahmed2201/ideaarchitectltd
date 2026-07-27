@@ -6,10 +6,10 @@
                     <div class="counter-content content-two">
                         <i class="flaticon-rating"></i>
                         <h2>
-                            <span class="odometer" data-count="{{ $counters['running_projects'] ?? 0 }}">00</span>
+                            <span class="odometer" data-count="{{ $counters['total_projects'] ?? 0 }}">00</span>
                             <span class="target">+</span>
                         </h2>
-                        <p>Running Projects</p>
+                        <p>Total Projects</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6 col-md-6">
@@ -19,7 +19,7 @@
                             <span class="odometer" data-count="{{ $counters['finished_projects'] ?? 0 }}">00</span>
                             <span class="target">+</span>
                         </h2>
-                        <p>Finished Projects</p>
+                        <p>Completed Projects</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6 col-md-6">

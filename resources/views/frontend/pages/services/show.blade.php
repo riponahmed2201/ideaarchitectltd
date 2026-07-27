@@ -72,9 +72,20 @@
     </div>
     <!-- End Services Details Area -->
 
-    <!-- Start Portfolio Details Area -->
+    <!-- Start Portfolio Area -->
     <div class="our-portfolio-area pb-70">
         <div class="container">
+            <div class="row align-items-center mb-4">
+                <div class="col-lg-8">
+                    <div class="section-title left-title mb-0">
+                        <span class="top-title">RELATED WORK</span>
+                        <h2>Portfolio For This Service</h2>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <a href="{{ route('portfolio.index') }}" class="default-btn">View All Portfolio<i class="flaticon-next"></i></a>
+                </div>
+            </div>
             <div class="corporate-website-slider owl-carousel owl-theme">
 
                 @foreach ($portfolios as $portfolio)
@@ -88,10 +99,11 @@
                             </a>
                         </div>
                         <div class="portfolios-content">
-                            <p>{{ $portfolio->service->name }}</p>
+                            <p>{{ $portfolio->space_type_label }} @if($portfolio->area_sft) &bull; {{ $portfolio->area_sft }} sft @endif</p>
                             <h3>
                                 <a href="{{ route('portfolio.show', $portfolio->slug) }}">{{ $portfolio->title }}</a>
                             </h3>
+                            <p class="mb-0"><strong>{{ $portfolio->client_name }}</strong></p>
                         </div>
                     </div>
                 @endforeach

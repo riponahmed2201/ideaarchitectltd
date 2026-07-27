@@ -63,7 +63,7 @@
                                 @enderror
                             </div>
 
-                            <!--Client Name -->
+                            <!-- Client Name -->
                             <div class="col-md-6 fv-row mb-5">
                                 <label class="required fs-5 fw-bold mb-2">Client Name</label>
                                 <input type="text" name="client_name" required
@@ -71,6 +71,56 @@
                                     placeholder="Enter client name"
                                     value="{{ old('client_name', $editModeData->client_name ?? '') }}" />
                                 @error('client_name')
+                                    <div class="text-danger mt-2">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <!-- Area -->
+                            <div class="col-md-6 fv-row mb-5">
+                                <label class="fs-5 fw-bold mb-2">Area (sft)</label>
+                                <input type="text" name="area_sft"
+                                    class="form-control form-control-solid @error('area_sft') is-invalid @enderror"
+                                    placeholder="e.g. 3200"
+                                    value="{{ old('area_sft', $editModeData->area_sft ?? '') }}" />
+                                @error('area_sft')
+                                    <div class="text-danger mt-2">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <!-- Location -->
+                            <div class="col-md-6 fv-row mb-5">
+                                <label class="fs-5 fw-bold mb-2">Location</label>
+                                <input type="text" name="location"
+                                    class="form-control form-control-solid @error('location') is-invalid @enderror"
+                                    placeholder="e.g. Gulshan, Dhaka"
+                                    value="{{ old('location', $editModeData->location ?? '') }}" />
+                                @error('location')
+                                    <div class="text-danger mt-2">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <!-- Space Type -->
+                            <div class="col-md-6 fv-row mb-5">
+                                <label class="required fs-5 fw-bold mb-2">Space Type</label>
+                                <select name="space_type" required class="form-select form-select-solid @error('space_type') is-invalid @enderror">
+                                    @foreach (\App\Models\Portfolio::SPACE_TYPES as $value => $label)
+                                        <option value="{{ $value }}" @selected(old('space_type', $editModeData->space_type ?? 'residential') == $value)>{{ $label }}</option>
+                                    @endforeach
+                                </select>
+                                @error('space_type')
+                                    <div class="text-danger mt-2">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <!-- Status Type -->
+                            <div class="col-md-6 fv-row mb-5">
+                                <label class="required fs-5 fw-bold mb-2">Project Status</label>
+                                <select name="status_type" required class="form-select form-select-solid @error('status_type') is-invalid @enderror">
+                                    @foreach (\App\Models\Portfolio::STATUS_TYPES as $value => $label)
+                                        <option value="{{ $value }}" @selected(old('status_type', $editModeData->status_type ?? 'finished') == $value)>{{ $label }}</option>
+                                    @endforeach
+                                </select>
+                                @error('status_type')
                                     <div class="text-danger mt-2">{{ $message }}</div>
                                 @enderror
                             </div>

@@ -8,7 +8,6 @@ use App\Http\Controllers\Admin\PartnerController;
 use App\Http\Controllers\Admin\PasswordChangeController;
 use App\Http\Controllers\Admin\PortfolioController;
 use App\Http\Controllers\Admin\ProfileController;
-use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\ServiceCategoryController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SettingController;
@@ -45,7 +44,6 @@ Route::middleware('admin')->group(function () {
     Route::resource('partners', PartnerController::class);
     Route::resource('sliders', SliderController::class);
     Route::resource('portfolios', PortfolioController::class);
-    Route::resource('projects', ProjectController::class);
     Route::resource('videos', VideosController::class);
 
     Route::resource('contact-inquiries', ContactInquiryController::class)->only(['index', 'show', 'destroy']);

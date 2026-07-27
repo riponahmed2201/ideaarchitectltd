@@ -64,13 +64,7 @@
     </div>
     <!-- End About Us -->
 
-    <!-- Start Mission area -->
-    {{-- =================== Mission --}}
-    <!-- End Mission area -->
-
-    <!-- Start Vision area -->
-    {{-- =================== Vision --}}
-    <!-- End Vision area -->
+    @include('frontend.pages.home.working_process')
 
     <!-- team area -->
     <div class="team-area pt-100 pb-70">
@@ -134,7 +128,7 @@
     <!-- End team area-->
 
     <!-- Start Partners area -->
-    <div class="partners-are-two pb-100">
+    <div class="partners-are-two pb-100" id="clients">
         <div class="container">
             <div class="section-title">
                 <span class="top-title">CLIENTS</span>

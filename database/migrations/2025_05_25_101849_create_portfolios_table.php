@@ -13,10 +13,15 @@ return new class extends Migration
     {
         Schema::create('portfolios', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('service_id')->constrained('services')->onDelete('cascade'); // Adds foreign key constraint
+            $table->foreignId('service_id')->constrained('services')->onDelete('cascade');
             $table->string('title');
             $table->string('slug')->unique();
             $table->string('client_name');
+            $table->string('area_sft')->nullable();
+            $table->string('location')->nullable();
+            $table->string('space_type')->default('residential');
+            $table->string('status_type')->default('finished');
+            $table->longText('url')->nullable();
             $table->string('image');
             $table->date('date');
             $table->longText('description')->nullable();

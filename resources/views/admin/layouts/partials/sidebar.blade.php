@@ -117,15 +117,6 @@
                 </div>
 
                 <div class="menu-item">
-                    <a class="menu-link {{ Request::is('admin/projects*') ? 'active' : '' }}" href="/admin/projects">
-                        <span class="menu-icon">
-                            <i class="bi bi-kanban fs-3 text-success"></i>
-                        </span>
-                        <span class="menu-title">Projects</span>
-                    </a>
-                </div>
-
-                <div class="menu-item">
                     <a class="menu-link {{ Request::is('admin/videos*') ? 'active' : '' }}" href="/admin/videos">
                         <span class="menu-icon">
                             <i class="bi bi-camera-video fs-3 text-danger"></i>

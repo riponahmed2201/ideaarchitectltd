@@ -1,5 +1,5 @@
  <!-- Start Partners area -->
- <div class="partners-are-two ptb-100">
+ <div class="partners-are-two ptb-100" id="clients">
      <div class="container">
          <div class="section-title">
              <span class="top-title">CLIENTS</span>

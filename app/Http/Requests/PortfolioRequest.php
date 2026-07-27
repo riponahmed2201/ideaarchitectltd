@@ -2,33 +2,34 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Portfolio;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class PortfolioRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
     public function authorize(): bool
     {
         return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
-     */
     public function rules(): array
     {
+        $isUpdate = (bool) $this->route('portfolio');
+
         return [
             'title' => 'required|string|max:255',
             'client_name' => 'required|string|max:255',
+            'area_sft' => 'nullable|string|max:255',
+            'location' => 'nullable|string|max:255',
+            'space_type' => ['required', Rule::in(array_keys(Portfolio::SPACE_TYPES))],
+            'status_type' => ['required', Rule::in(array_keys(Portfolio::STATUS_TYPES))],
+            'url' => 'nullable|string',
             'date' => 'required|date',
             'status' => 'required|in:0,1',
-            'description' => 'required|string',
+            'description' => 'nullable|string',
             'service_id' => 'required|exists:services,id',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
+            'image' => [$isUpdate ? 'nullable' : 'required', 'image', 'mimes:jpeg,png,jpg,webp', 'max:2048'],
         ];
     }
 }

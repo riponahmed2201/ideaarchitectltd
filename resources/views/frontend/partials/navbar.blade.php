@@ -40,11 +40,6 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="/projects"
-                                class="nav-link {{ Request::is('projects*') ? 'active' : '' }}">Projects</a>
-                        </li>
-
-                        <li class="nav-item">
                             <a href="javascript:void(0)" class="nav-link dropdown-toggle">Services</a>
                             <ul class="dropdown-menu">
                                 @foreach (getServiceCategories() as $serviceCategory)
@@ -61,6 +56,10 @@
                         <li class="nav-item">
                             <a href="/video-gallery"
                                 class="nav-link {{ Request::is('video-gallery*') ? 'active' : '' }}">Video Gallery</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="/about-us#clients" class="nav-link">Clients</a>
                         </li>
 
                         <li class="nav-item">

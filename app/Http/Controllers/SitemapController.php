@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use App\Models\Portfolio;
-use App\Models\Project;
 use App\Models\Service;
 use App\Models\ServiceCategory;
 use Illuminate\Http\Response;
@@ -17,7 +16,6 @@ class SitemapController extends Controller
             ['loc' => url('/'), 'priority' => '1.0'],
             ['loc' => url('/about-us'), 'priority' => '0.8'],
             ['loc' => url('/portfolio'), 'priority' => '0.8'],
-            ['loc' => url('/projects'), 'priority' => '0.8'],
             ['loc' => url('/blog'), 'priority' => '0.8'],
             ['loc' => url('/video-gallery'), 'priority' => '0.7'],
             ['loc' => url('/contact-us'), 'priority' => '0.7'],
@@ -40,10 +38,6 @@ class SitemapController extends Controller
 
         foreach (Portfolio::where('status', 1)->get() as $portfolio) {
             $urls[] = ['loc' => route('portfolio.show', $portfolio->slug), 'priority' => '0.6'];
-        }
-
-        foreach (Project::where('status', 1)->get() as $project) {
-            $urls[] = ['loc' => route('projects.show', $project->id), 'priority' => '0.6'];
         }
 
         return response()->view('sitemap', compact('urls'))->header('Content-Type', 'application/xml');

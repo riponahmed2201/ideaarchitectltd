@@ -42,16 +42,6 @@
             <div class="row g-5 g-xl-8">
 
                 <div class="col-xl-4">
-                    <a href="/admin/projects" class="card bg-secondary hoverable card-xl-stretch mb-xl-8">
-                        <div class="card-body">
-                            <i class="bi bi-kanban fs-1 text-black"></i>
-                            <div class="text-black fw-bolder fs-2 mb-2 mt-5">Total Projects</div>
-                            <div class="fw-bold text-black">{{ $projectCount ?? 0 }}</div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-xl-4">
                     <a href="/admin/videos" class="card bg-danger hoverable card-xl-stretch mb-xl-8">
                         <div class="card-body">
                             <i class="bi bi-camera-video fs-1 text-white"></i>

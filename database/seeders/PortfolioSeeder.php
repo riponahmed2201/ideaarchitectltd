@@ -11,7 +11,6 @@ class PortfolioSeeder extends Seeder
 {
     public function run(): void
     {
-        $now = now();
         $placeholder = 'seed/placeholder.jpg';
         $services = Service::pluck('id');
 
@@ -20,25 +19,25 @@ class PortfolioSeeder extends Seeder
         }
 
         $portfolios = [
-            ['title' => 'Luxury Villa in Gulshan', 'client_name' => 'Mr. Rahman', 'description' => 'A modern luxury villa with contemporary design elements.'],
-            ['title' => 'Corporate Office Interior', 'client_name' => 'Tech Solutions Ltd', 'description' => 'Complete office interior design and execution.'],
-            ['title' => 'Residential Apartment Design', 'client_name' => 'Mrs. Khan', 'description' => 'Elegant apartment interior with space optimization.'],
-            ['title' => 'Restaurant Interior', 'client_name' => 'Food Hub', 'description' => 'Warm and inviting restaurant interior design.'],
-            ['title' => 'Commercial Building Exterior', 'client_name' => 'BuildCorp', 'description' => 'Striking commercial building facade design.'],
+            ['title' => 'Luxury Villa in Gulshan', 'client_name' => 'Mr. Rahman', 'area_sft' => '3500', 'location' => 'Gulshan, Dhaka', 'space_type' => 'residential', 'status_type' => 'finished', 'description' => 'A modern luxury villa with contemporary design elements.'],
+            ['title' => 'Corporate Office Interior', 'client_name' => 'Tech Solutions Ltd', 'area_sft' => '5000', 'location' => 'Banani, Dhaka', 'space_type' => 'office', 'status_type' => 'finished', 'description' => 'Complete office interior design and execution.'],
+            ['title' => 'Residential Apartment Design', 'client_name' => 'Mrs. Khan', 'area_sft' => '1800', 'location' => 'Dhanmondi, Dhaka', 'space_type' => 'residential', 'status_type' => 'finished', 'description' => 'Elegant apartment interior with space optimization.'],
+            ['title' => 'Restaurant Interior', 'client_name' => 'Food Hub', 'area_sft' => '2200', 'location' => 'Mirpur, Dhaka', 'space_type' => 'commercial', 'status_type' => 'finished', 'description' => 'Warm and inviting restaurant interior design.'],
+            ['title' => 'Commercial Building Exterior', 'client_name' => 'BuildCorp', 'area_sft' => '12000', 'location' => 'Uttara, Dhaka', 'space_type' => 'exterior', 'status_type' => 'finished', 'description' => 'Striking commercial building facade design.'],
+            ['title' => 'Mirpur Residential Complex', 'client_name' => 'Urban Living Co', 'area_sft' => '3500', 'location' => 'Mirpur, Dhaka', 'space_type' => 'residential', 'status_type' => 'running', 'description' => 'Ongoing residential complex project.'],
+            ['title' => 'Banani Office Tower', 'client_name' => 'PDS Limited', 'area_sft' => '8000', 'location' => 'Banani, Dhaka', 'space_type' => 'office', 'status_type' => 'running', 'description' => 'Commercial office tower under construction.'],
+            ['title' => 'Public Community Center', 'client_name' => 'City Corporation', 'area_sft' => '6000', 'location' => 'Dhaka', 'space_type' => 'public', 'status_type' => 'finished', 'description' => 'Public space design and execution.'],
         ];
 
-        foreach ($portfolios as $index => $data) {
+        foreach ($portfolios as $data) {
             Portfolio::updateOrCreate(
                 ['slug' => Str::slug($data['title'])],
-                [
+                array_merge($data, [
                     'service_id' => $services->random(),
-                    'title' => $data['title'],
-                    'client_name' => $data['client_name'],
                     'image' => $placeholder,
-                    'date' => now()->subMonths($index + 1)->format('Y-m-d'),
-                    'description' => $data['description'],
+                    'date' => now()->subMonths(rand(1, 12))->format('Y-m-d'),
                     'status' => 1,
-                ]
+                ])
             );
         }
     }

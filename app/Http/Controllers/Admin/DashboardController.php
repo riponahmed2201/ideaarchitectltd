@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use App\Models\Partner;
 use App\Models\Portfolio;
-use App\Models\Project;
 use App\Models\Service;
 use App\Models\ServiceCategory;
 use App\Models\Slider;
@@ -26,7 +25,6 @@ class DashboardController extends Controller
             'portfolioCount' => Portfolio::count(),
             'tagCount' => Tag::count(),
             'slidersCount' => Slider::count(),
-            'projectCount' => Project::count(),
             'videoCount' => Video::count(),
         ];
 

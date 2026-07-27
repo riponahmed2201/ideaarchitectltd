@@ -20,7 +20,6 @@ class DatabaseSeeder extends Seeder
             SliderSeeder::class,
             PartnerSeeder::class,
             PortfolioSeeder::class,
-            ProjectSeeder::class,
             BlogSeeder::class,
             VideosSeeder::class,
         ]);
