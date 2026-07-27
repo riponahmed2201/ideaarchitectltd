@@ -5,16 +5,15 @@
                 <ul class="top-left">
                     <li>
                         <i class="flaticon-envelope"></i>
-                        <a href="#">
-                            <span>idea.architectsbd@gmail.com</span>
+                        <a href="mailto:{{ site_setting('site_email') }}">
+                            <span>{{ site_setting('site_email') }}</span>
                         </a>
                     </li>
-
                     <li>
                         <i class="flaticon-telephone"></i>
-                        <a href="javascript:void(0)">+8801732-691745, +8801738-275126</a>
-                    </li>
-                    <li>
+                        <a href="tel:{{ preg_replace('/\s+/', '', site_setting('site_phone_1')) }}">
+                            {{ site_setting('site_phone_1') }}@if(site_setting('site_phone_2')), {{ site_setting('site_phone_2') }}@endif
+                        </a>
                     </li>
                 </ul>
             </div>

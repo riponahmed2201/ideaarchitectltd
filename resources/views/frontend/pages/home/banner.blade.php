@@ -1,34 +1,20 @@
- <!-- Start Banner Two Area -->
- <div class="banner-two-area">
-     <div class="banner-two-slider owl-carousel owl-theme">
-         @foreach ($sliders as $slider)
-             <div class="single-banner-two-content">
-                 <div class="container-fluid">
-                     <div class="row align-items-center">
-                         <div class="col-lg-6">
-                             <div class="banner-two-content">
-                                 <span>WELCOME TO IDEA ARCHITECTS LIMITED</span>
-                                 <h1>{{ $slider->title }}</h1>
-                                 <p>{{ $slider->short_description }}</p>
-                                 <div class="banner-two-btn">
-                                     <a href="/services" class="default-btn">Our Services <i
-                                             class="flaticon-next"></i></a>
-                                 </div>
-                             </div>
-                         </div>
-                         <div class="col-lg-6">
-                             <div class="banner-two-image">
-                                 <img src="{{ Storage::url($slider->image) }}" alt="{{ $slider->title }}">
-                                 <div class="banner-two-shape">
-                                     <img src="{{ asset('assets/frontend/images/banner/banner-two-shape-1.png') }}"
-                                         alt="images">
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-             </div>
-         @endforeach
-     </div>
- </div>
- <!-- End Banner Two Area -->
+<div class="ia-hero banner-two-area">
+    <div class="banner-two-slider owl-carousel owl-theme">
+        @foreach ($sliders as $slider)
+            <div class="ia-hero-slide" style="background-image: url('{{ Storage::url($slider->image) }}');">
+                <div class="ia-hero-overlay"></div>
+                <div class="container">
+                    <div class="ia-hero-content" data-aos="fade-up" data-aos-duration="800">
+                        <span class="ia-label">Welcome to Idea Architects Limited</span>
+                        <h1>{{ $slider->title }}</h1>
+                        <p>{{ $slider->short_description }}</p>
+                        <div class="ia-hero-actions">
+                            <a href="/services" class="default-btn">Our Services <i class="flaticon-next"></i></a>
+                            <a href="{{ route('portfolio.index') }}" class="ia-btn-outline">View Portfolio <i class="ri-arrow-right-line"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    </div>
+</div>

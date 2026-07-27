@@ -40,7 +40,7 @@
     @include('frontend.partials.styles')
 </head>
 
-<body>
+<body class="@yield('body_class')">
     <div class="whatsapp-chat">
         <a href="https://wa.me/{{ site_setting('whatsapp_number', '8801841275126') }}" target="_blank">
             <div class="chat-box">

@@ -1,42 +1,29 @@
-<!-- Start Services Two area -->
-<div class="services-item pt-100 pb-70">
+<section class="ia-services">
     <div class="container">
-        <div class="provided-content">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="section-title">
-                        <span class="top-title">SERVICES WE PROVIDED</span>
-                        <h2>Our Best Services</h2>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="button">
-                        <a href="/services" class="default-btn">All Services<i class="flaticon-next"></i></a>
-                    </div>
-                </div>
+        <div class="ia-section-top">
+            <div class="ia-section-head">
+                <span class="ia-label">Services We Provided</span>
+                <h2>Our Best Services</h2>
             </div>
+            <a href="/services" class="default-btn">All Services <i class="flaticon-next"></i></a>
         </div>
         <div class="row">
             @foreach ($serviceCategories as $serviceCategory)
-                <div class="col-lg-4 col-md-6">
-                    <div class="services-card">
-                        <i class="flaticon-analysis analysis-icon-two"></i>
-                        <h2>
-                            <a
-                                href="{{ route('services.index', $serviceCategory->slug) }}">{{ $serviceCategory->name }}</a>
-                        </h2>
-                        <p>
-                            {{ $serviceCategory->description }}
-                        </p>
-                        <div class="read-more">
-                            <a href="{{ route('services.index', $serviceCategory->slug) }}">View More<i
-                                    class="flaticon-next"></i></a>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 }}">
+                    <div class="ia-service-card">
+                        <div class="ia-icon">
+                            <i class="flaticon-analysis"></i>
                         </div>
+                        <h3>
+                            <a href="{{ route('services.index', $serviceCategory->slug) }}">{{ $serviceCategory->name }}</a>
+                        </h3>
+                        <p>{{ $serviceCategory->description }}</p>
+                        <a href="{{ route('services.index', $serviceCategory->slug) }}" class="ia-link">
+                            View More <i class="flaticon-next"></i>
+                        </a>
                     </div>
                 </div>
             @endforeach
-
         </div>
     </div>
-</div>
-<!-- End Services Two area -->
+</section>
