@@ -18,8 +18,8 @@
                     <img src="{{ asset('assets/frontend/images/idea_architects_logo.png') }}" class="white-logo" alt="Idea Architects" />
                 </a>
 
-                <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto align-items-lg-center">
+                <div class="collapse navbar-collapse mean-menu ia-nav-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ia-nav-list align-items-lg-center">
                         <li class="nav-item">
                             <a href="/" class="nav-link {{ Request::is('/') ? 'active' : '' }}">Home</a>
                         </li>

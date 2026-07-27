@@ -80,21 +80,49 @@
 .ia-navbar {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    padding: 12px 0 !important;
-    min-height: 72px;
+    gap: 12px;
+    padding: 10px 0 !important;
+    min-height: 68px;
 }
 
 .ia-brand {
     padding: 0;
-    margin-right: 24px;
+    margin-right: 0;
     flex-shrink: 0;
 }
 
 .ia-brand img {
-    max-height: 52px;
+    max-height: 48px;
     width: auto;
+}
+
+.ia-nav-collapse {
+    flex: 1;
+    display: flex !important;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    min-width: 0;
+}
+
+.ia-nav-list {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 0;
+    margin: 0 !important;
+    padding: 0;
+}
+
+/* Override theme's huge 20px left/right margins on nav links */
+.main-nav nav .navbar-nav.ia-nav-list .nav-item .nav-link,
+.main-nav .ia-nav-list .nav-item .nav-link {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 8px 9px !important;
+    font-size: 13.5px;
+    font-weight: 500;
+    white-space: nowrap;
 }
 
 .main-nav .navbar-collapse {
@@ -107,25 +135,27 @@
 .main-nav .navbar-nav {
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 2px;
+    flex-wrap: nowrap;
+    gap: 0;
 }
 
 .main-nav nav .navbar-nav .nav-item .nav-link {
-    padding: 10px 14px !important;
-    font-size: 14px;
+    padding: 8px 9px !important;
+    font-size: 13.5px;
     font-weight: 500;
     white-space: nowrap;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
 }
 
 .main-nav .option-item {
-    margin-left: 16px;
+    margin-left: 8px;
     flex-shrink: 0;
 }
 
 .main-nav .option-item .default-btn {
-    padding: 12px 22px;
-    font-size: 14px;
+    padding: 10px 18px;
+    font-size: 13px;
     white-space: nowrap;
 }
 
@@ -176,9 +206,22 @@ body:not(.ia-page-home) .main-nav {
 }
 
 @media (max-width: 1399px) {
-    .main-nav nav .navbar-nav .nav-item .nav-link {
-        padding: 10px 10px !important;
-        font-size: 13px;
+    .main-nav nav .navbar-nav.ia-nav-list .nav-item .nav-link,
+    .main-nav .ia-nav-list .nav-item .nav-link {
+        padding: 8px 7px !important;
+        font-size: 12.5px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .main-nav .container-fluid {
+        max-width: 1440px;
+        margin: 0 auto;
+    }
+
+    .ia-topbar .container-fluid {
+        max-width: 1440px;
+        margin: 0 auto;
     }
 }
 

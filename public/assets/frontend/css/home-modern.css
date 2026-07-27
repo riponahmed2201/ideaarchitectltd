@@ -11,8 +11,18 @@
     --ia-shadow-hover: 0 20px 50px rgba(24, 35, 51, 0.14);
 }
 
-.ia-home .ia-section-head {
+.ia-home .ia-section-top {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
     margin-bottom: 48px;
+    max-width: 100%;
+}
+
+.ia-home .ia-section-head {
+    margin-bottom: 0;
 }
 
 .ia-home .ia-section-head .ia-label {
@@ -175,15 +185,31 @@
     background: #fff;
 }
 
+.ia-services .container {
+    max-width: 1200px;
+}
+
+.ia-services-row {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 1.5rem;
+}
+
+.ia-services-row > [class*="col-"] {
+    display: flex;
+}
+
 .ia-service-card {
+    width: 100%;
     height: 100%;
-    padding: 36px 30px;
+    padding: 32px 28px;
     border: 1px solid var(--ia-border);
     border-radius: var(--ia-radius);
     background: #fff;
     transition: all 0.35s ease;
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .ia-service-card::before {
@@ -207,6 +233,11 @@
 
 .ia-service-card:hover::before {
     transform: scaleX(1);
+}
+
+.ia-service-card .ia-link {
+    margin-top: auto;
+    padding-top: 8px;
 }
 
 .ia-service-card .ia-icon {
@@ -249,6 +280,18 @@
     color: var(--ia-primary);
     font-weight: 600;
     font-size: 14px;
+}
+
+.ia-home .container {
+    max-width: 1200px;
+}
+
+.ia-portfolio .row,
+.ia-team .row,
+.ia-testimonials .row,
+.ia-process .row,
+.ia-choose .row {
+    justify-content: center;
 }
 
 /* Portfolio */
@@ -654,15 +697,7 @@
     color: #fff;
 }
 
-/* Section top bar with button */
-.ia-section-top {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 24px;
-    flex-wrap: wrap;
-    margin-bottom: 48px;
-}
+/* Section top bar with button - see .ia-home .ia-section-top at top of file */
 
 @media (max-width: 991px) {
     .ia-hero-slide {

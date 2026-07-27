@@ -7,9 +7,9 @@
             </div>
             <a href="/services" class="default-btn">All Services <i class="flaticon-next"></i></a>
         </div>
-        <div class="row">
+        <div class="row ia-services-row justify-content-center g-4">
             @foreach ($serviceCategories as $serviceCategory)
-                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 }}">
+                <div class="col-xl-4 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 }}">
                     <div class="ia-service-card">
                         <div class="ia-icon">
                             <i class="flaticon-analysis"></i>

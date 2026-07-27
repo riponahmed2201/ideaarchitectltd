@@ -7,9 +7,9 @@
             </div>
             <a href="{{ route('portfolio.index') }}" class="default-btn">View All Portfolio <i class="flaticon-next"></i></a>
         </div>
-        <div class="row">
+        <div class="row justify-content-center g-4">
             @forelse ($featuredPortfolios as $portfolio)
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 }}">
+                <div class="col-lg-4 col-md-6">
                     <div class="ia-portfolio-card">
                         <a href="{{ route('portfolio.show', $portfolio->slug) }}" class="d-block position-relative">
                             <img src="{{ Storage::url($portfolio->image) }}" alt="{{ $portfolio->title }}">
