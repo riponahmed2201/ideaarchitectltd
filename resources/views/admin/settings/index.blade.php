@@ -39,6 +39,29 @@
                                 <label class="required fs-5 fw-bold mb-2">Awards Count (Homepage)</label>
                                 <input type="number" name="awards_count" class="form-control form-control-solid" value="{{ old('awards_count', $settings['awards_count']) }}" min="0" required />
                             </div>
+                            <div class="col-md-6 fv-row mb-5">
+                                <label class="fs-5 fw-bold mb-2">WhatsApp Number</label>
+                                <input type="text" name="whatsapp_number" class="form-control form-control-solid" value="{{ old('whatsapp_number', $settings['whatsapp_number']) }}" placeholder="8801841275126" />
+                            </div>
+                            <div class="col-md-6 fv-row mb-5">
+                                <label class="fs-5 fw-bold mb-2">Default Language</label>
+                                <select name="default_locale" class="form-select form-select-solid">
+                                    <option value="en" @selected(old('default_locale', $settings['default_locale']) === 'en')>English</option>
+                                    <option value="bn" @selected(old('default_locale', $settings['default_locale']) === 'bn')>Bangla</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <h4 class="mb-5">Analytics</h4>
+                        <div class="row mb-5">
+                            <div class="col-md-6 fv-row mb-5">
+                                <label class="fs-5 fw-bold mb-2">Google Analytics ID</label>
+                                <input type="text" name="google_analytics_id" class="form-control form-control-solid" value="{{ old('google_analytics_id', $settings['google_analytics_id']) }}" placeholder="G-XXXXXXXXXX" />
+                            </div>
+                            <div class="col-md-6 fv-row mb-5">
+                                <label class="fs-5 fw-bold mb-2">Meta Pixel ID</label>
+                                <input type="text" name="meta_pixel_id" class="form-control form-control-solid" value="{{ old('meta_pixel_id', $settings['meta_pixel_id']) }}" placeholder="1234567890" />
+                            </div>
                         </div>
 
                         <button type="submit" class="btn btn-primary">Save Settings</button>

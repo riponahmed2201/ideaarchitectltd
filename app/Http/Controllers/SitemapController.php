@@ -19,6 +19,8 @@ class SitemapController extends Controller
             ['loc' => url('/blog'), 'priority' => '0.8'],
             ['loc' => url('/video-gallery'), 'priority' => '0.7'],
             ['loc' => url('/contact-us'), 'priority' => '0.7'],
+            ['loc' => url('/faq'), 'priority' => '0.7'],
+            ['loc' => url('/get-quote'), 'priority' => '0.8'],
             ['loc' => url('/privacy-policy'), 'priority' => '0.5'],
         ];
 

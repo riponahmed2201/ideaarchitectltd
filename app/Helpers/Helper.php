@@ -1,63 +1,39 @@
 <?php
 
-use App\Models\Partner;
-use App\Models\Service;
-use App\Models\ServiceCategory;
-use App\Models\User;
-use Illuminate\Support\Facades\Auth;
+use App\Models\Setting;
+use Illuminate\Support\Facades\Storage;
 
-if (!function_exists('getServiceCategories')) {
+if (! function_exists('site_setting')) {
+    function site_setting(string $key, mixed $default = null): mixed
+    {
+        return Setting::get($key, $default);
+    }
+}
 
-    /**
-     * Get active service categories
-     *
-     * @param
-     * @return
-     */
+if (! function_exists('getServiceCategories')) {
     function getServiceCategories()
     {
-        return ServiceCategory::withCount('services')->where('status', 1)->get();
+        return \App\Models\ServiceCategory::withCount('services')->where('status', 1)->get();
     }
 }
 
-if (!function_exists('getServices')) {
-
-    /**
-     * Get active services
-     *
-     * @param
-     * @return
-     */
+if (! function_exists('getServices')) {
     function getServices()
     {
-        return Service::with('category')->where('status', 1)->get();
+        return \App\Models\Service::with('category')->where('status', 1)->get();
     }
 }
 
-if (!function_exists('getPartners')) {
-
-    /**
-     * Get active partners
-     *
-     * @param
-     * @return
-     */
+if (! function_exists('getPartners')) {
     function getPartners()
     {
-        return Partner::where('status', 1)->latest()->get();
+        return \App\Models\Partner::where('status', 1)->latest()->get();
     }
 }
 
-if (!function_exists('getLoggedInUser')) {
-
-    /**
-     * Get logged in user details
-     *
-     * @param
-     * @return
-     */
+if (! function_exists('getLoggedInUser')) {
     function getLoggedInUser()
     {
-        return Auth::user()->load('profile');
+        return \Illuminate\Support\Facades\Auth::user()->load('profile');
     }
 }

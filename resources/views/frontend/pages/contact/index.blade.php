@@ -1,12 +1,14 @@
 @extends('frontend.layouts.app')
 
+@section('title', 'Contact Us - Idea Architect Limited')
+
 @section('content')
     <!-- Start Page Banner Area -->
     <div class="page-banner-area">
         <div class="container-fluid">
             <div class="page-banner-content">
                 <h1>Contact Us</h1>
-                <p><a href="/">Home</a>Contact Us</p>
+                <p><a href="/">Home</a> Contact Us</p>
             </div>
         </div>
     </div>
@@ -24,28 +26,24 @@
                     <div class="contact-card">
                         <i class="flaticon-telephone"></i>
                         <h3>Call for help:</h3>
-                        <p>Phone 1:<a href="tel:+8801732-691745">+8801732-691745</a></p>
-                        <p>Phone 2:<a href="tel:+8801738-275126">+8801738-275126</a></p>
+                        <p>Phone 1: <a href="tel:{{ preg_replace('/\s+/', '', $settings['site_phone_1']) }}">{{ $settings['site_phone_1'] }}</a></p>
+                        @if (!empty($settings['site_phone_2']))
+                            <p>Phone 2: <a href="tel:{{ preg_replace('/\s+/', '', $settings['site_phone_2']) }}">{{ $settings['site_phone_2'] }}</a></p>
+                        @endif
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="contact-card">
                         <i class="flaticon-envelope"></i>
                         <h3>Mail for information:</h3>
-                        <p>Support: <a href="">
-                                <span>idea.architectsbd@gmail.com</span>
-                            </a>
-                        </p>
-                        <p>Email: <a href=""><span>idea.architectsbd@gmail.com</span></a>
-                        </p>
+                        <p>Email: <a href="mailto:{{ $settings['site_email'] }}">{{ $settings['site_email'] }}</a></p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="contact-card">
                         <i class="flaticon-placeholder"></i>
                         <h3>Head office address:</h3>
-                        <p>Mirpur - 6, Dhaka-1216,</p>
-                        <p>Bangladesh</p>
+                        <p>{{ $settings['site_address'] }}</p>
                     </div>
                 </div>
             </div>
@@ -62,7 +60,7 @@
                         <div class="embed-map-responsive">
                             <div class="embed-map-container"><iframe class="embed-map-frame" frameborder="0" scrolling="no"
                                     marginheight="0" marginwidth="0"
-                                    src="https://maps.google.com/maps?width=600&height=400&hl=en&q=Mirpur%20-%206%2C%20Dhaka-1216%2C%20Bangladesh&t=&z=14&ie=UTF8&iwloc=B&output=embed"></iframe></div>
+                                    src="https://maps.google.com/maps?width=600&height=400&hl=en&q={{ urlencode($settings['site_address']) }}&t=&z=14&ie=UTF8&iwloc=B&output=embed"></iframe></div>
                             <style>
                                 .embed-map-responsive {
                                     position: relative;

@@ -21,6 +21,8 @@ class DatabaseSeeder extends Seeder
             PartnerSeeder::class,
             PortfolioSeeder::class,
             BlogSeeder::class,
+            FaqSeeder::class,
+            TestimonialSeeder::class,
             VideosSeeder::class,
         ]);
     }

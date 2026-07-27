@@ -29,6 +29,7 @@ class PortfolioRequest extends FormRequest
             'status' => 'required|in:0,1',
             'description' => 'nullable|string',
             'service_id' => 'required|exists:services,id',
+            'is_featured' => 'nullable|boolean',
             'image' => [$isUpdate ? 'nullable' : 'required', 'image', 'mimes:jpeg,png,jpg,webp', 'max:2048'],
         ];
     }

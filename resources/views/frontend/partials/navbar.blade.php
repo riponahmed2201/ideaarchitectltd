@@ -67,13 +67,17 @@
                         </li>
 
                         <li class="nav-item">
+                            <a href="{{ route('faq.index') }}" class="nav-link {{ Request::is('faq') ? 'active' : '' }}">FAQ</a>
+                        </li>
+
+                        <li class="nav-item">
                             <a href="/contact-us"
                                 class="nav-link {{ Request::is('contact-us') ? 'active' : '' }}">Contact</a>
                         </li>
                     </ul>
 
                     <div class="option-item">
-                        <a href="/contact-us" class="default-btn">Get in Touch<i class="flaticon-next"></i></a>
+                        <a href="{{ route('quote.index') }}" class="default-btn">Get a Quote<i class="flaticon-next"></i></a>
                     </div>
                 </div>
         </div>

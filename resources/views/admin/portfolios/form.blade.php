@@ -136,6 +136,17 @@
                                 @enderror
                             </div>
 
+                            <!-- Featured -->
+                            <div class="col-md-6 fv-row mb-5">
+                                <label class="fs-5 fw-bold mb-2">Featured on Homepage</label>
+                                <div class="form-check form-switch form-check-custom form-check-solid mt-3">
+                                    <input type="hidden" name="is_featured" value="0">
+                                    <input class="form-check-input" type="checkbox" name="is_featured" value="1" id="is_featured"
+                                        @checked(old('is_featured', $editModeData->is_featured ?? false))>
+                                    <label class="form-check-label" for="is_featured">Show in featured portfolio section</label>
+                                </div>
+                            </div>
+
                             <!-- Status -->
                             <div class="col-md-6 fv-row mb-5">
                                 <label class="required fs-5 fw-bold mb-2">Status</label>

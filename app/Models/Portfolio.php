@@ -32,6 +32,7 @@ class Portfolio extends Model
         'image',
         'date',
         'description',
+        'is_featured',
         'status',
     ];
 

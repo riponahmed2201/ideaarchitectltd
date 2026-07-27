@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('image');
             $table->date('date');
             $table->longText('description')->nullable();
+            $table->boolean('is_featured')->default(false);
             $table->boolean('status')->default(1);
             $table->timestamps();
         });

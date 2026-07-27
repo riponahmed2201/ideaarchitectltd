@@ -8,6 +8,7 @@ use App\Models\Portfolio;
 use App\Models\ServiceCategory;
 use App\Models\Setting;
 use App\Models\Slider;
+use App\Models\Testimonial;
 use App\Models\User;
 use App\Models\Video;
 
@@ -19,6 +20,21 @@ class HomeController extends Controller
         $sliders = Slider::query()->where('status', 1)->latest()->get();
 
         $featuredPortfolios = Portfolio::with('service')
+            ->where('status', 1)
+            ->where('is_featured', true)
+            ->latest()
+            ->take(6)
+            ->get();
+
+        if ($featuredPortfolios->isEmpty()) {
+            $featuredPortfolios = Portfolio::with('service')
+                ->where('status', 1)
+                ->latest()
+                ->take(6)
+                ->get();
+        }
+
+        $testimonials = Testimonial::with('portfolio')
             ->where('status', 1)
             ->latest()
             ->take(6)
@@ -37,7 +53,7 @@ class HomeController extends Controller
             'awards' => (int) Setting::get('awards_count', 12),
         ];
 
-        return view('frontend.home', compact('serviceCategories', 'sliders', 'featuredPortfolios', 'teamMembers', 'counters'));
+        return view('frontend.home', compact('serviceCategories', 'sliders', 'featuredPortfolios', 'testimonials', 'teamMembers', 'counters'));
     }
 
     public function privacyPolicy()

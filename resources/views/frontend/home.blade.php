@@ -5,6 +5,7 @@
     @include('frontend.pages.home.services')
     @include('frontend.pages.home.featured_portfolio')
     @include('frontend.pages.home.counter')
+    @include('frontend.pages.home.testimonials')
     @include('frontend.pages.home.working_process')
     @include('frontend.pages.home.partner')
     @include('frontend.pages.home.team')

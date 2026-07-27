@@ -8,11 +8,9 @@
                     </a>
                     <p>
                         At Idea Architects, we are dedicated to transforming spaces with innovative design and
-                        exceptional
-                        craftsmanship.
+                        exceptional craftsmanship.
                         Specializing in both interior and exterior design, we bring your vision to life through
-                        meticulous
-                        planning, creative solutions,
+                        meticulous planning, creative solutions,
                         and flawless execution.
                     </p>
                     <ul>
@@ -43,24 +41,14 @@
                 <div class="footer-widget ps-5">
                     <h2>Quick Links</h2>
                     <ul class="footer-list">
-                        <li>
-                            <a href="/about-us">About Us</a>
-                        </li>
-                        <li>
-                            <a href="/portfolio">Portfolio</a>
-                        </li>
-                        <li>
-                            <a href="/services">Services</a>
-                        </li>
-                        <li>
-                            <a href="/blog">Blog</a>
-                        </li>
-                        <li>
-                            <a href="/contact-us">Contact</a>
-                        </li>
-                        <li>
-                            <a href="/privacy-policy">Privacy Policy</a>
-                        </li>
+                        <li><a href="/about-us">About Us</a></li>
+                        <li><a href="/portfolio">Portfolio</a></li>
+                        <li><a href="/services">Services</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="{{ route('faq.index') }}">FAQ</a></li>
+                        <li><a href="{{ route('quote.index') }}">Get a Quote</a></li>
+                        <li><a href="/contact-us">Contact</a></li>
+                        <li><a href="/privacy-policy">Privacy Policy</a></li>
                     </ul>
                 </div>
             </div>
@@ -68,9 +56,7 @@
                 <div class="footer-widget ps-5">
                     <h2>Featured Services</h2>
                     <ul class="footer-list">
-                        <li>
-                            <a target="_blank" href="/services">All Services</a>
-                        </li>
+                        <li><a target="_blank" href="/services">All Services</a></li>
                         @foreach (getServiceCategories() as $serviceCategory)
                             <li>
                                 <a target="_blank"
@@ -86,24 +72,63 @@
                     <div class="footer-information">
                         <i class="flaticon-telephone"></i>
                         <h3>Phone</h3>
-                        <a href="tel:+8801732-691745">+8801732-691745</a>
+                        <a href="tel:{{ preg_replace('/\s+/', '', site_setting('site_phone_1')) }}">{{ site_setting('site_phone_1') }}</a>
+                        @if (site_setting('site_phone_2'))
+                            <br><a href="tel:{{ preg_replace('/\s+/', '', site_setting('site_phone_2')) }}">{{ site_setting('site_phone_2') }}</a>
+                        @endif
                     </div>
                     <div class="footer-information">
                         <i class="flaticon-envelope"></i>
                         <h3>Email</h3>
-                        <a href="#">
-                            <span>
-                                idea.architectsbd@gmail.com
-                            </span>
-                        </a>
+                        <a href="mailto:{{ site_setting('site_email') }}">{{ site_setting('site_email') }}</a>
                     </div>
                     <div class="footer-information">
                         <i class="flaticon-placeholder"></i>
                         <h3>Address</h3>
-                        <p>Mirpur - 6, Dhaka-1216, Bangladesh</p>
+                        <p>{{ site_setting('site_address') }}</p>
+                    </div>
+
+                    <div class="footer-information mt-4">
+                        <h3>Newsletter</h3>
+                        <form id="newsletterForm" class="mt-2">
+                            @csrf
+                            <div class="input-group">
+                                <input type="email" name="email" class="form-control" placeholder="Your email" required>
+                                <button type="submit" class="btn btn-primary">Subscribe</button>
+                            </div>
+                            <div id="newsletterMsg" class="mt-2 small"></div>
+                        </form>
+                    </div>
+
+                    <div class="footer-information mt-3">
+                        <h3>Language</h3>
+                        <a href="{{ route('locale.switch', 'en') }}" class="{{ app()->getLocale() === 'en' ? 'fw-bold' : '' }}">English</a>
+                        |
+                        <a href="{{ route('locale.switch', 'bn') }}" class="{{ app()->getLocale() === 'bn' ? 'fw-bold' : '' }}">বাংলা</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+@push('scripts')
+<script>
+$('#newsletterForm').on('submit', function(e) {
+    e.preventDefault();
+    $.ajax({
+        type: 'POST',
+        url: '{{ route('newsletter.subscribe') }}',
+        data: $(this).serialize(),
+        success: function(res) {
+            $('#newsletterForm')[0].reset();
+            $('#newsletterMsg').removeClass('text-danger').addClass('text-success').text(res.message);
+        },
+        error: function(xhr) {
+            const msg = xhr.responseJSON?.errors?.email?.[0] || xhr.responseJSON?.message || 'Something went wrong.';
+            $('#newsletterMsg').removeClass('text-success').addClass('text-danger').text(msg);
+        }
+    });
+});
+</script>
+@endpush

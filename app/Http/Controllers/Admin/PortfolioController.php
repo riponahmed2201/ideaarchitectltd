@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\PortfolioRequest;
 use App\Models\Portfolio;
 use App\Models\Service;
+use App\Services\ImageUploadService;
 use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\JsonResponse;
@@ -18,6 +19,8 @@ use Yajra\DataTables\Facades\DataTables;
 
 class PortfolioController extends Controller
 {
+    public function __construct(private ImageUploadService $imageUpload) {}
+
     /**
      * Display a listing of the resource.
      */
@@ -81,13 +84,10 @@ class PortfolioController extends Controller
     public function store(PortfolioRequest $request): RedirectResponse
     {
         $input = $request->validated();
+        $input['is_featured'] = $request->boolean('is_featured');
 
-        $image = $request->file('image');
-
-        if ($image) {
-            $imageName = md5(Str::random(10) . time()) . '.' . $image->getClientOriginalExtension();
-            $imagePath = $image->storeAs('portfolios', $imageName, 'public');
-            $input['image'] = $imagePath;
+        if ($request->hasFile('image')) {
+            $input['image'] = $this->imageUpload->store($request->file('image'), 'portfolios');
         }
 
         $input['slug'] = $this->generateUniqueSlug($input['title']);
@@ -124,19 +124,11 @@ class PortfolioController extends Controller
     public function update(PortfolioRequest $request, Portfolio $portfolio): RedirectResponse
     {
         $input = $request->validated();
+        $input['is_featured'] = $request->boolean('is_featured');
 
-        // Check if a new logo is being uploaded
-        $image = $request->file('image');
-
-        if ($image) {
-            $imageName = md5(Str::random(10) . time()) . '.' . $image->getClientOriginalExtension();
-            $imagePath = $image->storeAs('portfolios', $imageName, 'public');
-            $input['image'] = $imagePath;
-
-            // Delete the old image if it exists
-            if ($portfolio->image && Storage::disk('public')->exists($portfolio->image)) {
-                Storage::disk('public')->delete($portfolio->image);
-            }
+        if ($request->hasFile('image')) {
+            $this->imageUpload->delete($portfolio->image);
+            $input['image'] = $this->imageUpload->store($request->file('image'), 'portfolios');
         }
 
         $input['slug'] = $this->generateUniqueSlug($input['title'], $portfolio->id);
@@ -164,9 +156,7 @@ class PortfolioController extends Controller
     {
         try {
             // Delete the image from storage if it exists
-            if ($portfolio->image && Storage::disk('public')->exists($portfolio->image)) {
-                Storage::disk('public')->delete($portfolio->image);
-            }
+            $this->imageUpload->delete($portfolio->image);
 
             $portfolio->delete();
 

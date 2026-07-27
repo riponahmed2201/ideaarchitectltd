@@ -177,11 +177,47 @@
                 </div>
 
                 <div class="menu-item">
+                    <a class="menu-link {{ Request::is('admin/faqs*') ? 'active' : '' }}" href="{{ route('admin.faqs.index') }}">
+                        <span class="menu-icon">
+                            <i class="bi bi-question-circle fs-3 text-info"></i>
+                        </span>
+                        <span class="menu-title">FAQs</span>
+                    </a>
+                </div>
+
+                <div class="menu-item">
+                    <a class="menu-link {{ Request::is('admin/testimonials*') ? 'active' : '' }}" href="{{ route('admin.testimonials.index') }}">
+                        <span class="menu-icon">
+                            <i class="bi bi-chat-quote fs-3 text-warning"></i>
+                        </span>
+                        <span class="menu-title">Testimonials</span>
+                    </a>
+                </div>
+
+                <div class="menu-item">
                     <a class="menu-link {{ Request::is('admin/contact-inquiries*') ? 'active' : '' }}" href="/admin/contact-inquiries">
                         <span class="menu-icon">
                             <i class="bi bi-envelope fs-3 text-primary"></i>
                         </span>
                         <span class="menu-title">Contact Inquiries</span>
+                    </a>
+                </div>
+
+                <div class="menu-item">
+                    <a class="menu-link {{ Request::is('admin/quote-requests*') ? 'active' : '' }}" href="{{ route('admin.quote-requests.index') }}">
+                        <span class="menu-icon">
+                            <i class="bi bi-file-earmark-text fs-3 text-success"></i>
+                        </span>
+                        <span class="menu-title">Quote Requests</span>
+                    </a>
+                </div>
+
+                <div class="menu-item">
+                    <a class="menu-link {{ Request::is('admin/newsletter-subscribers*') ? 'active' : '' }}" href="{{ route('admin.newsletter-subscribers.index') }}">
+                        <span class="menu-icon">
+                            <i class="bi bi-mailbox fs-3 text-danger"></i>
+                        </span>
+                        <span class="menu-title">Newsletter</span>
                     </a>
                 </div>
 

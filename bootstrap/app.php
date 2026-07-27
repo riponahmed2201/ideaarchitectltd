@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Middleware\AdminMiddleware;
+use App\Http\Middleware\EnsureAdminRole;
 use App\Http\Middleware\PreventBackHistory;
+use App\Http\Middleware\SetLocale;
 use App\Http\Middleware\XSS;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
@@ -21,10 +23,15 @@ return Application::configure(basePath: dirname(__DIR__))
         },
     )
     ->withMiddleware(function (Middleware $middleware) {
+        $middleware->web(append: [
+            SetLocale::class,
+        ]);
+
         $middleware->alias([
             'admin' => AdminMiddleware::class,
+            'admin.role' => EnsureAdminRole::class,
             'preventBackHistory' => PreventBackHistory::class,
-            'XSS' => XSS::class
+            'XSS' => XSS::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
