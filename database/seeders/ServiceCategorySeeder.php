@@ -3,14 +3,10 @@
 namespace Database\Seeders;
 
 use App\Models\ServiceCategory;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class ServiceCategorySeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
         $now = now();
@@ -19,7 +15,7 @@ class ServiceCategorySeeder extends Seeder
             [
                 'name' => 'Architectural',
                 'slug' => 'architectural',
-                'description' => 'Exterior design, Animation, Urban Planning, Landscape Design',
+                'description' => 'Exterior design, 3D visualization, urban planning & landscape architecture',
                 'status' => 1,
                 'created_at' => $now,
                 'updated_at' => $now,
@@ -27,7 +23,7 @@ class ServiceCategorySeeder extends Seeder
             [
                 'name' => 'Interior',
                 'slug' => 'interior',
-                'description' => 'Residential interior, Office interior, Hotel & Restaurant Interior, Hospital interior, Showroom interior',
+                'description' => 'Residential, office, hotel, hospital & showroom interior design',
                 'status' => 1,
                 'created_at' => $now,
                 'updated_at' => $now,
@@ -35,23 +31,23 @@ class ServiceCategorySeeder extends Seeder
             [
                 'name' => 'Construction',
                 'slug' => 'construction',
-                'description' => 'Building construction',
+                'description' => 'Turnkey building construction with site supervision & quality control',
                 'status' => 1,
                 'created_at' => $now,
                 'updated_at' => $now,
             ],
             [
-                'name' => 'Rajuk support',
+                'name' => 'RAJUK Support',
                 'slug' => 'rajuk-support',
-                'description' => 'Support for Rajuk approval process',
+                'description' => 'Drawing preparation, documentation & approval follow-up for Dhaka projects',
                 'status' => 1,
                 'created_at' => $now,
                 'updated_at' => $now,
             ],
             [
-                'name' => 'Door & furniture',
+                'name' => 'Door & Furniture',
                 'slug' => 'door-furniture',
-                'description' => 'Door and Furniture related services',
+                'description' => 'Custom doors, wardrobes, kitchen cabinets & bespoke furniture',
                 'status' => 1,
                 'created_at' => $now,
                 'updated_at' => $now,

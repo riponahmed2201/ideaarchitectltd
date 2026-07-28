@@ -9,10 +9,11 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
-        $this->seedPlaceholderImage();
+        $this->ensureSeedDirectory();
 
         $this->call([
             UserSeeder::class,
+            TeamMemberSeeder::class,
             SettingSeeder::class,
             ServiceCategorySeeder::class,
             ServiceSeeder::class,
@@ -27,12 +28,15 @@ class DatabaseSeeder extends Seeder
         ]);
     }
 
-    private function seedPlaceholderImage(): void
+    private function ensureSeedDirectory(): void
     {
+        Storage::disk('public')->makeDirectory('seed');
+
+        $placeholder = 'seed/placeholder.jpg';
         $source = public_path('assets/logo/logo.png');
 
-        if (file_exists($source)) {
-            Storage::disk('public')->put('seed/placeholder.jpg', file_get_contents($source));
+        if (! Storage::disk('public')->exists($placeholder) && file_exists($source)) {
+            Storage::disk('public')->put($placeholder, file_get_contents($source));
         }
     }
 }

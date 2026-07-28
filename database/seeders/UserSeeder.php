@@ -23,9 +23,9 @@ class UserSeeder extends Seeder
         $user->profile()->updateOrCreate(
             ['user_id' => $user->id],
             [
-                'designation' => 'System Admin',
-                'phone' => '0123456789',
-                'about_me' => 'I am the system admin.',
+                'designation' => 'Managing Director',
+                'phone' => '01732691745',
+                'about_me' => 'Leads operations, client relations, and project delivery at Idea Architect Limited.',
                 'picture' => null,
                 'facebook' => 'https://facebook.com',
                 'twitter' => 'https://twitter.com',
