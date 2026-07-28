@@ -707,67 +707,193 @@
     background: var(--ia-primary);
 }
 
-/* Process */
+/* Process — premium timeline */
 .ia-process {
-    padding: 88px 0 64px;
-    background: var(--ia-bg-alt);
+    padding: 96px 0 80px;
+    background:
+        linear-gradient(180deg, #f3f5fb 0%, var(--ia-bg) 55%, var(--ia-bg) 100%);
+    position: relative;
+    overflow-x: clip;
+    overflow-y: visible;
+}
+
+.ia-process::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 12% 18%, rgba(62, 64, 149, 0.06) 0%, transparent 42%),
+        radial-gradient(circle at 88% 72%, rgba(245, 130, 32, 0.05) 0%, transparent 38%);
+    pointer-events: none;
+}
+
+.ia-process .container {
+    position: relative;
+    z-index: 1;
+}
+
+.ia-process-timeline {
+    position: relative;
+    padding-top: 8px;
+}
+
+.ia-process-track {
+    display: none;
+}
+
+.ia-process-steps {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 28px;
+    position: relative;
+    padding-top: 24px;
+}
+
+.ia-process-step {
+    position: relative;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .ia-process-card {
+    width: 100%;
     height: 100%;
-    padding: 28px 22px;
+    padding: 40px 24px 28px;
+    margin-top: -28px;
     text-align: center;
-    border-radius: var(--ia-radius);
-    border: 1px solid var(--ia-border);
-    background: var(--ia-bg);
-    transition: all 0.3s ease;
+    border-radius: 14px;
+    border: 1px solid rgba(62, 64, 149, 0.1);
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 10px 30px rgba(26, 29, 74, 0.06);
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
     position: relative;
+    overflow: hidden;
+}
+
+.ia-process-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--ia-blue) 0%, var(--ia-orange) 100%);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s ease;
 }
 
 .ia-process-card:hover {
-    box-shadow: var(--ia-shadow);
-    transform: translateY(-3px);
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(26, 29, 74, 0.1);
+    border-color: rgba(245, 130, 32, 0.22);
 }
 
-.ia-process-card .ia-step-num {
-    position: absolute;
-    top: 14px;
-    right: 18px;
-    font-size: 2rem;
-    font-weight: 700;
-    line-height: 1;
-    color: var(--ia-primary);
-    opacity: 0.2;
+.ia-process-card:hover::after {
+    transform: scaleX(1);
 }
 
-.ia-process-card .ia-icon {
+.ia-process-badge {
+    position: relative;
+    z-index: 2;
     width: 56px;
     height: 56px;
-    margin: 0 auto 16px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
-    font-size: 24px;
-    background: var(--ia-blue-light);
-    color: var(--ia-blue);
-    transition: all 0.3s ease;
+    background: linear-gradient(135deg, var(--ia-blue-deep) 0%, var(--ia-blue) 100%);
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    border: 4px solid #f3f5fb;
+    box-shadow: 0 8px 20px rgba(26, 29, 74, 0.18);
+    flex-shrink: 0;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
-.ia-process-card:hover .ia-icon {
-    background: var(--ia-orange-light);
+.ia-process-step:hover .ia-process-badge {
+    transform: scale(1.05);
+    box-shadow: 0 10px 24px rgba(245, 130, 32, 0.28);
+}
+
+.ia-process-icon {
+    width: 58px;
+    height: 58px;
+    margin: 0 auto 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    font-size: 26px;
+    background: linear-gradient(145deg, rgba(62, 64, 149, 0.1) 0%, rgba(62, 64, 149, 0.04) 100%);
+    color: var(--ia-blue);
+    transition: all 0.35s ease;
+}
+
+.ia-process-card:hover .ia-process-icon {
+    background: linear-gradient(145deg, rgba(245, 130, 32, 0.14) 0%, rgba(245, 130, 32, 0.06) 100%);
     color: var(--ia-orange);
+    transform: translateY(-2px);
 }
 
 .ia-process-card h3 {
-    font-size: var(--ia-fs-base);
+    font-size: var(--ia-fs-lg);
     font-weight: 600;
+    color: var(--ia-blue-deep);
+    margin-bottom: 10px;
 }
 
 .ia-process-card p {
     color: var(--ia-text-muted);
     font-size: var(--ia-fs-sm);
-    line-height: 1.65;
+    line-height: 1.7;
+    margin-bottom: 0;
+}
+
+@media (min-width: 992px) {
+    .ia-process-track {
+        display: block;
+        position: absolute;
+        top: 52px;
+        left: 12.5%;
+        right: 12.5%;
+        height: 2px;
+        background: linear-gradient(90deg, rgba(62, 64, 149, 0.18) 0%, rgba(245, 130, 32, 0.35) 50%, rgba(62, 64, 149, 0.18) 100%);
+        z-index: 0;
+    }
+
+    .ia-process-steps {
+        gap: 22px;
+    }
+}
+
+@media (max-width: 991px) {
+    .ia-process-steps {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 40px 20px;
+        padding-top: 8px;
+    }
+}
+
+@media (max-width: 575px) {
+    .ia-process {
+        padding: 72px 0 60px;
+    }
+
+    .ia-process-steps {
+        grid-template-columns: 1fr;
+        gap: 44px;
+        max-width: 360px;
+        margin: 0 auto;
+    }
+
+    .ia-process-card {
+        padding: 36px 20px 24px;
+    }
 }
 
 /* Clients */
@@ -1239,8 +1365,36 @@
 .theme-dark .ia-process-card,
 .theme-dark .ia-team-card,
 .theme-dark .ia-clients .partners-logo {
-    background: var(--ia-bg-alt);
+    background: rgba(20, 20, 32, 0.92);
     border-color: var(--ia-border);
+}
+
+.theme-dark .ia-process {
+    background: linear-gradient(180deg, #101018 0%, var(--ia-bg) 60%, var(--ia-bg) 100%);
+}
+
+.theme-dark .ia-process::before {
+    background:
+        radial-gradient(circle at 12% 18%, rgba(62, 64, 149, 0.14) 0%, transparent 42%),
+        radial-gradient(circle at 88% 72%, rgba(245, 130, 32, 0.08) 0%, transparent 38%);
+}
+
+.theme-dark .ia-process-badge {
+    border-color: #101018;
+}
+
+.theme-dark .ia-process-card h3 {
+    color: #f1f5f9;
+}
+
+.theme-dark .ia-process-icon {
+    background: linear-gradient(145deg, rgba(62, 64, 149, 0.22) 0%, rgba(62, 64, 149, 0.08) 100%);
+    color: #c8caf5;
+}
+
+.theme-dark .ia-process-card:hover .ia-process-icon {
+    background: linear-gradient(145deg, rgba(245, 130, 32, 0.2) 0%, rgba(245, 130, 32, 0.08) 100%);
+    color: var(--ia-orange);
 }
 
 .theme-dark .ia-service-card h3 a {
