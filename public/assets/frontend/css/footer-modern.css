@@ -1,11 +1,11 @@
-/* Premium Footer */
+/* Premium Footer — logo blue + orange accent */
 .ia-footer {
-    --ia-footer-bg: #121b27;
-    --ia-footer-surface: #182333;
-    --ia-footer-border: rgba(255, 255, 255, 0.08);
+    --ia-footer-bg: #252766;
+    --ia-footer-surface: #2e3078;
+    --ia-footer-border: rgba(255, 255, 255, 0.1);
     --ia-footer-text: rgba(255, 255, 255, 0.78);
     --ia-footer-heading: #ffffff;
-    --ia-primary: #c9782f;
+    --ia-primary: #f58220;
     background: var(--ia-footer-bg);
     color: var(--ia-footer-text);
 }
@@ -163,7 +163,7 @@
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    background: rgba(236, 125, 43, 0.12);
+    background: rgba(245, 130, 32, 0.12);
     color: var(--ia-primary);
     font-size: 18px;
 }
@@ -250,7 +250,7 @@
 }
 
 .ia-footer-newsletter-form button:hover {
-    background: #d96a1a;
+    background: #d96e10;
 }
 
 #newsletterMsg {
@@ -365,4 +365,11 @@
     .ia-footer-newsletter-form button {
         width: 100%;
     }
+}
+
+/* Dark mode — footer already dark; subtle tune */
+.theme-dark .ia-footer {
+    --ia-footer-bg: #0e0e14;
+    --ia-footer-surface: #141420;
+    --ia-footer-border: rgba(255, 255, 255, 0.07);
 }

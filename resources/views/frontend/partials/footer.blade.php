@@ -127,12 +127,6 @@
                     <li><a href="{{ route('faq.index') }}">FAQ</a></li>
                     <li><a href="/contact-us">Contact</a></li>
                 </ul>
-
-                <div class="ia-footer-lang">
-                    <a href="{{ route('locale.switch', 'en') }}" class="{{ app()->getLocale() === 'en' ? 'active' : '' }}">EN</a>
-                    <span>|</span>
-                    <a href="{{ route('locale.switch', 'bn') }}" class="{{ app()->getLocale() === 'bn' ? 'active' : '' }}">বাংলা</a>
-                </div>
             </div>
         </div>
     </div>

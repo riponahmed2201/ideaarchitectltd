@@ -467,32 +467,43 @@
 		jQuery(".preloader").fadeOut(500);
 	});
 
-	// Switch Btn
-	$('body').append("<div class='switch-box'><label id='switch' class='switch'><input type='checkbox' onchange='toggleTheme()' id='slider'><span class='slider round'></span></label></div>");
-
 })(jQuery);
 
 
-// function to set a given theme/color-scheme
 function setTheme(themeName) {
     localStorage.setItem('pixab_theme', themeName);
     document.documentElement.className = themeName;
 }
-// function to toggle between light and dark theme
+
+function updateThemeToggleUI() {
+    const btn = document.getElementById('iaThemeToggle');
+    if (!btn) return;
+    const isDark = localStorage.getItem('pixab_theme') === 'theme-dark';
+    btn.innerHTML = isDark ? '<i class="ri-sun-line"></i>' : '<i class="ri-moon-line"></i>';
+    btn.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+}
+
 function toggleTheme() {
     if (localStorage.getItem('pixab_theme') === 'theme-dark') {
         setTheme('theme-light');
     } else {
         setTheme('theme-dark');
     }
+    updateThemeToggleUI();
 }
-// Immediately invoked function to set the theme on initial load
+
 (function () {
     if (localStorage.getItem('pixab_theme') === 'theme-dark') {
         setTheme('theme-dark');
-        document.getElementById('slider').checked = false;
     } else {
         setTheme('theme-light');
-      document.getElementById('slider').checked = true;
     }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const btn = document.getElementById('iaThemeToggle');
+        if (btn) {
+            btn.addEventListener('click', toggleTheme);
+        }
+        updateThemeToggleUI();
+    });
 })();

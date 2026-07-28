@@ -13,7 +13,19 @@
                     </a>
                 </li>
             </ul>
-            <ul class="top-right top-right-two">
+            <ul class="top-right top-right-two ia-topbar-actions">
+                <li class="ia-topbar-utils">
+                    <div class="ia-lang-switch" aria-label="Language">
+                        <a href="{{ route('locale.switch', 'en') }}" class="{{ app()->getLocale() === 'en' ? 'active' : '' }}">EN</a>
+                        <span class="ia-lang-divider">|</span>
+                        <a href="{{ route('locale.switch', 'bn') }}" class="{{ app()->getLocale() === 'bn' ? 'active' : '' }}">বাংলা</a>
+                    </div>
+                </li>
+                <li>
+                    <button type="button" class="ia-theme-toggle" id="iaThemeToggle" aria-label="Toggle dark mode">
+                        <i class="ri-moon-line"></i>
+                    </button>
+                </li>
                 <li>
                     <a href="https://www.facebook.com/iab2021" target="_blank" aria-label="Facebook">
                         <i class="ri-facebook-fill"></i>

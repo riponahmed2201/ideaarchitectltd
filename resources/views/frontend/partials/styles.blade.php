@@ -47,9 +47,14 @@
 
     .chat-box img {
         width: 38px;
-        /* previously 28px */
         height: 38px;
         margin-left: 10px;
+    }
+
+    .theme-dark .whatsapp-chat .chat-box {
+        background-color: #1c1c2c;
+        color: #e2e8f0;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
     }
 </style>
 
