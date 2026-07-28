@@ -3,8 +3,7 @@
         <div class="mobile-nav">
             <div class="logo">
                 <a href="/">
-                    <img src="{{ asset('assets/frontend/images/idea_architects_logo.png') }}" class="black-logo" alt="Idea Architects" />
-                    <img src="{{ asset('assets/frontend/images/idea_architects_logo.png') }}" class="white-logo" alt="Idea Architects" />
+                    <img src="{{ asset('assets/frontend/images/idea_architects_logo.png') }}" class="ia-logo" alt="Idea Architects Ltd" />
                 </a>
             </div>
         </div>
@@ -14,8 +13,7 @@
         <div class="container ia-site-container">
             <nav class="navbar navbar-expand-lg navbar-light ia-navbar">
                 <a class="navbar-brand ia-brand" href="/">
-                    <img src="{{ asset('assets/frontend/images/idea_architects_logo.png') }}" class="black-logo" alt="Idea Architects" />
-                    <img src="{{ asset('assets/frontend/images/idea_architects_logo.png') }}" class="white-logo" alt="Idea Architects" />
+                    <img src="{{ asset('assets/frontend/images/idea_architects_logo.png') }}" class="ia-logo" alt="Idea Architects Ltd" />
                 </a>
 
                 <div class="collapse navbar-collapse mean-menu ia-nav-collapse" id="navbarSupportedContent">

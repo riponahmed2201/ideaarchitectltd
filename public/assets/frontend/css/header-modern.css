@@ -200,25 +200,47 @@
 
 .main-nav {
     padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.main-nav > .ia-site-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
 }
 
 .ia-navbar {
     display: flex;
-    align-items: center;
+    align-items: center !important;
     gap: 12px;
-    padding: 10px 0 !important;
-    min-height: 68px;
+    padding: 11px 0 !important;
+    min-height: 70px;
+    width: 100%;
 }
 
-.ia-brand {
-    padding: 0;
-    margin-right: 0;
+.ia-brand,
+.main-nav .navbar-brand.ia-brand {
+    padding: 0 !important;
+    margin: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: flex-start;
+    align-self: center;
+    height: auto;
+    line-height: 0;
     flex-shrink: 0;
 }
 
-.ia-brand img {
+.ia-brand img,
+.ia-logo,
+.mobile-nav .ia-logo {
     max-height: 48px;
     width: auto;
+    height: auto;
+    display: block;
+    margin: 0;
+    object-fit: contain;
 }
 
 .ia-nav-collapse {
@@ -337,13 +359,30 @@
     transform: translateY(-1px);
 }
 
-/* Homepage header overlay */
-.ia-page-home .header-area {
+/* Site header shell */
+.ia-site-header {
+    position: relative;
+    z-index: 1000;
+    width: 100%;
+}
+
+/* Homepage header overlay — stack topbar + navbar naturally (no fixed top offset) */
+.ia-page-home .ia-site-header {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    z-index: 1001;
+    z-index: 1000;
+}
+
+.ia-page-home .header-area.ia-topbar {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    z-index: 1;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
     background: rgba(26, 29, 74, 0.94);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
@@ -354,11 +393,11 @@
 }
 
 .ia-page-home .navbar-area {
-    position: absolute;
-    top: 48px;
-    left: 0;
-    right: 0;
-    z-index: 1000;
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    z-index: 1;
     background: rgba(255, 255, 255, 0.98) !important;
     box-shadow: 0 1px 0 rgba(26, 29, 74, 0.07) !important;
 }
@@ -418,13 +457,52 @@ body:not(.ia-page-home) .main-nav {
 }
 
 @media (max-width: 991px) {
-    .ia-page-home .header-area {
+    .ia-page-home .ia-site-header {
         position: relative;
     }
 
+    .ia-page-home .header-area.ia-topbar,
     .ia-page-home .navbar-area {
         position: relative;
-        top: 0;
+        top: auto;
+    }
+
+    .mobile-nav {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-start;
+        min-height: 64px;
+        padding: 0;
+    }
+
+    .mobile-nav .logo {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        display: flex !important;
+        align-items: center !important;
+        height: 64px;
+        margin: 0;
+    }
+
+    .mobile-nav .logo a {
+        display: flex;
+        align-items: center;
+        height: 100%;
+    }
+
+    .mean-container a.meanmenu-reveal {
+        top: 50% !important;
+        transform: translateY(-50%);
+        margin-top: 0 !important;
+    }
+
+    .ia-navbar {
+        min-height: 64px;
+    }
+
+    .ia-navbar {
+        padding: 8px 0 !important;
     }
 
     .ia-topbar-inner {
@@ -545,4 +623,30 @@ body:not(.ia-page-home) .main-nav {
         padding-right: var(--ia-container-pad) !important;
         max-width: var(--ia-container-max) !important;
     }
+}
+
+/* Force logo vertical center — override theme absolute positioning */
+@media only screen and (max-width: 991px) {
+    .navbar-area .mobile-nav .logo {
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+    }
+}
+
+.navbar-light .navbar-brand.ia-brand,
+.navbar-light .navbar-brand.ia-brand:hover {
+    color: inherit;
+    line-height: 0;
+}
+
+/* Keep logo vertically centered in navbar — never pull into topbar */
+.main-nav .navbar-brand.ia-brand,
+.main-nav .navbar-brand.ia-brand img.ia-logo,
+.navbar-area .mobile-nav .logo,
+.navbar-area .mobile-nav .logo a {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
 }

@@ -50,8 +50,10 @@
         </a>
     </div>
 
-    @include('frontend.partials.topnav')
-    @include('frontend.partials.navbar')
+    <header class="ia-site-header">
+        @include('frontend.partials.topnav')
+        @include('frontend.partials.navbar')
+    </header>
 
     @yield('content')
 

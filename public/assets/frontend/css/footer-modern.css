@@ -18,8 +18,10 @@
 }
 
 .ia-footer-brand img {
-    max-height: 54px;
+    max-height: 60px;
     width: auto;
+    height: auto;
+    display: block;
     margin-bottom: 20px;
 }
 
