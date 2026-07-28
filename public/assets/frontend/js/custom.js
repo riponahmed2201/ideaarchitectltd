@@ -394,6 +394,34 @@
 
 	$(window).on('load', equalizeTestimonialCards);
 
+	// Homepage team carousel
+	$('.ia-team-slider').owlCarousel({
+		loop: true,
+		margin: 24,
+		nav: true,
+		dots: true,
+		smartSpeed: 800,
+		autoplay: true,
+		autoplayTimeout: 5000,
+		autoplayHoverPause: true,
+		navText: [
+			'<i class="ri-arrow-left-s-line"></i>',
+			'<i class="ri-arrow-right-s-line"></i>',
+		],
+		responsive: {
+			0: {
+				items: 1,
+				margin: 16,
+			},
+			576: {
+				items: 2,
+			},
+			992: {
+				items: 3,
+			},
+		},
+	});
+
 	// Go to Top
 	$(function(){
 		// Scroll Event
