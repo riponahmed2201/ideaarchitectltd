@@ -5,18 +5,25 @@
                 <span class="ia-label">Client Reviews</span>
                 <h2>What Our Clients Say</h2>
             </div>
-            <div class="row">
+            <div class="ia-testimonials-slider owl-carousel owl-theme">
                 @foreach ($testimonials as $testimonial)
-                    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 }}">
+                    <div class="ia-testimonial-slide">
                         <div class="ia-testimonial-card">
                             <div class="ia-quote-icon">"</div>
-                            <p>{{ $testimonial->quote }}</p>
-                            <h5>{{ $testimonial->client_name }}</h5>
-                            <p class="ia-role">{{ $testimonial->designation }}</p>
+                            <p class="ia-testimonial-quote">{{ $testimonial->quote }}</p>
                             <div class="ia-stars">
                                 @for ($i = 1; $i <= 5; $i++)
                                     <i class="ri-star-fill" style="color:{{ $i <= $testimonial->rating ? '#f5a623' : '#ddd' }}"></i>
                                 @endfor
+                            </div>
+                            <div class="ia-testimonial-footer">
+                                @if ($testimonial->image)
+                                    <img src="{{ Storage::url($testimonial->image) }}" alt="{{ $testimonial->client_name }}" class="ia-testimonial-avatar">
+                                @endif
+                                <div class="ia-testimonial-meta">
+                                    <h5>{{ $testimonial->client_name }}</h5>
+                                    <p class="ia-role">{{ $testimonial->designation }}</p>
+                                </div>
                             </div>
                         </div>
                     </div>

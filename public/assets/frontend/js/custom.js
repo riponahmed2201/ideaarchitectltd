@@ -341,6 +341,59 @@
 		} 
     });  
 
+	// Homepage testimonials carousel
+	var $testimonialsSlider = $('.ia-testimonials-slider');
+
+	function equalizeTestimonialCards() {
+		if (!$testimonialsSlider.length) {
+			return;
+		}
+
+		var $cards = $testimonialsSlider.find('.ia-testimonial-card');
+		$cards.css('height', 'auto');
+
+		var maxHeight = 0;
+		$cards.each(function () {
+			maxHeight = Math.max(maxHeight, $(this).outerHeight());
+		});
+
+		if (maxHeight > 0) {
+			$cards.height(maxHeight);
+		}
+	}
+
+	$testimonialsSlider.owlCarousel({
+		loop: true,
+		margin: 24,
+		nav: true,
+		dots: true,
+		smartSpeed: 800,
+		autoplay: true,
+		autoplayTimeout: 5000,
+		autoplayHoverPause: true,
+		navText: [
+			'<i class="ri-arrow-left-s-line"></i>',
+			'<i class="ri-arrow-right-s-line"></i>',
+		],
+		responsive: {
+			0: {
+				items: 1,
+				margin: 16,
+			},
+			768: {
+				items: 2,
+			},
+			1200: {
+				items: 3,
+			},
+		},
+		onInitialized: equalizeTestimonialCards,
+		onResized: equalizeTestimonialCards,
+		onTranslated: equalizeTestimonialCards,
+	});
+
+	$(window).on('load', equalizeTestimonialCards);
+
 	// Go to Top
 	$(function(){
 		// Scroll Event
