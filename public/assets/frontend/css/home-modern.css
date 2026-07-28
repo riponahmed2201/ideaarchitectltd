@@ -1,44 +1,49 @@
-/* Idea Architect — Homepage Design System (logo-matched) */
+/* Idea Architect — Premium Public Design System */
 .ia-home {
-    /* Logo brand colors */
+    /* Logo brand (refined for web) */
     --ia-orange: #f58220;
-    --ia-orange-dark: #d96e10;
-    --ia-orange-light: rgba(245, 130, 32, 0.1);
+    --ia-orange-dark: #d96a12;
+    --ia-orange-light: rgba(245, 130, 32, 0.09);
+    --ia-amber: #f0a45c;
     --ia-blue: #3e4095;
-    --ia-blue-dark: #2e3078;
-    --ia-blue-deep: #252766;
-    --ia-blue-light: rgba(62, 64, 149, 0.08);
+    --ia-blue-dark: #2c2f78;
+    --ia-blue-deep: #1a1d4a;
+    --ia-blue-light: rgba(62, 64, 149, 0.07);
+    --ia-blue-muted: #5c5f9a;
 
-    /* Semantic tokens */
+    /* Semantic */
     --ia-primary: var(--ia-orange);
     --ia-primary-dark: var(--ia-orange-dark);
     --ia-primary-light: var(--ia-orange-light);
-    --ia-dark: var(--ia-blue);
+    --ia-dark: var(--ia-blue-deep);
     --ia-dark-mid: var(--ia-blue-dark);
 
-    /* Text */
-    --ia-text: #1e1e2e;
-    --ia-text-muted: #5a5a72;
-    --ia-text-light: #8888a0;
+    /* Text — warm neutral, easy to read */
+    --ia-text: #1c1f35;
+    --ia-text-muted: #64667a;
+    --ia-text-light: #9395a8;
 
-    /* Surfaces */
+    /* Surfaces — clean, airy */
     --ia-bg: #ffffff;
-    --ia-bg-alt: #f5f6fb;
-    --ia-border: #e4e6f0;
+    --ia-bg-alt: #f7f8fc;
+    --ia-bg-warm: #faf9f7;
+    --ia-border: #e8eaf0;
+    --ia-border-light: #f0f1f5;
 
     /* Type scale */
-    --ia-fs-xs: 0.75rem;    /* 12px */
-    --ia-fs-sm: 0.875rem;   /* 14px */
-    --ia-fs-base: 1rem;     /* 16px */
-    --ia-fs-md: 1.0625rem;  /* 17px */
-    --ia-fs-lg: 1.125rem;   /* 18px */
-    --ia-fs-xl: 1.375rem;   /* 22px */
-    --ia-fs-2xl: clamp(1.625rem, 2.8vw, 2.125rem); /* 26–34px */
-    --ia-fs-hero: clamp(2rem, 4.2vw, 3rem);        /* 32–48px */
+    --ia-fs-xs: 0.75rem;
+    --ia-fs-sm: 0.875rem;
+    --ia-fs-base: 1rem;
+    --ia-fs-md: 1.0625rem;
+    --ia-fs-lg: 1.125rem;
+    --ia-fs-xl: 1.375rem;
+    --ia-fs-2xl: clamp(1.625rem, 2.8vw, 2.125rem);
+    --ia-fs-hero: clamp(2rem, 4.2vw, 3rem);
 
-    --ia-radius: 8px;
-    --ia-shadow: 0 4px 24px rgba(62, 64, 149, 0.07);
-    --ia-shadow-hover: 0 12px 36px rgba(62, 64, 149, 0.12);
+    --ia-radius: 10px;
+    --ia-shadow: 0 2px 16px rgba(26, 29, 74, 0.05);
+    --ia-shadow-hover: 0 8px 32px rgba(26, 29, 74, 0.09);
+    --ia-shadow-btn: 0 4px 16px rgba(245, 130, 32, 0.28);
 
     font-size: var(--ia-fs-base);
     color: var(--ia-text);
@@ -53,9 +58,10 @@
 .ia-home h4,
 .ia-home h5,
 .ia-home h6 {
-    color: var(--ia-dark);
+    color: var(--ia-text);
     font-family: var(--fontFamily), "Poppins", sans-serif;
     font-weight: 600;
+    letter-spacing: -0.01em;
 }
 
 .ia-home p {
@@ -64,18 +70,23 @@
     line-height: 1.7;
 }
 
-/* Buttons on homepage */
+/* Buttons — orange accent, premium shadow */
 .ia-home .default-btn {
     font-size: var(--ia-fs-sm);
     font-weight: 600;
-    padding: 13px 24px;
-    background: var(--ia-primary);
+    padding: 13px 26px;
+    background: linear-gradient(135deg, var(--ia-orange) 0%, #e8751a 100%);
     border-radius: 6px;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.03em;
+    border: none;
+    box-shadow: var(--ia-shadow-btn);
+    transition: all 0.3s ease;
 }
 
 .ia-home .default-btn:hover {
-    background: var(--ia-primary-dark);
+    background: linear-gradient(135deg, #e8751a 0%, var(--ia-orange-dark) 100%);
+    box-shadow: 0 6px 22px rgba(245, 130, 32, 0.38);
+    transform: translateY(-1px);
 }
 
 .ia-home .ia-section-top {
@@ -95,17 +106,17 @@
 .ia-home .ia-section-head .ia-label {
     display: inline-block;
     font-size: var(--ia-fs-xs);
-    font-weight: 600;
-    letter-spacing: 2.5px;
+    font-weight: 700;
+    letter-spacing: 3px;
     text-transform: uppercase;
-    color: var(--ia-primary);
+    color: var(--ia-blue-muted);
     margin-bottom: 10px;
 }
 
 .ia-home .ia-section-head h2 {
     font-size: var(--ia-fs-2xl);
-    line-height: 1.25;
-    color: var(--ia-blue);
+    line-height: 1.22;
+    color: var(--ia-blue-deep);
     margin-bottom: 0;
     font-weight: 600;
 }
@@ -183,7 +194,8 @@
 .ia-hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(105deg, rgba(46, 48, 120, 0.92) 0%, rgba(62, 64, 149, 0.72) 45%, rgba(62, 64, 149, 0.35) 100%);
+    background:
+        linear-gradient(108deg, rgba(20, 22, 58, 0.88) 0%, rgba(44, 47, 120, 0.62) 48%, rgba(62, 64, 149, 0.28) 100%);
 }
 
 .ia-hero-content {
@@ -197,11 +209,15 @@
 .ia-hero-content .ia-label {
     display: inline-block;
     font-size: var(--ia-fs-xs);
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 2.5px;
     text-transform: uppercase;
-    color: var(--ia-orange);
-    margin-bottom: 16px;
+    color: var(--ia-amber);
+    background: rgba(240, 164, 92, 0.12);
+    border: 1px solid rgba(240, 164, 92, 0.28);
+    padding: 6px 14px;
+    border-radius: 4px;
+    margin-bottom: 18px;
 }
 
 .ia-hero-content h1 {
@@ -214,8 +230,8 @@
 
 .ia-hero-content p {
     font-size: var(--ia-fs-base);
-    line-height: 1.7;
-    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.82);
     margin-bottom: 28px;
     max-width: 540px;
 }
@@ -237,18 +253,20 @@
     align-items: center;
     gap: 6px;
     padding: 14px 26px;
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.35);
     color: #fff;
     border-radius: 6px;
     font-size: var(--ia-fs-sm);
     font-weight: 600;
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(4px);
     transition: all 0.3s ease;
 }
 
 .ia-hero-actions .ia-btn-outline:hover {
-    background: var(--ia-orange);
-    color: #fff;
-    border-color: var(--ia-orange);
+    background: #fff;
+    color: var(--ia-blue-deep);
+    border-color: #fff;
 }
 
 /* Services */
@@ -307,16 +325,16 @@
     left: 0;
     width: 100%;
     height: 3px;
-    background: var(--ia-primary);
+    background: var(--ia-blue);
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.35s ease;
 }
 
 .ia-service-card:hover {
-    transform: translateY(-6px);
+    transform: translateY(-4px);
     box-shadow: var(--ia-shadow-hover);
-    border-color: transparent;
+    border-color: var(--ia-border-light);
 }
 
 .ia-service-card:hover::before {
@@ -354,12 +372,12 @@
 }
 
 .ia-service-card h3 a {
-    color: var(--ia-blue);
+    color: var(--ia-blue-deep);
     transition: color 0.3s ease;
 }
 
 .ia-service-card h3 a:hover {
-    color: var(--ia-primary);
+    color: var(--ia-blue);
 }
 
 .ia-service-card p {
@@ -373,7 +391,7 @@
     display: inline-flex;
     align-items: center;
     gap: 5px;
-    color: var(--ia-primary);
+    color: var(--ia-orange);
     font-weight: 600;
     font-size: var(--ia-fs-sm);
 }
@@ -398,6 +416,7 @@
     overflow: hidden;
     margin-bottom: 0;
     box-shadow: var(--ia-shadow);
+    border: 1px solid var(--ia-border-light);
 }
 
 .ia-portfolio-card img {
@@ -414,8 +433,8 @@
 .ia-portfolio-card .ia-portfolio-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(46, 48, 120, 0.92) 0%, rgba(62, 64, 149, 0.2) 55%, transparent 100%);
-    opacity: 0.85;
+    background: linear-gradient(to top, rgba(20, 22, 58, 0.9) 0%, rgba(44, 47, 120, 0.15) 60%, transparent 100%);
+    opacity: 0.8;
     transition: opacity 0.35s ease;
 }
 
@@ -436,10 +455,10 @@
 .ia-portfolio-card .ia-tag {
     display: inline-block;
     font-size: var(--ia-fs-xs);
-    font-weight: 600;
-    letter-spacing: 1px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: var(--ia-orange);
+    color: var(--ia-amber);
     margin-bottom: 8px;
 }
 
@@ -465,11 +484,11 @@
 }
 
 .ia-stats-inner {
-    background: linear-gradient(135deg, var(--ia-blue) 0%, var(--ia-blue-dark) 100%);
+    background: linear-gradient(135deg, var(--ia-blue-deep) 0%, var(--ia-blue) 55%, var(--ia-blue-dark) 100%);
     border-radius: var(--ia-radius);
-    padding: 40px 28px;
-    box-shadow: var(--ia-shadow-hover);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 44px 32px;
+    box-shadow: 0 12px 40px rgba(26, 29, 74, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .ia-stat-item {
@@ -480,7 +499,7 @@
 .ia-stat-item i {
     display: block;
     font-size: 28px;
-    color: var(--ia-primary);
+    color: var(--ia-amber);
     margin-bottom: 12px;
 }
 
@@ -492,7 +511,7 @@
 }
 
 .ia-stat-item h2 .target {
-    color: var(--ia-orange);
+    color: var(--ia-amber);
 }
 
 .ia-stat-item p {
@@ -510,7 +529,7 @@
     height: 100%;
     padding: 28px 26px;
     border-radius: var(--ia-radius);
-    background: var(--ia-bg-alt);
+    background: var(--ia-bg);
     border: 1px solid var(--ia-border);
     transition: all 0.3s ease;
 }
@@ -522,14 +541,14 @@
 
 .ia-testimonial-card .ia-quote-icon {
     font-size: 36px;
-    color: var(--ia-primary);
-    opacity: 0.35;
+    color: var(--ia-blue);
+    opacity: 0.2;
     margin-bottom: 12px;
 }
 
 .ia-testimonial-card .ia-stars i {
     font-size: 14px;
-    color: var(--ia-primary);
+    color: var(--ia-amber);
 }
 
 .ia-testimonial-card p {
@@ -542,7 +561,7 @@
 .ia-testimonial-card h5 {
     font-size: var(--ia-fs-base);
     font-weight: 600;
-    color: var(--ia-blue);
+    color: var(--ia-blue-deep);
 }
 
 .ia-testimonial-card .ia-role {
@@ -663,6 +682,7 @@
     overflow: hidden;
     background: var(--ia-bg);
     box-shadow: var(--ia-shadow);
+    border: 1px solid var(--ia-border-light);
     margin-bottom: 30px;
     transition: all 0.3s ease;
 }
@@ -686,7 +706,7 @@
 .ia-team-card .ia-team-info {
     padding: 20px;
     text-align: center;
-    border-top: 2px solid var(--ia-blue);
+    border-top: 2px solid var(--ia-border);
 }
 
 .ia-team-card h3 {
@@ -697,14 +717,14 @@
 .ia-team-card p {
     font-weight: 500;
     font-size: var(--ia-fs-sm);
-    color: var(--ia-primary);
+    color: var(--ia-blue-muted);
     margin: 0;
 }
 
 /* Why Choose */
 .ia-choose {
     padding: 88px 0;
-    background: linear-gradient(160deg, var(--ia-blue-deep) 0%, var(--ia-blue) 100%);
+    background: linear-gradient(165deg, var(--ia-blue-deep) 0%, #2a2d72 50%, var(--ia-blue) 100%);
 }
 
 .ia-choose .ia-section-head h2 {
@@ -712,7 +732,7 @@
 }
 
 .ia-choose .ia-section-head .ia-label {
-    color: var(--ia-orange);
+    color: var(--ia-amber);
 }
 
 .ia-choose-card {
@@ -731,7 +751,7 @@
 
 .ia-choose-card .ia-icon {
     font-size: 30px;
-    color: var(--ia-orange);
+    color: var(--ia-amber);
     margin-bottom: 14px;
     display: block;
 }
@@ -751,8 +771,8 @@
 
 /* CTA */
 .ia-cta {
-    padding: 72px 0;
-    background: linear-gradient(135deg, var(--ia-blue) 0%, var(--ia-blue-dark) 100%);
+    padding: 80px 0;
+    background: linear-gradient(135deg, var(--ia-blue-deep) 0%, var(--ia-blue-dark) 100%);
     position: relative;
     overflow: hidden;
 }
@@ -760,17 +780,17 @@
 .ia-cta::before {
     content: '';
     position: absolute;
-    top: -40%;
-    right: -10%;
-    width: 420px;
-    height: 420px;
+    top: -50%;
+    right: -8%;
+    width: 480px;
+    height: 480px;
     border-radius: 50%;
-    background: rgba(245, 130, 32, 0.08);
+    background: radial-gradient(circle, rgba(240, 164, 92, 0.1) 0%, transparent 70%);
     pointer-events: none;
 }
 
 .ia-cta .ia-section-head .ia-label {
-    color: var(--ia-orange);
+    color: var(--ia-amber);
 }
 
 .ia-cta .ia-section-head h2 {
@@ -784,16 +804,18 @@
 }
 
 .ia-cta .default-btn {
-    padding: 14px 28px;
+    padding: 14px 30px;
     font-size: var(--ia-fs-sm);
     font-weight: 600;
-    background: var(--ia-orange);
+    background: linear-gradient(135deg, var(--ia-orange) 0%, #e8751a 100%);
     color: #fff;
+    box-shadow: var(--ia-shadow-btn);
 }
 
 .ia-cta .default-btn:hover {
-    background: var(--ia-orange-dark);
+    background: linear-gradient(135deg, #e8751a 0%, var(--ia-orange-dark) 100%);
     color: #fff;
+    transform: translateY(-1px);
 }
 
 @media (max-width: 991px) {

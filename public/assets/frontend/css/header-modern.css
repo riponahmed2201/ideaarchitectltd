@@ -323,14 +323,18 @@
 }
 
 .main-nav .option-item .default-btn {
-    padding: 10px 18px;
+    padding: 10px 20px;
     font-size: 13px;
     white-space: nowrap;
-    background: #f58220;
+    background: linear-gradient(135deg, #f58220 0%, #e8751a 100%);
+    box-shadow: 0 3px 12px rgba(245, 130, 32, 0.3);
+    border: none;
 }
 
 .main-nav .option-item .default-btn:hover {
-    background: #d96e10;
+    background: linear-gradient(135deg, #e8751a 0%, #d96a12 100%);
+    box-shadow: 0 5px 16px rgba(245, 130, 32, 0.38);
+    transform: translateY(-1px);
 }
 
 /* Homepage header overlay */
@@ -340,8 +344,8 @@
     left: 0;
     right: 0;
     z-index: 1001;
-    background: rgba(46, 48, 120, 0.96);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(26, 29, 74, 0.94);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .ia-page-home .header-area .top-left li a,
@@ -355,12 +359,12 @@
     left: 0;
     right: 0;
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.99) !important;
-    box-shadow: 0 2px 16px rgba(62, 64, 149, 0.08) !important;
+    background: rgba(255, 255, 255, 0.98) !important;
+    box-shadow: 0 1px 0 rgba(26, 29, 74, 0.07) !important;
 }
 
 .ia-page-home .navbar-area:not(.is-sticky) .main-nav nav .navbar-nav.ia-nav-list .nav-item .nav-link {
-    color: #3e4095;
+    color: #1c1f35;
 }
 
 .ia-page-home .navbar-area:not(.is-sticky) .main-nav nav .navbar-nav.ia-nav-list .nav-item .nav-link:hover,
