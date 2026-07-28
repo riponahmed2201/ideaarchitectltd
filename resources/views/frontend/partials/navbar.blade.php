@@ -1,5 +1,5 @@
 <div class="navbar-area">
-    <div class="container d-lg-none">
+    <div class="container ia-site-container d-lg-none">
         <div class="mobile-nav">
             <div class="logo">
                 <a href="/">
@@ -11,7 +11,7 @@
     </div>
 
     <div class="main-nav">
-        <div class="container-fluid">
+        <div class="container ia-site-container">
             <nav class="navbar navbar-expand-lg navbar-light ia-navbar">
                 <a class="navbar-brand ia-brand" href="/">
                     <img src="{{ asset('assets/frontend/images/idea_architects_logo.png') }}" class="black-logo" alt="Idea Architects" />

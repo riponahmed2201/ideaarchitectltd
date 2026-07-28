@@ -257,10 +257,6 @@
     background: var(--ia-bg);
 }
 
-.ia-services .container {
-    max-width: 1200px;
-}
-
 .ia-services-scroll-wrap {
     position: relative;
 }
@@ -382,10 +378,6 @@
     font-size: var(--ia-fs-sm);
 }
 
-.ia-home .container {
-    max-width: 1200px;
-}
-
 .ia-portfolio .row,
 .ia-team .row,
 .ia-testimonials .row,
@@ -404,7 +396,7 @@
     position: relative;
     border-radius: var(--ia-radius);
     overflow: hidden;
-    margin-bottom: 30px;
+    margin-bottom: 0;
     box-shadow: var(--ia-shadow);
 }
 
@@ -879,11 +871,6 @@
         padding: 64px 0 48px;
     }
 
-    .ia-home .container {
-        padding-left: 16px;
-        padding-right: 16px;
-    }
-
     .ia-home .ia-section-head h2 {
         font-size: 1.5rem;
     }
@@ -972,9 +959,9 @@
 
     /* Services: horizontal scroll on mobile */
     .ia-services-scroll-wrap {
-        margin-left: -16px;
-        margin-right: -16px;
-        padding: 0 16px 4px;
+        margin-left: calc(var(--ia-container-pad) * -1);
+        margin-right: calc(var(--ia-container-pad) * -1);
+        padding: 0 var(--ia-container-pad) 4px;
     }
 
     .ia-services-scroll-wrap::after {

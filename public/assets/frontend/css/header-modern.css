@@ -1,11 +1,24 @@
 /* Header & Navbar Fixes */
-.ia-topbar {
-    padding: 10px 0;
+:root {
+    --ia-container-max: 1440px;
+    --ia-container-pad: 30px;
 }
 
-.ia-topbar .container-fluid {
-    padding-left: 30px;
-    padding-right: 30px;
+/* Unified site container — header, body, footer same width */
+.ia-site-container,
+.ia-home .container,
+.ia-footer .container,
+.ia-hero .container {
+    width: 100% !important;
+    max-width: var(--ia-container-max) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: var(--ia-container-pad) !important;
+    padding-right: var(--ia-container-pad) !important;
+}
+
+.ia-topbar {
+    padding: 10px 0;
 }
 
 .ia-topbar-inner {
@@ -187,11 +200,6 @@
 
 .main-nav {
     padding: 0;
-}
-
-.main-nav .container-fluid {
-    padding-left: 30px;
-    padding-right: 30px;
 }
 
 .ia-navbar {
@@ -393,16 +401,6 @@ body:not(.ia-page-home) .main-nav {
     .main-nav .ia-nav-list .nav-item .nav-link {
         padding: 10px 14px !important;
     }
-
-    .main-nav .container-fluid {
-        max-width: 1440px;
-        margin: 0 auto;
-    }
-
-    .ia-topbar .container-fluid {
-        max-width: 1440px;
-        margin: 0 auto;
-    }
 }
 
 @media (max-width: 1199px) {
@@ -440,6 +438,10 @@ body:not(.ia-page-home) .main-nav {
 }
 
 @media (max-width: 575px) {
+    :root {
+        --ia-container-pad: 16px;
+    }
+
     .ia-topbar .top-left {
         flex-direction: column;
         align-items: center;
@@ -465,12 +467,6 @@ body:not(.ia-page-home) .main-nav {
         width: 30px;
         height: 30px;
         font-size: 15px;
-    }
-
-    .ia-topbar .container-fluid,
-    .main-nav .container-fluid {
-        padding-left: 16px;
-        padding-right: 16px;
     }
 }
 
@@ -503,4 +499,46 @@ body:not(.ia-page-home) .main-nav {
 
 .theme-dark .main-nav nav .navbar-nav.ia-nav-list .nav-item .nav-link {
     color: #e2e8f0;
+}
+
+/* Override theme style.css + responsive.css container widths on all screens */
+@media only screen and (min-width: 992px) {
+    .header-area .container-fluid,
+    .main-nav .container-fluid,
+    .ia-site-container,
+    .ia-home .container,
+    .ia-footer .container,
+    .ia-hero .container {
+        padding-left: var(--ia-container-pad) !important;
+        padding-right: var(--ia-container-pad) !important;
+        max-width: var(--ia-container-max) !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+    .header-area .container-fluid,
+    .main-nav .container-fluid,
+    .ia-site-container,
+    .ia-home .container,
+    .ia-footer .container,
+    .ia-hero .container {
+        padding-left: var(--ia-container-pad) !important;
+        padding-right: var(--ia-container-pad) !important;
+        max-width: var(--ia-container-max) !important;
+    }
+}
+
+@media only screen and (min-width: 1550px) {
+    .header-area .container-fluid,
+    .main-nav .container-fluid,
+    .ia-site-container,
+    .ia-home .container,
+    .ia-footer .container,
+    .ia-hero .container {
+        padding-left: var(--ia-container-pad) !important;
+        padding-right: var(--ia-container-pad) !important;
+        max-width: var(--ia-container-max) !important;
+    }
 }

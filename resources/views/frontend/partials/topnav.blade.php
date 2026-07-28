@@ -1,5 +1,5 @@
 <div class="header-area ia-topbar">
-    <div class="container-fluid">
+    <div class="container ia-site-container">
         <div class="ia-topbar-inner">
             <ul class="top-left">
                 <li>
